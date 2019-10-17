@@ -13,7 +13,7 @@
 						<core:Title text="검색조건" />
 						<Label text="이름" labelFor="name" design="Bold" />
 						<Input id="name" required="true" />
-						<Label text="고객등급" labelFor="grade" design="Bold" />
+						<Label text="노기서" labelFor="grade" design="Bold" />
 						<RadioButtonGroup id="grade" columns="3">
 							<RadioButton text="A" id="A" />
 							<RadioButton text="B" id="B" />
