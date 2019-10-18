@@ -19,8 +19,7 @@
 							<RadioButton text="B" id="B" />
 							<RadioButton text="C" id="C" />
 							<RadioButton text="D" id="D" />
-							<RadioButton text="F" id="F" />
-							
+							<RadioButton text="F" id="F" />							
 						</RadioButtonGroup>
 						<core:Title />
 						<Label text="항공사" labelFor="airline" design="Bold" />
