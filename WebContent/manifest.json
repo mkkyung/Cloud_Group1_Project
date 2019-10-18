@@ -38,7 +38,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "Cloud_Group1_ProjectCloud_Group1_Project.view.View4",
+			"viewName": "Cloud_Group1_ProjectCloud_Group1_Project.view.View1",
 			"type": "XML"
 		},
 		"dependencies": {
