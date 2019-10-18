@@ -38,8 +38,9 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "Cloud_Group1_ProjectCloud_Group1_Project.view.View1",
-			"type": "XML"
+			"viewName": "Cloud_Group1_ProjectCloud_Group1_Project.view.est.View3",
+			"type": "XML",
+			"async": true
 		},
 		"dependencies": {
 			"minUI5Version": "1.30.0",
@@ -59,6 +60,17 @@
 		},
 		"models": {
 			
+		},
+		
+		"config": {
+			"sample": {
+				"files": [
+					"View3.view.xml",
+					"View3.controller.js",
+					"Formatter.js",
+					"manifest.json"
+				]
+			}
 		},
 		"resources": {
 			"css": [{
