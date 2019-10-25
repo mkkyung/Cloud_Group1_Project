@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View
+	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.View8"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true">
+	<!-- 입고 -->
+<!-- 	<App id="apps"> -->
+		<Page title="view8 : 입고조회"  showNavButton="true" navButtonPress="goBack">
+			<Button text="button" press="getData"/>
+			<headerContent >
+				<Button text="재고" id="button" type="Reject" press=".onShowStock" />
+				<Button text="분출" id="button1" type="Reject" press=".onShowOut" />
+			</headerContent>
+		</Page>
+	
+<!-- 	</App> -->
+		
+</mvc:View>
