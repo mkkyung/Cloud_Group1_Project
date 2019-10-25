@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View
+	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.View10"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true">
+	<!-- 분출 -->
+		<Page title="view10 : 분출조회"  showNavButton="true" navButtonPress="goBack">
+			<Button text="button" press="getData"/>
+			<headerContent >
+				<Button text="입고" id="button" type="Reject" press=".onShowIn" />
+				<Button text="재고" id="button1" type="Reject" press=".onShowStock" />
+			</headerContent>
+		</Page>
+	
+</mvc:View>
