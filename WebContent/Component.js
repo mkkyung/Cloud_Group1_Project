@@ -8,20 +8,16 @@ sap.ui.define([
 	return UIComponent.extend("Cloud_Group1_ProjectCloud_Group1_Project.Component", {
 
 		metadata: {
-			manifest: "json"
-		},
+            manifest: "json"
+        },
 
-		/**
-		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-		 * @public
-		 * @override
-		 */
-		init: function() {
-			// call the base component's init function
-			UIComponent.prototype.init.apply(this, arguments);
+        init: function () {
+            // call the init function of the parent
+            UIComponent.prototype.init.apply(this, arguments);
 
-			// set the device model
-			this.setModel(models.createDeviceModel(), "device");
-		}
+            // create the views based on the url/hash
+            this.getRouter().initialize();	// 라우팅 초기화
+        }
+        
 	});
 });

@@ -1,12 +1,17 @@
-<core:View controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml"
+<core:View 
+	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.View1" 
+	xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
-	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
-	<App>
+	displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout">
+	<App id="apps">
 		<pages>
-			<Page title="Assign2">
+			<Page title="view1 : 견적조회">
 				<headerContent>
-					<Button text="기수옥" id="button" type="Reject" />
+					<Button text="next" id="button" type="Reject" press=".onShow" />
 				</headerContent>
 				<content>
 					<f:SimpleForm title="검색조건">
@@ -31,6 +36,7 @@
 						<Label text="취소여부" labelFor="cancel" design="Bold" />
 						<CheckBox id="cancel" text="취소" valueState="Error" />
 					</f:SimpleForm>
+					<Button text="재고화면으로 이동 ㅇㅅㅇ"  press="viewStock"/>
 				</content>
 			</Page>
 		</pages>

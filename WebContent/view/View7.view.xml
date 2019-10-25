@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc:View
+	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.View7"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true">
+	
+		<Page title="view7 : 발주조회"  showNavButton="true" navButtonPress="goBack">
+<!-- 			<Button text="재고화면dmf 확인하자 ㅇㅅㅇ" press="viewStock"/> -->
+			<headerContent >
+<!-- 				<Button text="next" id="button" type="Reject" press=".onShow" /> -->
+			</headerContent>
+		</Page>
+	
+</mvc:View>
