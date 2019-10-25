@@ -5,10 +5,16 @@ sap.ui.define([
 ], function(Controller, History, UIComponent) {
 	"use strict";
 
-	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.View5", {
-		onShow : function(){
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.View8", {	//입고화면
+//		go 재고
+		onShowStock : function(){
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("view6");
+			oRouter.navTo("view9");
+		},
+//		go 분출
+		onShowOut : function(){
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.navTo("view10");
 		},
 		
 		goBack : function(oEvent) {
@@ -18,8 +24,9 @@ sap.ui.define([
 			if (sPreviousHash !== undefined) {
 				window.history.go(-1);							//just before screen
 			} else {
-				var oRouter = UIComponent.getRouterFor(this);	//before screen in process flow
-				oRouter.navTo("view4", {}, true);
+//				var oRouter = UIComponent.getRouterFor(this);	//before screen in process flow
+//				oRouter.navTo("view4", {}, true);
+				alert("전 화면이 없습니다.");
 			}
 		},
 		

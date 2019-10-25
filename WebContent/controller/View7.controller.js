@@ -5,12 +5,8 @@ sap.ui.define([
 ], function(Controller, History, UIComponent) {
 	"use strict";
 
-	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.View5", {
-		onShow : function(){
-			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("view6");
-		},
-		
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.View7", {
+
 		goBack : function(oEvent) {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
@@ -19,7 +15,7 @@ sap.ui.define([
 				window.history.go(-1);							//just before screen
 			} else {
 				var oRouter = UIComponent.getRouterFor(this);	//before screen in process flow
-				oRouter.navTo("view4", {}, true);
+				oRouter.navTo("view6", {}, true);
 			}
 		},
 		
