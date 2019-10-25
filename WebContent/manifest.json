@@ -1,0 +1,179 @@
+{
+  "_version": "1.7.0",
+  "sap.app": {
+    "id": "Cloud_Group1_ProjectCloud_Group1_Project",
+    "type": "application",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "APP",
+    "description": "APP",
+    "sourceTemplate": {
+      "id": "ui5template.basicSAPUI5ApplicationProject",																																																								
+      "version": "1.40.12"
+    }
+  },
+
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_hcb",
+      "sap_belize"
+
+    ]
+  },
+
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "Cloud_Group1_ProjectCloud_Group1_Project.view.View1",
+      "type": "XML"
+    },
+    "dependencies": {
+      "minUI5Version": "1.30.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {},
+        "sap.ushell": {},
+        "sap.collaboration": {},
+        "sap.ui.comp": {},
+        "sap.uxap": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      
+    }
+    ,
+    "resources": {
+      "css": [{
+        "uri": "css/style.css"
+      }]
+    }
+    ,
+      "routing": {
+         "config": {
+            "routerClass": "sap.m.routing.Router",
+            "viewType": "XML",
+            "viewPath": "Cloud_Group1_ProjectCloud_Group1_Project.view",
+            "controlId": "apps",
+            "controlAggregation": "pages",
+            "transition": "slide",
+            "async": true
+         },
+         "routes": [
+            {
+            "pattern": "",
+            "name": "view1",
+            "target": "view1"
+            },
+            {
+            "pattern": "view2",
+            "name": "view2",
+            "target": "view2"
+            },
+            {
+            "pattern": "view3",
+            "name": "view3",
+            "target": "view3"
+            },
+            {
+            "pattern": "view4",
+            "name": "view4",
+            "target": "view4"
+            },
+            {
+            "pattern": "view5",
+            "name": "view5",
+            "target": "view5"
+            },
+            {
+            "pattern": "view6",
+            "name": "view6",
+            "target": "view6"
+            },
+            {
+            "pattern": "view7",
+            "name": "view7",
+            "target": "view7"
+            },
+            {
+            "pattern": "view8",
+            "name": "view8",
+            "target": "view8"
+            },
+            {
+            "pattern": "view9",
+            "name": "view9",
+            "target": "view9"
+            },
+            {
+            "pattern": "view10",
+            "name": "view10",
+            "target": "view10"
+            }
+         ],
+         "targets": {
+            "view1": {
+               "viewId": "view1",
+               "viewName": "View1"
+            }, 
+            "view2": {
+               "viewId": "view2",
+               "viewName": "View2"
+            },
+            "view3": {
+               "viewId": "view3",
+               "viewName": "View3"
+            },
+            "view4": {
+               "viewId": "view4",
+               "viewName": "View4"
+            },
+            "view5": {
+               "viewId": "view5",
+               "viewName": "View5"
+            },
+            "view6": {
+               "viewId": "view6",
+               "viewName": "View6"
+            },
+            "view7": {
+               "viewId": "view7",
+               "viewName": "View7"
+            },
+            "view8": {
+               "viewId": "view8",
+               "viewName": "View8"
+            }
+            ,
+            "view9": {
+               "viewId": "view9",
+               "viewName": "View9"
+            }
+            ,
+            "view10": {
+               "viewId": "view10",
+               "viewName": "View10"
+            }
+         }
+         
+      }
+  }
+  }
