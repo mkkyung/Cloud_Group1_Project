@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View
-	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.View2"
+	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.View6"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true">
 	
-		<Page title="view2 : 견적상세" showNavButton="true" navButtonPress="goBack">
+		<Page title="view6 : 발주등록"  showNavButton="true" navButtonPress="goBack">
 			<Button text="button" press="getData"/>
-			<headerContent text="view2">
+			<headerContent >
 				<Button text="next" id="button" type="Reject" press=".onShow" />
 			</headerContent>
 		</Page>
