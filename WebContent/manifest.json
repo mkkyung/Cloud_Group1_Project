@@ -38,7 +38,7 @@
 
   "sap.ui5": {
     "rootView": {
-      "viewName": "Cloud_Group1_ProjectCloud_Group1_Project.view.View1",
+      "viewName": "Cloud_Group1_ProjectCloud_Group1_Project.view.products.List",
       "type": "XML"
     },
     "dependencies": {
@@ -80,8 +80,8 @@
          "routes": [
             {
             "pattern": "",
-            "name": "view1",
-            "target": "view1"
+            "name": "list",
+            "target": "products.list"
             },
             {
             "pattern": "view2",
@@ -130,9 +130,9 @@
             }
          ],
          "targets": {
-            "view1": {
-               "viewId": "view1",
-               "viewName": "View1"
+            "list": {
+               "viewId": "list",
+               "viewName": "List"
             }, 
             "view2": {
                "viewId": "view2",

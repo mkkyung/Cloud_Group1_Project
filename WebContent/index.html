@@ -10,7 +10,7 @@
 		<script id="sap-ui-bootstrap"
 			src="resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
-			data-sap-ui-theme="sap_belize"
+			data-sap-ui-theme="sap_bluecrystal"
 			data-sap-ui-bindingSyntax="complex"
 			data-sap-ui-compatVersion="edge"
 			data-sap-ui-resourceroots='{"Cloud_Group1_ProjectCloud_Group1_Project": "",
@@ -18,22 +18,7 @@
 		</script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script>
-		sap.ui.getCore().attachInit(function () {
-			sap.ui.require([
-				"sap/ui/core/ComponentContainer"
-			], function (ComponentContainer) {
-
-				new ComponentContainer({
-					name : 'sap.f.FlexibleColumnLayoutWithOneColumnStart',
-					height : "100%",
-					settings : {
-						id : "sap.f.FlexibleColumnLayoutWithOneColumnStart"
-					}
-				}).placeAt('content');
-			});
-		});
-		</script>
+		
 			
 		<script>
 			sap.ui.getCore().attachInit(function() {
@@ -46,11 +31,8 @@
 			});
 		</script>
 	</head>
-<<<<<<< HEAD
-	<body class="sapUiBody sapUiSizeCompact" id="content">
-=======
+
 	<body class="sapUiBody">
 		<div id="content"></div>
->>>>>>> b71b8d237ce4b3b12a65017bdb2515a9bcee66d5
 	</body>
 </html>
