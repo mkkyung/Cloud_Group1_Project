@@ -25,7 +25,7 @@ sap.ui.define([
 		
 		getData : function(item) {
 			if(item){
-//				alter(hi);
+				alert("hi");
 			}
 		},
 		
