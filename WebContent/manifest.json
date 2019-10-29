@@ -39,19 +39,25 @@
   "sap.ui5": {
     "rootView": {
       "viewName": "Cloud_Group1_ProjectCloud_Group1_Project.view.products.List",
-      "type": "XML"
+      "type": "XML",
+      "async": true,
+      "id": "apps"
     },
     "dependencies": {
       "minUI5Version": "1.30.0",
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
+        "sap.f": {},
         "sap.ui.layout": {},
         "sap.ushell": {},
         "sap.collaboration": {},
         "sap.ui.comp": {},
         "sap.uxap": {}
       }
+    },
+    "config": {
+    	"fullWidth": true
     },
     "contentDensities": {
       "compact": true,
@@ -69,70 +75,89 @@
     ,
       "routing": {
          "config": {
-            "routerClass": "sap.m.routing.Router",
+            "routerClass": "sap.f.routing.Router",
             "viewType": "XML",
             "viewPath": "Cloud_Group1_ProjectCloud_Group1_Project.view",
             "controlId": "apps",
             "controlAggregation": "pages",
             "transition": "slide",
+            "bypassed": {
+            },
             "async": true
          },
          "routes": [
             {
-            "pattern": "",
-            "name": "list",
-            "target": "products.list"
+	            "pattern": "",
+	            "name": "list",
+	            "target": [
+            			"list",
+            			"detail"
+            		]            
             },
             {
-            "pattern": "view2",
-            "name": "view2",
-            "target": "view2"
+            	"pattern": "detail",
+            	"name": "detail",
+            	"target": [
+            		"list",
+            		"detail"
+            		]   	  	
             },
             {
-            "pattern": "view3",
-            "name": "view3",
-            "target": "view3"
+	            "pattern": "view2",
+	            "name": "view2",
+	            "target": "view2"
             },
             {
-            "pattern": "view4",
-            "name": "view4",
-            "target": "view4"
+	            "pattern": "view3",
+	            "name": "view3",
+	            "target": "view3"
             },
             {
-            "pattern": "view5",
-            "name": "view5",
-            "target": "view5"
+	            "pattern": "view4",
+	            "name": "view4",
+	            "target": "view4"
             },
             {
-            "pattern": "view6",
-            "name": "view6",
-            "target": "view6"
+	            "pattern": "view5",
+	            "name": "view5",
+	            "target": "view5"
             },
             {
-            "pattern": "view7",
-            "name": "view7",
-            "target": "view7"
+	            "pattern": "view6",
+	            "name": "view6",
+	            "target": "view6"
             },
             {
-            "pattern": "view8",
-            "name": "view8",
-            "target": "view8"
+	            "pattern": "view7",
+	            "name": "view7",
+	            "target": "view7"
             },
             {
-            "pattern": "view9",
-            "name": "view9",
-            "target": "view9"
+	            "pattern": "view8",
+	            "name": "view8",
+	            "target": "view8"
             },
             {
-            "pattern": "view10",
-            "name": "view10",
-            "target": "view10"
+	            "pattern": "view9",
+	            "name": "view9",
+	            "target": "view9"
+            },
+            {
+	            "pattern": "view10",
+	            "name": "view10",
+	            "target": "view10"
             }
          ],
          "targets": {
             "list": {
                "viewId": "list",
-               "viewName": "List"
+               "viewName": "products.List",
+                "controlAggregation": "beginColumnPages" 
+            }, 
+             "detail": {
+               "viewId": "detail",
+               "viewName": "products.Detail",
+               "controlAggregation": "midColumnPages"
             }, 
             "view2": {
                "viewId": "view2",
@@ -161,14 +186,12 @@
             "view8": {
                "viewId": "view8",
                "viewName": "View8"
-            }
-            ,
+            },
             "view9": {
                "viewId": "view9",
                "viewName": "View9"
-            }
-            ,
-            "view10": {
+            },
+        	"view10": {
                "viewId": "view10",
                "viewName": "View10"
             }

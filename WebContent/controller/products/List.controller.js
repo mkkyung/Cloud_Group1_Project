@@ -9,14 +9,12 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.products.List", {
-		onInit: function () {
-			this.oRouter = this.getOwnerComponent().getRouter();
-		},
-		onListItemPress: function (oEvent) {
-			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(1),
-				productPath = oEvent.getSource().getBindingContext("products").getPath(),
-				product = productPath.split("/").slice(-1).pop();
 
+		onListItemPress: function (oEvent) {
+			this.oRouter = this.getOwnerComponent().getRouter();
+			var oNextUIState = this.getOwnerComponent().getHelper().getNextUIState(1);
+//				productPath = oEvent.getSource().getBindingContext("products").getPath(),
+//				product = productPath.split("/").slice(-1).pop();
 			this.oRouter.navTo("Detail", {layout: oNextUIState.layout, product: product});
 		},
 	});

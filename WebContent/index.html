@@ -21,14 +21,28 @@
 		
 			
 		<script>
-			sap.ui.getCore().attachInit(function() {
+		sap.ui.getCore().attachInit(function () {
+			sap.ui.require([
+				"sap/ui/core/ComponentContainer"
+			], function (ComponentContainer) {
+
+				new ComponentContainer({
+					name : 'sap.f.FlexibleColumnLayoutWithOneColumnStart',
+					height : "100%",
+					settings : {
+						id : "sap.f.FlexibleColumnLayoutWithOneColumnStart"
+					}
+				}).placeAt('content');
+			});
+		});
+			/* sap.ui.getCore().attachInit(function() {
 				new sap.m.Shell({
 					app: new sap.ui.core.ComponentContainer({
 						height : "100%",
 						name : "Cloud_Group1_ProjectCloud_Group1_Project"
 					})
 				}).placeAt("content");
-			});
+			}); */
 		</script>
 	</head>
 

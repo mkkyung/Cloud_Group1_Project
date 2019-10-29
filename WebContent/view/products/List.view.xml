@@ -1,4 +1,4 @@
-<core:View
+<mvc:View
 	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.products.List"
 	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true" height="100%" xmlns="sap.m" xmlns:f="sap.f"
@@ -79,4 +79,4 @@
 			</f:footer>
 		</f:DynamicPage>
 	</App>
-</core:View>
+</mvc:View>
