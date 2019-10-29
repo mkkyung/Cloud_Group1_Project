@@ -5,7 +5,7 @@ sap.ui.define([
 ], function(Controller, History, UIComponent) {
 	"use strict";
 
-	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.View3", {
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View3", {
 		onShow : function(){
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("view4");

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View
-	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.View2"
+	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.View2"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true">

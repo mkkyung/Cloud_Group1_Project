@@ -75,7 +75,7 @@
     ,
       "routing": {
          "config": {
-            "routerClass": "sap.f.routing.Router",
+            "routerClass": "sap.m.routing.Router",
             "viewType": "XML",
             "viewPath": "Cloud_Group1_ProjectCloud_Group1_Project.view",
             "controlId": "apps",
@@ -151,49 +151,47 @@
          "targets": {
             "list": {
                "viewId": "list",
-               "viewName": "products.List",
-                "controlAggregation": "beginColumnPages" 
+               "viewName": "products.List"
             }, 
              "detail": {
                "viewId": "detail",
-               "viewName": "products.Detail",
-               "controlAggregation": "midColumnPages"
+               "viewName": "products.Detail"
             }, 
             "view2": {
                "viewId": "view2",
-               "viewName": "View2"
+               "viewName": "estimate.View2"
             },
             "view3": {
                "viewId": "view3",
-               "viewName": "View3"
+               "viewName": "contract.View3"
             },
             "view4": {
                "viewId": "view4",
-               "viewName": "View4"
+               "viewName": "contract.View4"
             },
             "view5": {
                "viewId": "view5",
-               "viewName": "View5"
+               "viewName": "contract.View5"
             },
             "view6": {
                "viewId": "view6",
-               "viewName": "View6"
+               "viewName": "po.View6"
             },
             "view7": {
                "viewId": "view7",
-               "viewName": "View7"
+               "viewName": "po.View7"
             },
             "view8": {
                "viewId": "view8",
-               "viewName": "View8"
+               "viewName": "stock.View8"
             },
             "view9": {
                "viewId": "view9",
-               "viewName": "View9"
+               "viewName": "stock.View9"
             },
         	"view10": {
                "viewId": "view10",
-               "viewName": "View10"
+               "viewName": "stock.View10"
             }
          }
          

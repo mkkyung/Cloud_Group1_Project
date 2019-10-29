@@ -5,7 +5,7 @@ sap.ui.define([
 ], function(Controller, History, UIComponent) {
 	"use strict";
 
-	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.View5", {
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View5", {
 		onInit: function () {
 			var oRouter = UIComponent.getRouterFor(this);
 			oRouter.getRoute("view5").attachPatternMatched(this._onObjectMatched, this);

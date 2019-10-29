@@ -5,16 +5,16 @@ sap.ui.define([
 ], function(Controller, History, UIComponent) {
 	"use strict";
 
-	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.View10", {	//분출화면
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.stock.View9", {	//재고화면
 //		go 입고
 		onShowIn : function(){
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("view8");
 		},
-//		go 재고
-		onShowStock : function(){
+//		go 분출
+		onShowOut : function(){
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("view9");
+			oRouter.navTo("view10");
 		},
 		
 		goBack : function(oEvent) {

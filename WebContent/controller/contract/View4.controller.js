@@ -9,7 +9,7 @@ sap.ui.define([
 ], function(Controller, History, UIComponent, ODataModel, JSONModel, Label, Filter) {
 	"use strict";
 
-	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.View4", {
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View4", {
 		onInit: function() {
 //			this.oModel = new JSONModel();
 //			this.oModel.loadData(sap.ui.require.toUrl("sap/ui/comp/sample/filterbar/DynamicPageListReport/model.json"), null, false);

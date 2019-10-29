@@ -9,7 +9,7 @@ sap.ui.define([
 ], function(Controller, History, UIComponent, ODataModel, JSONModel, Label, Filter) {
 	"use strict";
 
-	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.View2", {
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.View2", {
 		
 //		_______________________________________
 		
