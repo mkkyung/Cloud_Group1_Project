@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (Controller, MessageToast) {
 	"use strict";
 
-	return Controller.extend("sap.f.sample.FlexibleColumnLayoutSimple.Detail", {
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.products.Detail", {
 		onInit: function () {
 			this.bus = sap.ui.getCore().getEventBus();
 		}

@@ -7,32 +7,36 @@
 
 <title>Cloud_Group1_Project</title>
 
-<script id="sap-ui-bootstrap" src="resources/sap-ui-core.js"
-	data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal"
-	data-sap-ui-bindingSyntax="complex" data-sap-ui-compatVersion="edge"
-	data-sap-ui-resourceroots='{"Cloud_Group1_ProjectCloud_Group1_Project": ""}'>
-	
-</script>
+<script id="sap-ui-bootstrap"
+			src="https://sapui5.hana.ondemand.com/1.52.13/resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-xx-bindingSyntax="complex"
+			data-sap-ui-preload="async"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"Cloud_Group1_ProjectCloud_Group1_Project": "./"}'>
+		</script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
 <script>
 	sap.ui.getCore().attachInit(function() {
-		new sap.m.Shell({
-			app : new sap.ui.core.ComponentContainer({
-				height : "100%",
-				name : "Cloud_Group1_ProjectCloud_Group1_Project",
-				settings : {
-					id : "sap.f.FlexibleColumnLayoutWithOneColumnStart"
-				}
-			})
+		new sap.m.App({
+			pages : [ new sap.m.Page({
+				title : "Cloud_Group1_ProjectCloud_Group1_Project",
+				enableScrolling : false,
+				content : [ new sap.ui.core.ComponentContainer({
+					height : "100%",
+					name : "Cloud_Group1_ProjectCloud_Group1_Project"
+				}) ]
+			}) ]
 		}).placeAt("content");
 	});
 </script>
+
 </head>
 
-<body class="sapUiBody">
-	<div id="content"></div>
+<body class="sapUiBody" id="content" role="application">
 </body>
 </html>

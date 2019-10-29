@@ -23,7 +23,7 @@ sap.ui.define([
 			if (!this.detailView) {
 				this.detailView = sap.ui.view({
 					id: "midView",
-					viewName: "Cloud_Group1_ProjectCloud_Group1_Project.products.Detail",
+					viewName: "Cloud_Group1_ProjectCloud_Group1_Project.view.products.Detail",
 					type: "XML"
 				});
 			}

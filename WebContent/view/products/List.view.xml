@@ -54,7 +54,7 @@
 					</columns>
 					<items>
 						<ColumnListItem type="Navigation"
-							press="onListItemPress">
+							press="handleMasterPress">
 							<cells>
 								<Text text="OA가구" />
 								<Text text="책상" />

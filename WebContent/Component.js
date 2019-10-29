@@ -1,8 +1,6 @@
-sap.ui
-		.define(
-				[ "sap/ui/core/UIComponent", "sap/m/routing/Router",
-						"Cloud_Group1_ProjectCloud_Group1_Project/model/models" ],
-				function(Router, UIComponent, Device, models) {
+/*sap.ui.define(
+				[ "sap/ui/core/UIComponent", "sap/m/routing/Router" ],
+				function(Router, UIComponent) {
 					"use strict";
 
 					return UIComponent
@@ -11,7 +9,7 @@ sap.ui
 									{
 
 										metadata : {
-											rootView : "Cloud_Group1_ProjectCloud_Group1_Project.products.FlexibleColumnLayout",
+											rootView : "Cloud_Group1_ProjectCloud_Group1_Project.view.products.FlexibleColumnLayout",
 											dependencies : {
 												libs : [ "sap.m", "sap.f" ]
 											},
@@ -39,6 +37,39 @@ sap.ui
 											// 초기화
 
 										},
-
 									});
 				});
+*/
+sap.ui.define([
+	"sap/ui/core/UIComponent",
+	"sap/m/routing/Router"
+], function (UIComponent, Router) {
+	"use strict";
+
+	var Component = UIComponent.extend("Cloud_Group1_ProjectCloud_Group1_Project.Component", {
+		metadata: {
+			rootView: "Cloud_Group1_ProjectCloud_Group1_Project.view.products.FlexibleColumnLayout",
+			dependencies: {
+				libs: [
+					"sap.m",
+					"sap.f"
+				]
+			},
+			config: {
+				sample: {
+					stretch: true,
+					files: [
+						"Component.js",
+						"FlexibleColumnLayout.controller.js",
+						"FlexibleColumnLayout.view.xml",
+						"List.controller.js",
+						"List.view.xml",
+						"Detail.controller.js",
+						"Detail.view.xml"
+					]
+				}
+			}
+		}
+	});
+	return Component;
+}, true);
