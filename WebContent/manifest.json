@@ -99,7 +99,7 @@
             "target": "view4"
             },
             {
-            "pattern": "view5",
+            "pattern": "view5/{ContractPath}",
             "name": "view5",
             "target": "view5"
             },

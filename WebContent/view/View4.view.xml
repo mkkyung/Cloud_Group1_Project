@@ -3,13 +3,149 @@
 	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.View4"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:vm="sap.ui.comp.variants"
+	xmlns:layout="sap.ui.layout"
 	displayBlock="true">
 	
-		<Page title="view4 : 계약조회"  showNavButton="true" navButtonPress="goBack">
-			<Button text="button" press="getData"/>
-			<headerContent >
-				<Button text="next" id="button" type="Reject" press=".onShow" />
-			</headerContent>
+	<Page title="view4 : 계약조회"  showNavButton="true" navButtonPress="goBack">
+		<Button text="button" press="getData"/>
+		<headerContent >
+			<Button text="next" id="button" type="Reject" press=".onShow" />
+		</headerContent>
+			
+<!-- DynamicPage Header -->
+		<f:DynamicPageHeader pinnable="true">	 <!-- pinnable 고정여부 -->
+			<f:content>
+				<fb:FilterBar id="filterbar"  reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="false"> <!--  search="onSearch"  -->
+					<fb:filterItems>
+					
+						<fb:FilterItem name="A" label="계약구분">
+							<fb:control>
+<!-- 								<Select id="slName" forceSelection="true" change="onSelectChange" -->
+<!-- 									items="{path: '/ProductNames'}"> -->
+<!-- 									<core:Item key="{key}" text="{name}"/> -->
+<!-- 								</Select> -->
+<!-- 								<Label text="제목" design="Bold" labelFor="title" class="sapUiSmallMarginTop"/>   -->
+								<Input id="A" required="true"/> 
+								
+							</fb:control>				
+						</fb:FilterItem>	
+						<fb:FilterItem name="B" label="계약번호">
+							<fb:control>
+								<Input id="B" required="true"/>							
+							</fb:control>				
+						</fb:FilterItem>	
+						<fb:FilterItem name="C" label="계약일자">
+							<fb:control>
+								<Select id="sData" >
+									<core:Item key="sap" text="SAP Korea"/>
+									<core:Item key="mine" text="Nine Korea"/>
+								</Select>			
+							</fb:control>				
+						</fb:FilterItem>
+						<fb:FilterItem name="D" label="공급업체명">
+							<fb:control>
+								<Input id="D" required="true"/>
+							</fb:control>				
+						</fb:FilterItem>
+						<fb:FilterItem name="E" label="사업자등록증">
+							<fb:control>
+								<Input id="E" required="true"/>
+							</fb:control>				
+						</fb:FilterItem>	
+						<fb:FilterItem name="F" label="종료일자">
+							<fb:control>
+								<Select id="eData" >
+									<core:Item key="sap" text="SAP Korea"/>
+									<core:Item key="mine" text="Nine Korea"/>
+								</Select>
+							</fb:control>				
+						</fb:FilterItem>			
+												
+					</fb:filterItems>
+				</fb:FilterBar>
+			</f:content>
+		</f:DynamicPageHeader>
+
+<!-- DynamicPage Content -->
+		<Table items="{view>/data}" id="idProductsTable" inset="false" > <!-- items="{path: '/ProductCollection'}" -->
+			<columns>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="계약상태"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="계약구분"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="계약번호"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="공급업체"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="대분류"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="중분류"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="물품명"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="수량"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="단가"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="총합계"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="계약일자"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="종료일자"/>
+				</Column>
+				
+			</columns>
+
+			<items>
+<!-- 				<ObjectListItem press=".onPress">	 -->
+<!-- 					<firstStatus> -->
+<!-- 						<ObjectStatus text="{ -->
+<!-- 							'view>Zname'  -->
+<!-- 							}"/>  -->
+<!-- 						<ObjectStatus text="{ -->
+<!-- 							'view>Zcategory' -->
+<!-- 						}"/> -->
+<!-- 					</firstStatus> -->
+<!-- 					<secondStatus> -->
+<!-- 						<ObjectStatus text="{ -->
+<!-- 							'view>Zcategory'  -->
+<!-- 							}"/>  -->
+<!-- 					</secondStatus> -->
+<!-- 				</ObjectListItem> -->
+				<ColumnListItem type="Navigation" vAlign="Middle" press=".onPress">
+					<cells >
+						<ObjectIdentifier title="{data>/data}" /> <!-- text="{ProductId}" -->					<Text text="{view>Zname}"/>
+						<Text text="{view>Zcategory}"/>
+					</cells>
+
+				</ColumnListItem>
+				
+				
+				
+			</items>
+		</Table>
+
+		<OverflowToolbar>
+			<ToolbarSpacer/> 
+			<Button type="Accept" text="Accept"/>
+			<Button type="Reject" text="Reject"/>
+		</OverflowToolbar>
+
 		</Page>
-	
 </mvc:View>
