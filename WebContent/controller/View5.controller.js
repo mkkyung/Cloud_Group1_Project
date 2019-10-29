@@ -6,6 +6,29 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.View5", {
+		onInit: function () {
+			var oRouter = UIComponent.getRouterFor(this);
+			oRouter.getRoute("view5").attachPatternMatched(this._onObjectMatched, this);
+		},
+		
+		_onObjectMatched: function (oEvent) {
+			this.getView().bindElement({
+				path: "/" + oEvent.getParameter("arguments").ContractPath,
+				model: "view4"
+			});
+			
+			var item=oEvent.getParameter("arguments").ContractPath;
+			this.getData(item);
+			
+			
+		},
+		
+		getData : function(item) {
+			if(item){
+//				alter(hi);
+			}
+		},
+		
 		onShow : function(){
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("view6");
