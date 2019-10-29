@@ -10,6 +10,36 @@
 	<headerContent text="view2">
 		<Button text="next" id="button" type="Reject" press=".onShow" />
 	</headerContent>
-
+<IconTabBar
+		id="idIconTabBar"
+		select="handleIconTabBarSelect"
+		class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter
+				showAll="true"
+				count="{/ProductCollectionStats/Counts/Total}"
+				text="Products"
+				key="All" />
+			<IconTabSeparator />
+			<IconTabFilter
+				icon="sap-icon://begin"
+				iconColor="Positive"
+				count="{/ProductCollectionStats/Counts/Weight/Ok}"
+				text="Ok"
+				key="Ok" />
+			<IconTabFilter
+				icon="sap-icon://compare"
+				iconColor="Critical"
+				count="{/ProductCollectionStats/Counts/Weight/Heavy}"
+				text="Heavy"
+				key="Heavy" />
+			<IconTabFilter
+				icon="sap-icon://inventory"
+				iconColor="Negative"
+				count="{/ProductCollectionStats/Counts/Weight/Overweight}"
+				text="Overweight"
+				key="Overweight" />
+		</items>
+	</IconTabBar>
 </Page>
 </mvc:View>
