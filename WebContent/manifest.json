@@ -125,10 +125,7 @@
 				{
 					"pattern": "view4",
 					"name": "view4",
-					"target": [
-						"detail",
-						"view4"
-					]
+					"target": "view4"
 				},
 				{
 					"pattern": "view5/{ContractPath}",

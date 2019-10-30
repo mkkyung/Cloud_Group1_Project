@@ -5,7 +5,7 @@ sap.ui.define([
 	], function(jQuery, Controller, JSONModel) {
 	"use strict";
 
-	var PageController = Controller.extend("sap.m.sample.PageStandardClasses.Page", {
+	var PageController = Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.estlookup", {
 
 		onInit : function (evt) {
 			// set explored app's demo model on this sample
