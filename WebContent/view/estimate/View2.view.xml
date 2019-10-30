@@ -33,7 +33,6 @@
 					<fb:FilterBar id="filterbar" reset="onReset"
 						search="onSearch" useToolbar="false" showGoOnFB="false"> <!-- search="onSearch" -->
 						<fb:filterItems>
-
 							<fb:FilterItem name="A" label="계약구분">
 								<fb:control>
 									<!-- <Select id="slName" forceSelection="true" change="onSelectChange" -->
@@ -42,7 +41,6 @@
 									<!-- </Select> -->
 									<!-- <Label text="제목" design="Bold" labelFor="title" class="sapUiSmallMarginTop"/> -->
 									<Input id="A" required="true" />
-
 								</fb:control>
 							</fb:FilterItem>
 							<fb:FilterItem name="B" label="계약번호">
@@ -88,7 +86,6 @@
 										class="sapUiSmallMarginBottom" />
 								</fb:control>
 							</fb:FilterItem>
-
 						</fb:filterItems>
 					</fb:FilterBar>
 				</f:content>
