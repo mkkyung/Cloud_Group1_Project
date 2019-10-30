@@ -32,11 +32,11 @@ sap.ui.define([
 	
 		getData : function(){
 	        var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000"; // 로컬 서버 연결 하는 거 
-	        sServiceUrl += "/sap/opu/odata/sap/ZFIORI_GROUP06_01_SRV";   // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
+	        sServiceUrl += "/sap/opu/odata/sap/Z_FUNC_ESTIMATE_TEST_SRV";   // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
 	        var url;
 	
 	     
-	        url = "/getdataSet";
+	        url = "/getestSet";
 	     
 	
 	        var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
