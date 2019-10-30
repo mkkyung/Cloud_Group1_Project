@@ -19,8 +19,6 @@ sap.ui.define([
 			
 			var item=oEvent.getParameter("arguments").ContractPath;
 			this.getData(item);
-			
-			
 		},
 		
 		getData : function(item) {
