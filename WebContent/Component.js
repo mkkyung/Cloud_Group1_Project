@@ -6,16 +6,37 @@ sap.ui.define([
 
 	var Component = UIComponent.extend("Cloud_Group1_ProjectCloud_Group1_Project.Component", {
 		
-		metadata: {				
-			manifest : "json"
+		metadata: {		
+			rootView: "Cloud_Group1_ProjectCloud_Group1_Project.view.products.FlexibleColumnLayout",
+			dependencies: {
+				libs: [
+					"sap.m",
+					"sap.f"
+				]
+			},
+			config: {
+				sample: {
+					stretch: true,
+					files: [
+						"Component2.js",
+						"FlexibleColumnLayout.controller.js",
+						"FlexibleColumnLayout.view.xml",
+						"List.controller.js",
+						"List.view.xml",
+						"Detail.controller.js",
+						"Detail.view.xml"
+					]
+				}
+			},
+//			manifest : "json"
 		},
-		init : function() {
+/*		init : function() {
 			UIComponent.prototype.init.apply(
 					this, arguments);
 
 			this.getRouter().initialize(); // 라우팅
 			// 초기화
-		}
+		}*/
 	});
 	return Component;
 }, true);

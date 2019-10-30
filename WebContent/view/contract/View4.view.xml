@@ -41,7 +41,7 @@
 						</items>
 					</IconTabBar>
 					<fb:FilterBar id="filterbar" reset="onReset"
-						search="onSearch" useToolbar="false" showGoOnFB="false"> <!-- search="onSearch" -->
+						search="onSearch" useToolbar="false" showGoOnFB="false" > <!-- search="onSearch" -->
 						<fb:filterItems>
 
 							<fb:FilterItem name="A" label="계약구분">

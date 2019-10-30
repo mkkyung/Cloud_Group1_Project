@@ -35,7 +35,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "Cloud_Group1_ProjectCloud_Group1_Project.view.estimate.View2",
+			"viewName": "Cloud_Group1_ProjectCloud_Group1_Project.view.products.List",
 			"type": "XML",
 			"async": true,
 			"id": "apps"
