@@ -18,7 +18,7 @@
 			<!-- DynamicPage Content -->
 			<f:content>
 				<Table id="productsTable" inset="false"
-					class="sapFDynamicPageAlignContent" width="auto" backgroundDesign="Transparent">
+					class="sapFDynamicPageAlignContent" width="auto">
 					<headerToolbar>
 						<OverflowToolbar>
 							<ComboBox>
@@ -57,6 +57,18 @@
 								<Text text="AB05001" />
 								<Text text="OA-W16" />						
 								<ObjectIdentifier title="1,900,000" text="원" />									
+								<Text text="삼성전자" />
+								<Text text="2019.03.07" />							
+							</cells>
+						</ColumnListItem>
+						<ColumnListItem type="Navigation"
+							press="handleMasterPress">
+							<cells>
+								<Text text="OA가구" />
+								<Text text="책상" />
+								<Text text="AB05001" />
+								<Text text="OA-W16" />						
+								<ObjectIdentifier title="1,900,000" text="KRW" />									
 								<Text text="삼성전자" />
 								<Text text="2019.03.07" />							
 							</cells>

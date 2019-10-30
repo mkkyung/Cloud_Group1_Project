@@ -96,11 +96,26 @@
 				},
 				"async": true
 			},
-			"routes": [			
+			"routes": [
 				{
 					"pattern": "",
+					"name": "list",
+					"target": "list"
+				},
+				{
+					"pattern": "detail",
+					"name": "detail",
+					"target": "detail"
+				},
+				{
+					"pattern": "view2",
 					"name": "view2",
 					"target": "view2"
+				},
+				{
+					"pattern": "estlookup",
+					"name": "estlookup",
+					"target": "estlookup"
 				},
 				{
 					"pattern": "view3",
@@ -110,7 +125,10 @@
 				{
 					"pattern": "view4",
 					"name": "view4",
-					"target": "view4"
+					"target": [
+						"detail",
+						"view4"
+					]
 				},
 				{
 					"pattern": "view5/{ContractPath}",
@@ -144,9 +162,21 @@
 				}
 			],
 			"targets": {
+				"list": {
+					"viewId": "list",
+					"viewName": "products.List"
+				},
+				"detail": {
+					"viewId": "detail",
+					"viewName": "products.Detail"
+				},
 				"view2": {
 					"viewId": "view2",
 					"viewName": "estimate.View2"
+				},
+				"estlookup": {
+					"viewId": "estlookup",
+					"viewName": "estimate.estlookup"
 				},
 				"view3": {
 					"viewId": "view3",
@@ -184,8 +214,5 @@
 		}
 	}
 }
-
-
-
 
 
