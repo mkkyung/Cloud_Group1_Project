@@ -18,6 +18,11 @@ sap.ui.define([
 			oRouter.navTo("view3");
 		},
 		
+		onShow2 : function(){
+			var oRouter = UIComponent.getRouterFor(this);
+			oRouter.navTo("estlookup");
+		},
+		
 		goBack : function(oEvent) {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
