@@ -7,11 +7,8 @@ sap.ui.define([
 
 	var PageController = Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.estlookup", {
 
-		onInit : function (evt) {
-			// set explored app's demo model on this sample
-			var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.demo.mock", "/products.json"));
-			this.getView().setModel(oModel);
-			this.getView().byId("idPage").bindElement("/ProductCollection/0");
+		onInit : function () {
+
 		}
 	});
 
