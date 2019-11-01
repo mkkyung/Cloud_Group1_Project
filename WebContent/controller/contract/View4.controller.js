@@ -51,12 +51,12 @@ sap.ui.define([
 //			
 //			Icon Tab Bar
 			// reuse table sample component
-			var oComp = sap.ui.getCore().createComponent({
-				name : ''
-			});
-			oComp.setModel(this.getView().getModel());
-			this._oTable = oComp.getTable();
-			this.getView().byId("idIconTabBar").insertContent(this._oTable);
+//			var oComp = sap.ui.getCore().createComponent({
+//				name : ''
+//			});
+//			oComp.setModel(this.getView().getModel());
+//			this._oTable = oComp.getTable();
+//			this.getView().byId("idIconTabBar").insertContent(this._oTable);
 
 			// update table
 			this._oTable.setHeaderText(null);
