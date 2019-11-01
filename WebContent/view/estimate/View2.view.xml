@@ -90,45 +90,65 @@
 					</fb:FilterBar>
 				</f:content>
 			</f:DynamicPageHeader>
-			<Table id="idProductsTable">
+			<Table items="{estlist>/data}" id="esttable" inset="false">
 				<columns>
-					<Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="견적번호" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="유효성여부" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="대분류" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="중분류" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="제품명" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="공급업체명" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="공급업체코드" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="수량" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="단가" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="총금액" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="견적일" />
 					</Column>
-					<Column >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="금액단위" />
 					</Column>
 				</columns>
+				<items>
+					<ColumnListItem type="Navigation" vAlign="Middle"
+					press=".onPress">
+						<cells>
+<!-- 							<ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
+							<Text text="{estlist>EstNo}" />
+							<Text text="{estlist>EstAva}" />
+							<Text text="{estlist>EstCat1}" />
+							<Text text="{estlist>EstCat2}" />
+							<Text text="{estlist>EstCat3}" />
+							<Text text="{estlist>EstVname}" />
+							<Text text="{estlist>EstVcode}" />
+							<Text text="{estlist>EstAmt}" />
+							<Text text="{estlist>EstPrice}" />
+							<Text text="{estlist>EstTotal}" />
+							<Text text="{estlist>EstDate}" />
+							<Text text="{estlist>EstCuky}" />
+						</cells>
+					</ColumnListItem>
+				</items>
 			</Table>
 		</Page>
 	</App>

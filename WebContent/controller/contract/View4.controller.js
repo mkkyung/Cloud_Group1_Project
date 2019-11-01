@@ -47,26 +47,15 @@ sap.ui.define([
 			if (oFB) {
 				oFB.variantsInitialized();
 			}
-			
-//			
-//			Icon Tab Bar
-			// reuse table sample component
-//			var oComp = sap.ui.getCore().createComponent({
-//				name : ''
-//			});
-//			oComp.setModel(this.getView().getModel());
-//			this._oTable = oComp.getTable();
-//			this.getView().byId("idIconTabBar").insertContent(this._oTable);
 
-			// update table
-			this._oTable.setHeaderText(null);
-			this._oTable.setShowSeparators("Inner");
-		},	//Oninit Function
-		
+		},
 		getSelect: function(sId) {
 			return this.getView().byId(sId);
 		},
-	
+
+		
+		
+//		__________________________________________________________________
 		onShow : function(oEvent){
 //			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 //			oRouter.navTo("view5");
@@ -108,23 +97,6 @@ sap.ui.define([
 						}
 					}
 			);
-		},
-		handleIconTabBarSelect: function (oEvent) {
-			var oBinding = this._oTable.getBinding("items"),
-				sKey = oEvent.getParameter("key"),
-				oFilter;
-			if (sKey === "A") {
-				oFilter = new Filter("Zname", "EQ", A);	//범위도 지정할 수 있다
-				oBinding.filter([oFilter]);
-			} else if (sKey === "B") {
-				oFilter = new Filter("Zname", "EQ", B);
-				oBinding.filter([oFilter]);
-			} else if (sKey === "C") {
-				oFilter = new Filter("Zname", "EQ", C);
-				oBinding.filter([oFilter]);
-			} else {
-				oBinding.filter([]);
-			}
 		}
 		
 	});
