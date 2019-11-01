@@ -1,37 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View
 	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.View2"
-	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:fb="sap.ui.comp.filterbar" xmlns:f="sap.f">
 	<App id="apps">
 		<Page title="view2 : 견적상세" showNavButton="true"
 			navButtonPress="goBack">
-
 			<Button text="button" press="getData" />
 			<headerContent text="view2">
 				<Button text="next" id="button" type="Reject" press=".onShow" />
 			</headerContent>
+			<f:DynamicPageHeader pinnable="false"
+				destroyContent="true">	 <!-- pinnable 고정여부 -->
+				<f:content>
 			<IconTabBar id="idIconTabBar"
 				select="handleIconTabBarSelect"
 				class="sapUiResponsiveContentPadding">
 				<items>
 					<IconTabFilter showAll="true"
-						count="{/ProductCollectionStats/Counts/Total}" text="Products"
+						count="{/ProductCollectionStats/Counts/Total}" text="전체조회"
 						key="All" />
 					<IconTabSeparator />
 					<IconTabFilter icon="sap-icon://begin"
 						iconColor="Positive"
-						count="{/ProductCollectionStats/Counts/Weight/Ok}" text="Ok"
+						count="{/ProductCollectionStats/Counts/Weight/Ok}" text="유효"
 						key="Ok" />
-					<IconTabFilter icon="sap-icon://compare"
-						iconColor="Critical"
-						count="{/ProductCollectionStats/Counts/Weight/Heavy}" text="Heavy"
-						key="Heavy" />
 					<IconTabFilter icon="sap-icon://inventory"
 						iconColor="Negative"
 						count="{/ProductCollectionStats/Counts/Weight/Overweight}"
-						text="Overweight" key="Overweight" />
+						text="비유효" key="Overweight" />
 				</items>
 			</IconTabBar>
+					<fb:FilterBar id="filterbar" reset="onReset"
+						search="onSearch" useToolbar="false" showGoOnFB="false"> <!-- search="onSearch" -->
+						<fb:filterItems>
+							<fb:FilterItem name="A" label="계약구분">
+								<fb:control>
+									<!-- <Select id="slName" forceSelection="true" change="onSelectChange" -->
+									<!-- items="{path: '/ProductNames'}"> -->
+									<!-- <core:Item key="{key}" text="{name}"/> -->
+									<!-- </Select> -->
+									<!-- <Label text="제목" design="Bold" labelFor="title" class="sapUiSmallMarginTop"/> -->
+									<Input id="A" required="true" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="B" label="계약번호">
+								<fb:control>
+									<Input id="B" required="true" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="C" label="계약일자">
+								<fb:control>
+									<DatePicker id="C"
+										value="{
+									path:'/dateValue', 
+									type:'sap.ui.model.type.Date', 
+									formatOptions: { 
+										style: 'medium', 
+										strictParsing: true
+										}
+									}"
+										class="sapUiSmallMarginBottom" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="D" label="공급업체명">
+								<fb:control>
+									<Input id="D" required="true" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="E" label="사업자등록증">
+								<fb:control>
+									<Input id="E" required="true" />
+								</fb:control>
+							</fb:FilterItem>
+							<fb:FilterItem name="F" label="종료일자">
+								<fb:control>
+									<DatePicker id="F"
+										value="{
+									path:'/dateValue', 
+									type:'sap.ui.model.type.Date', 
+									formatOptions: { 
+										style: 'medium', 
+										strictParsing: true
+										}
+									}"
+										class="sapUiSmallMarginBottom" />
+								</fb:control>
+							</fb:FilterItem>
+						</fb:filterItems>
+					</fb:FilterBar>
+				</f:content>
+			</f:DynamicPageHeader>
+			<Table id="idProductsTable">
+				<columns>
+					<Column>
+						<Text text="견적번호" />
+					</Column>
+					<Column >
+						<Text text="유효성여부" />
+					</Column>
+					<Column >
+						<Text text="대분류" />
+					</Column>
+					<Column >
+						<Text text="중분류" />
+					</Column>
+					<Column >
+						<Text text="제품명" />
+					</Column>
+					<Column >
+						<Text text="공급업체명" />
+					</Column>
+					<Column >
+						<Text text="공급업체코드" />
+					</Column>
+					<Column >
+						<Text text="수량" />
+					</Column>
+					<Column >
+						<Text text="단가" />
+					</Column>
+					<Column >
+						<Text text="총금액" />
+					</Column>
+					<Column >
+						<Text text="견적일" />
+					</Column>
+					<Column >
+						<Text text="금액단위" />
+					</Column>
+				</columns>
+			</Table>
 		</Page>
 	</App>
 </mvc:View>

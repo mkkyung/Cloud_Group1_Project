@@ -23,7 +23,7 @@
 							<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
 								<m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
 									<f:Avatar src="" displaySize="S" displayShape="Square"/>
-									<m:Title text="가나다" wrapping="true" class="sapUiTinyMarginEnd"/>
+									<m:Title text="OA-W16" wrapping="true" class="sapUiTinyMarginEnd"/>
 								</m:FlexBox>
 							</m:FlexBox>
 						</snappedHeading>
@@ -65,22 +65,22 @@
 								  class="sapUiTinyMarginEnd">
 						</f:Avatar>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Main Category"/>
+							<m:Label text="대분류"/>
 							<m:Text text="OA가구"/>
 						</m:VBox>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Subcategory"/>
+							<m:Label text="중분류"/>
 							<m:Text text="책상"/>
 						</m:VBox>
 						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Price"/>
-							<m:ObjectNumber number="1,900,000" emphasized="false"/>
+							<m:Label text="상품명"/>
+							<m:Text text="OA-W16"/>
 						</m:VBox>
 					</m:FlexBox>
 				</headerContent>
 
 		<sections>
-			<ObjectPageSection title="General Information">
+			<ObjectPageSection title="Information">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
@@ -95,12 +95,16 @@
 								columnsL="1"
 								columnsM="1">
 								<form:content>
-									<m:Label text="Product ID"/>
-									<m:Text text="{products>ProductId}"/>
-									<m:Label text="Description"/>
-									<m:Text text="{products>Description}"/>
-									<m:Label text="Supplier"/>
-									<m:Text text="{products>SupplierName}"/>
+									<m:Label text="상품코드" />
+									<m:Text  text="AB05001"/>
+									<m:Label text="상품명"/>
+									<m:Text text="OA-W16"/>
+									<m:Label text="표준금액"/>
+									<m:Text text="1,900,000 원"/>
+									<m:Label text="제조사"/>
+									<m:Text text="삼성전자"/>
+									<m:Label text="출시일"/>
+									<m:Text text="2019.03.07"/>
 								</form:content>
 							</form:SimpleForm>
 						</blocks>

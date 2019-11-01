@@ -1,0 +1,56 @@
+<mvc:View
+	height="100%"
+	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.estlookup"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page
+		id="idPage"
+		title="견적서 상세조회" >
+		<!-- this CSS class add a standard spacing to all the page content -->
+		<content>
+			<ObjectHeader
+				title="견적번호"
+				backgroundDesign="Solid">
+<!-- 				number="{ -->
+<!-- 					parts:[{path:'Price'},{path:'CurrencyCode'}], -->
+<!-- 					type: 'sap.ui.model.type.Currency', -->
+<!-- 					formatOptions: {showMeasure: false} -->
+<!-- 				}" -->
+<!-- 				numberUnit="{CurrencyCode}" > -->
+				<attributes>
+					<ObjectAttribute title="견적일자" text="2019.10.31" />
+					<ObjectAttribute title="품명" text="컴퓨터" />
+				</attributes>
+				<statuses>
+					<ObjectStatus title="Status" text="In Stock" state="Success" />
+				</statuses>
+			</ObjectHeader>
+			<IconTabBar
+				expanded=""
+				class="sapUiSmallMarginBottom sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter
+						text="견적서 상세 조회">
+						<f:SimpleForm
+							minWidth="1024"
+							maxContainerCols="2"
+							layout="ResponsiveGridLayout" >
+							<f:title>
+								<core:Title text="A Form" />
+							</f:title>
+							<Label text="Label"/>
+							<Text  text="Value"/>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter
+						text="Attachments">
+						<List headerText="A List" showSeparators="Inner" >
+						</List>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</mvc:View>
