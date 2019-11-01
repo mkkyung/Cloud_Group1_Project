@@ -63,6 +63,20 @@ sap.ui.define([
 			oRouter.navTo("estlookup", {
 				EstPath: routerData
 			});
+		},
+//필터바 메세지 출력
+		onReset: function(oEvent) {
+			jQuery.sap.require("sap.m.MessageToast");
+			// var params = oEvent.getParameters();
+			var sMessage = "onReset trigered";
+			sap.m.MessageToast.show(sMessage);
+		},
+		
+		onSearch: function(oEvent) {
+			jQuery.sap.require("sap.m.MessageToast");
+			// var params = oEvent.getParameters();
+			var sMessage = "onSearch trigered";
+			sap.m.MessageToast.show(sMessage);
 		}
 	});
 });

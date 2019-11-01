@@ -39,7 +39,7 @@
 							maxContainerCols="2"
 							layout="ResponsiveGridLayout" >
 							<f:title>
-								<core:Title text="A Form" />
+								<core:Title text="견적서 상세 사항" />
 							</f:title>
 							<Label text="{estlist>EstNo}"/>
 							<Text  text="Value"/>
