@@ -38,6 +38,9 @@ sap.ui.define([
 //			this.getRouter();
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("view4");//.attachPatternMatched(this._onObjectMatched, this);
+		},
+		handleClose : function() {
+			sap.ui.getCore().byId("__xmlview0--fcl").setLayout(sap.f.LayoutType.OneColumn);	
 		}
 	});
 }, true);
