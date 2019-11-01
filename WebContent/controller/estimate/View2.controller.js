@@ -14,6 +14,7 @@ sap.ui.define([
 		
 		onInit: function() {
 			this.getData();
+			this.addSnappedLabel();
 		},
 		
 //		_______________________________________
@@ -77,6 +78,28 @@ sap.ui.define([
 			// var params = oEvent.getParameters();
 			var sMessage = "onSearch trigered";
 			sap.m.MessageToast.show(sMessage);
-		}
+		},
+		
+		onToggleHeader: function () {
+			this.getPage().setHeaderExpanded(!this.getPage().getHeaderExpanded());
+		},
+		
+		addSnappedLabel : function() {
+			var oSnappedLabel = this.getSnappedLabel();
+			oSnappedLabel.attachBrowserEvent("click", this.onToggleHeader, this);
+			this.getPageTitle().addSnappedContent(oSnappedLabel);
+		},
+		
+		getSnappedLabel : function () {
+			return new sap.m.Label({text: "라벨"});
+		},
+		
+		getPageTitle: function() {
+			return this.getPage().getTitle();
+		},
+		getPage : function() {
+			return this.getView().byId("dynamicPageId");
+		},
+
 	});
 });

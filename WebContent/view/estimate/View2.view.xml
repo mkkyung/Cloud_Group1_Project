@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View
 	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.View2"
-	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:fb="sap.ui.comp.filterbar" xmlns:f="sap.f" xmlns:core="sap.ui.core">
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:fb="sap.ui.comp.filterbar" xmlns:f="sap.f" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" >
 	<App id="apps">
 		<Page title="view2 : 견적상세" showNavButton="true"
 			navButtonPress="goBack">
@@ -9,69 +9,77 @@
 			<headerContent text="view2">
 				<Button text="next" id="button" type="Reject" press=".onShow" />
 			</headerContent>
-				<f:DynamicPageHeader pinnable="false"
-				destroyContent="true">	 <!-- pinnable 고정여부 -->
-				<f:content>
-			<IconTabBar id="idIconTabBar"
-				select="handleIconTabBarSelect"
-				class="sapUiResponsiveContentPadding">
-				<items>
-					<IconTabFilter showAll="true" text="전체조회" key="All" />
-					<IconTabSeparator />
-					<IconTabFilter icon="sap-icon://begin" iconColor="Positive" text="유효" key="Ok" />
-					<IconTabFilter icon="sap-icon://inventory" iconColor="Negative" text="비유효" key="Overweight" />
-				</items>
-			</IconTabBar>
 			
-			
-		<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
-			<fb:filterItems>
-				<fb:FilterItem name="A" label="Delivery Date">
-					<fb:control>
-						<DatePicker/>
-					</fb:control>				
-				</fb:FilterItem>
+			<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}">
+			<f:title>
+				<f:DynamicPageTitle>
+				</f:DynamicPageTitle>
+			</f:title>
+				<f:header>
+					<f:DynamicPageHeader pinnable="false"
+					destroyContent="false">	 <!-- 	pinnable 고정여부 -->
+						<f:content>
 				
-				<fb:FilterItem name="B" label="Region" labelTooltip="Tooltip Example" mandatory="true">
-					<fb:control>
+							<IconTabBar id="idIconTabBar"
+								select="handleIconTabBarSelect"
+								class="sapUiResponsiveContentPadding">
+								<items>
+									<IconTabFilter showAll="true" text="전체조회" key="All" />
+									<IconTabSeparator />
+									<IconTabFilter icon="sap-icon://begin" iconColor="Positive" text="유효" key="Ok" />
+									<IconTabFilter icon="sap-icon://inventory" iconColor="Negative" text="비유효" key="Overweight" />
+								</items>
+							</IconTabBar>
+			
+			
+					<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+						<fb:filterItems>
+							<fb:FilterItem name="A" label="Delivery Date">
+								<fb:control>
+									<DatePicker/>
+								</fb:control>				
+							</fb:FilterItem>
+							
+							<fb:FilterItem name="B" label="Region" labelTooltip="Tooltip Example" mandatory="true">
+								<fb:control>
+									
+									<ComboBox type="Text">
+									     <items>
+									        <core:Item key="001" text="EMEA"/>
+									        <core:Item key="002" text="America"/>
+									        <core:Item key="003" text="APJ"/>
+									     </items>
+									</ComboBox>						
+								</fb:control>				
+							</fb:FilterItem>				
+						</fb:filterItems>
 						
-						<ComboBox type="Text">
-						     <items>
-						        <core:Item key="001" text="EMEA"/>
-						        <core:Item key="002" text="America"/>
-						        <core:Item key="003" text="APJ"/>
-						     </items>
-						</ComboBox>						
-					</fb:control>				
-				</fb:FilterItem>				
-			</fb:filterItems>
-			
-			<fb:filterGroupItems>
-				<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="A" label="Company" labelTooltip="Tooltip GroupItem Example">
-					<fb:control>
-						<Input type="Text"/>
-					</fb:control>				
-				</fb:FilterGroupItem>
-				
-				<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="B" label="Customer">
-					<fb:control>
-						<Input type="Text"/>
-					</fb:control>				
-				</fb:FilterGroupItem>				
-				
-				<fb:FilterGroupItem groupName="G2" groupTitle="Group2" name="A2" label="Supplier" labelTooltip="Tooltip GroupItem Example">
-					<fb:control>
-						<Input type="Text"/>
-					</fb:control>				
-				</fb:FilterGroupItem>
-				
-				<fb:FilterGroupItem groupName="G2" groupTitle="Group2" name="B2" label="Category">
-					<fb:control>
-						<Input type="Text"/>
-					</fb:control>				
-				</fb:FilterGroupItem>					
-			</fb:filterGroupItems>				
-	    </fb:FilterBar>		
+						<fb:filterGroupItems>
+							<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="A" label="Company" labelTooltip="Tooltip GroupItem Example">
+								<fb:control>
+									<Input type="Text"/>
+								</fb:control>				
+							</fb:FilterGroupItem>
+							
+							<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="B" label="Customer">
+								<fb:control>
+									<Input type="Text"/>
+								</fb:control>				
+							</fb:FilterGroupItem>				
+							
+							<fb:FilterGroupItem groupName="G2" groupTitle="Group2" name="A2" label="Supplier" labelTooltip="Tooltip GroupItem Example">
+								<fb:control>
+									<Input type="Text"/>
+								</fb:control>				
+							</fb:FilterGroupItem>
+							
+							<fb:FilterGroupItem groupName="G2" groupTitle="Group2" name="B2" label="Category">
+								<fb:control>
+									<Input type="Text"/>
+								</fb:control>				
+							</fb:FilterGroupItem>					
+						</fb:filterGroupItems>				
+				    </fb:FilterBar>		
 <!-- ㄴㅇㅁㅈㅂㄷㅁㄴㅇㅋㅌ -->
 
 <!-- 					<fb:FilterBar id="filterbar" reset="onReset" -->
@@ -134,6 +142,8 @@
 <!-- 					</fb:FilterBar> -->
 				</f:content>
 			</f:DynamicPageHeader>
+		</f:header>
+	<f:content>
 			<Table items="{estlist>/data}" id="esttable" inset="false">
 				<columns>
 					<Column minScreenWidth="Tablet" demandPopin="true">
@@ -173,7 +183,7 @@
 						<Text text="금액단위" />
 					</Column>
 				</columns>
-				<items>
+			<items>
 					<ColumnListItem type="Navigation" vAlign="Middle"
 					press=".onPress">
 						<cells>
@@ -194,6 +204,8 @@
 					</ColumnListItem>
 				</items>
 			</Table>
-		</Page>
+		</f:content>
+	</f:DynamicPage>
+</Page>
 	</App>
 </mvc:View>
