@@ -1,45 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View
 	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.View2"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true">
-<Page title="view2 : 견적상세" showNavButton="true" navButtonPress="goBack">
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+	<App id="apps">
+		<Page title="view2 : 견적상세" showNavButton="true"
+			navButtonPress="goBack">
 
-	<Button text="button" press="getData"/>
-	<headerContent text="view2">
-		<Button text="next" id="button" type="Reject" press=".onShow" />
-	</headerContent>
-<IconTabBar
-		id="idIconTabBar"
-		select="handleIconTabBarSelect"
-		class="sapUiResponsiveContentPadding">
-		<items>
-			<IconTabFilter
-				showAll="true"
-				count="{/ProductCollectionStats/Counts/Total}"
-				text="Products"
-				key="All" />
-			<IconTabSeparator />
-			<IconTabFilter
-				icon="sap-icon://begin"
-				iconColor="Positive"
-				count="{/ProductCollectionStats/Counts/Weight/Ok}"
-				text="Ok"
-				key="Ok" />
-			<IconTabFilter
-				icon="sap-icon://compare"
-				iconColor="Critical"
-				count="{/ProductCollectionStats/Counts/Weight/Heavy}"
-				text="Heavy"
-				key="Heavy" />
-			<IconTabFilter
-				icon="sap-icon://inventory"
-				iconColor="Negative"
-				count="{/ProductCollectionStats/Counts/Weight/Overweight}"
-				text="Overweight"
-				key="Overweight" />
-		</items>
-	</IconTabBar>
-</Page>
+			<Button text="button" press="getData" />
+			<headerContent text="view2">
+				<Button text="next" id="button" type="Reject" press=".onShow" />
+			</headerContent>
+			<IconTabBar id="idIconTabBar"
+				select="handleIconTabBarSelect"
+				class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter showAll="true"
+						count="{/ProductCollectionStats/Counts/Total}" text="Products"
+						key="All" />
+					<IconTabSeparator />
+					<IconTabFilter icon="sap-icon://begin"
+						iconColor="Positive"
+						count="{/ProductCollectionStats/Counts/Weight/Ok}" text="Ok"
+						key="Ok" />
+					<IconTabFilter icon="sap-icon://compare"
+						iconColor="Critical"
+						count="{/ProductCollectionStats/Counts/Weight/Heavy}" text="Heavy"
+						key="Heavy" />
+					<IconTabFilter icon="sap-icon://inventory"
+						iconColor="Negative"
+						count="{/ProductCollectionStats/Counts/Weight/Overweight}"
+						text="Overweight" key="Overweight" />
+				</items>
+			</IconTabBar>
+		</Page>
+	</App>
 </mvc:View>
