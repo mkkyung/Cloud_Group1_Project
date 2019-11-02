@@ -29,7 +29,8 @@ sap.ui.define([
 			}
 
 			this.oFlexibleColumnLayout.addMidColumnPage(this.detailView);
-			this.oFlexibleColumnLayout.setLayout(sap.f.LayoutType.TwoColumnsBeginExpanded);
+			this.oFlexibleColumnLayout.setLayout(sap.f.LayoutType.TwoColumnsBeginExpanded);	
+			
 		}
 		
 

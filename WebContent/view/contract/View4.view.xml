@@ -13,33 +13,38 @@
 				<Button text="next" id="button" type="Reject" press=".onShow" />
 			</headerContent>
 
-
-			<!-- DynamicPage Header -->
-			<f:DynamicPageHeader pinnable="false"
-				destroyContent="true">	 <!-- pinnable 고정여부 -->
+			<f:DynamicPageHeader pinnable="false" >	 <!-- pinnable 고정여부 -->
 				<f:content>
-					<IconTabBar id="idIconTabBar"
+					<IconTabBar
+						id="idIconTabBar"
 						select="handleIconTabBarSelect"
 						class="sapUiResponsiveContentPadding">
 						<items>
-							<IconTabFilter showAll="true"
-								count="{/ProductCollectionStats/Counts/Total}" text="Products"
+							<IconTabFilter
+								showAll="true"
+								text="Products"
 								key="All" />
 							<IconTabSeparator />
-							<IconTabFilter icon="sap-icon://begin"
+							<IconTabFilter
+								icon="sap-icon://begin"
 								iconColor="Positive"
-								count="{/ProductCollectionStats/Counts/Weight/Ok}" text="Ok"
-								key="Ok" />
-							<IconTabFilter icon="sap-icon://compare"
+								text="Ok"
+								key="A" />
+							<IconTabFilter
+								icon="sap-icon://compare"
 								iconColor="Critical"
-								count="{/ProductCollectionStats/Counts/Weight/Heavy}"
-								text="Heavy" key="Heavy" />
-							<IconTabFilter icon="sap-icon://inventory"
+								text="Heavy"
+								key="B" />
+							<IconTabFilter
+								icon="sap-icon://inventory"
 								iconColor="Negative"
-								count="{/ProductCollectionStats/Counts/Weight/Overweight}"
-								text="Overweight" key="Overweight" />
+								text="Overweight"
+								key="C" />
+								<!-- count="{/ProductCollectionStats/Counts/Weight/Overweight}" -->
 						</items>
 					</IconTabBar>
+			<!-- 여기까지 Icon Tab Bar -->		
+					
 					<fb:FilterBar id="filterbar" reset="onReset"
 						search="onSearch" useToolbar="false" showGoOnFB="false" > <!-- search="onSearch" -->
 						<fb:filterItems>
@@ -147,21 +152,6 @@
 				</columns>
 
 				<items>
-					<!-- <ObjectListItem press=".onPress"> -->
-					<!-- <firstStatus> -->
-					<!-- <ObjectStatus text="{ -->
-					<!-- 'view>Zname' -->
-					<!-- }"/> -->
-					<!-- <ObjectStatus text="{ -->
-					<!-- 'view>Zcategory' -->
-					<!-- }"/> -->
-					<!-- </firstStatus> -->
-					<!-- <secondStatus> -->
-					<!-- <ObjectStatus text="{ -->
-					<!-- 'view>Zcategory' -->
-					<!-- }"/> -->
-					<!-- </secondStatus> -->
-					<!-- </ObjectListItem> -->
 					<ColumnListItem type="Navigation" vAlign="Middle"
 						press=".onPress">
 						<cells>

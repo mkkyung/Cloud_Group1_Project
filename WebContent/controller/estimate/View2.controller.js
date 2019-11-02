@@ -27,7 +27,7 @@ sap.ui.define([
 		goBack : function(oEvent) {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
-
+			
 			if (sPreviousHash !== undefined) {
 				window.history.go(-1);							//just before screen
 			} else {
