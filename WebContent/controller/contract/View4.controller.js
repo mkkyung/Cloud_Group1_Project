@@ -47,13 +47,78 @@ sap.ui.define([
 			if (oFB) {
 				oFB.variantsInitialized();
 			}
+			
+			
+//			IconTabBar
+			// reuse table sample component
+//			var oComp = sap.ui.getCore().createComponent({
+////				name : 'Table'
+//			});
+//			oComp.setModel(this.getView().getModel());
+//			this._oTable = oComp.getTable();
+//			this.getView().byId("idIconTabBar").insertContent(this._oTable);
+//
+//			// update table
+//			this._oTable.setHeaderText(null);
+//			this._oTable.setShowSeparators("Inner");
 
 		},
+		
 		getSelect: function(sId) {
 			return this.getView().byId(sId);
 		},
 
-		
+		handleIconTabBarSelect: function (oEvent) {
+			var oTable = new sap.m.Table("idColumeListItem", {   
+			      inset : true, 
+			      headerText : "List of Products",
+//			      headerDesign : sap.m.ListHeaderDesign.Standard, 
+			      mode : sap.m.ListMode.None,   
+			      includeItemInSelection : false,   
+			    });
+			  var col1 = new sap.m.Column("col1",{header: new sap.m.Label({text:"Product Name"})});
+			    oTable.addColumn(col1); 
+			    
+			  var col2 = new sap.m.Column("col2",{header: new sap.m.Label({text:"Description"})});
+			    oTable.addColumn(col2); 
+//			  var col3 = new sap.m.Column("col3",{header: new sap.m.Label({text:"Price"})});
+//			    oTable.addColumn(col3);    
+			  var colItems = new sap.m.ColumnListItem("colItems",{type:"Active"});
+			    oTable.bindAggregation("items","/value",colItems);
+			    
+			    
+		    var txtNAME = new sap.m.Text("txtNAME",{text:"{view>Zname}"});
+		    colItems.addCell(txtNAME); 
+		        
+		    var txtNAME2 = new sap.m.Text("txtNAME2",{text:"{view>Zname}"});
+		    colItems.addCell(txtNAME2); 
+		       
+//		    var txtNAME3 = new sap.m.Text("txtNAME3",{text:"{view>Zcategory}"});
+//		    colItems.addCell(txtNAME3);  
+		    
+		    return new sap.m.Page({
+				title: "Title",
+				content: [
+				            oTable
+				]
+			});
+//			var oBinding = this._oTable.getBinding("items"),
+//				sKey = oEvent.getParameter("key"),
+//				oFilter;
+//			if (sKey === "Ok") {
+//				oFilter = new Filter("Zname", "EQ", A);
+//				oBinding.filter([oFilter]);
+//			} else if (sKey === "Heavy") {
+//				oFilter = new Filter("Zname", "EQ", B);
+//				oBinding.filter([oFilter]);
+//			} else if (sKey === "Overweight") {
+//				oFilter = new Filter("Zname", "EQ", C);
+//				oBinding.filter([oFilter]);
+//			} else {
+//				oBinding.filter([]);
+//			}
+						
+		},
 		
 //		__________________________________________________________________
 		onShow : function(oEvent){
