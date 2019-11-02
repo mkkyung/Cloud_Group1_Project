@@ -18,7 +18,12 @@ sap.ui.define([ "sap/ui/core/UIComponent", "sap/m/routing/Router" ], function(
 					 */
 
 					manifest : "json"
-
+//						
+//					dependencies : {
+//						components : [
+//							"item"
+//						]
+//					}
 				},
 				init : function() {
 					UIComponent.prototype.init.apply(this, arguments);
