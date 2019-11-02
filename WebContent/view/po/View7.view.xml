@@ -1,14 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View
 	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.po.View7"
-	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:f="sap.f">
+	
 	<App id="apps">
 		<Page title="view7 : 발주조회" showNavButton="true"
 			navButtonPress="goBack">
+			<Button text="button" press="getData" />
 			<!-- <Button text="재고화면dmf 확인하자 ㅇㅅㅇ" press="viewStock"/> -->
 			<headerContent>
+			<Button text="next" id="button" type="Reject" press=".onShow" />
 				<!-- <Button text="next" id="button" type="Reject" press=".onShow" /> -->
 			</headerContent>
+		<f:DynamicPageHeader pinnable="false"
+				destroyContent="true">
+				<f:content>
+					<IconTabBar id="idIconTabBar"
+						select="handleIconTabBarSelect"
+						class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter showAll="true"
+								count="{/ProductCollectionStats/Counts/Total}" text="전체조회"
+								key="All" />
+							<IconTabSeparator />
+							<IconTabFilter icon="sap-icon://begin"
+								iconColor="Positive"
+								count="{/ProductCollectionStats/Counts/Weight/Ok}" text="유효"
+								key="Ok" />
+							<IconTabFilter icon="sap-icon://inventory"
+								iconColor="Negative"
+								count="{/ProductCollectionStats/Counts/Weight/Overweight}"
+								text="비유효" key="Overweight" />
+						</items>
+					</IconTabBar>
+					<fb:FilterBar id="filterbar" reset="onReset"
+						search="onSearch" useToolbar="false" showGoOnFB="false"> <!-- search="onSearch" -->
+						<fb:filterItems>
+							
+							
+							<fb:FilterItem name="A" label="발주번호">
+								<fb:control>
+									<Input id="A" required="true" />
+								</fb:control>
+							</fb:FilterItem>
+
+							
+							<fb:FilterItem name="B" label="발주일자">
+								<fb:control>
+									<DatePicker id="B"
+										value="{
+									path:'/dateValue', 
+									type:'sap.ui.model.type.Date', 
+									formatOptions: { 
+										style: 'medium', 
+										strictParsing: true
+										}
+									}"
+										class="sapUiSmallMarginBottom" />
+								</fb:control>
+							</fb:FilterItem>
+							
+
+							<fb:FilterItem name="C" label="공급업체명">
+								<fb:control>
+									<Input id="C" required="true" />
+									<ComboBox showSecondaryValues="true"
+										items="{
+					                      		path: '/CountriesCollection',
+												sorter: { path: 'text' }
+												}">
+										<core:ListItem key="{key}" text="{text}"
+											additionalText="{key}" />
+									</ComboBox>
+								</fb:control>
+							</fb:FilterItem>
+							
+							
+							<fb:FilterItem name="D" label="제품명">
+								<fb:control>
+									<Input id="D" required="true" />
+									<ComboBox showSecondaryValues="true"
+										items="{
+					                      		path: '/CountriesCollection',
+												sorter: { path: 'text' }
+												}">
+										<core:ListItem key="{key}" text="{text}"
+											additionalText="{key}" />
+									</ComboBox>
+								</fb:control>
+							</fb:FilterItem>
+
+
+						</fb:filterItems>
+					</fb:FilterBar>
+				</f:content>
+			</f:DynamicPageHeader>
+			<Table items="{estlist>/data}" id="esttable" inset="false">
+				<columns>
+				    <Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="발주번호" />
+					</Column>
+				    <Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="발주일자" />
+					</Column>
+				   
+				   
+				   
+					
+				
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="제품명" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="공급업체명" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="공급업체코드" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="잔여수량" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="발주수량" />
+					</Column>
+					
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="단가" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="총금액" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="입고예정일" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="결제예정일" />
+					</Column>
+					
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" vAlign="Middle"
+						press=".onPress">
+						<cells>
+							<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
+							<Text text="{estlist>EstNo}" />
+							<Text text="{estlist>EstAva}" />
+							<Text text="{estlist>EstCat1}" />
+							<Text text="{estlist>EstCat2}" />
+							<Text text="{estlist>EstCat3}" />
+							<Text text="{estlist>EstVname}" />
+							<Text text="{estlist>EstVcode}" />
+							<Text text="{estlist>EstAmt}" />
+							<Text text="{estlist>EstPrice}" />
+							<Text text="{estlist>EstTotal}" />
+							<Text text="{estlist>EstDate}" />
+							<Text text="{estlist>EstCuky}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
 		</Page>
 	</App>
 </mvc:View>
