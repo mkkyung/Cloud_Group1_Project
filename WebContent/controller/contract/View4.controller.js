@@ -12,27 +12,7 @@ sap.ui.define([
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View4", {
 		onInit: function() {
-//			this.oModel = new JSONModel();
-//			this.oModel.loadData(sap.ui.require.toUrl("sap/ui/comp/sample/filterbar/DynamicPageListReport/model.json"), null, false);
-//			this.getView().setModel(this.oModel);
-		
-	        var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/";	//CORSerror나면 http:// 를 proxy/http/로
-			sServiceUrl +=  "/sap/opu/odata/sap/ZFIORI_STU07_DEV02_SRV/"; // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
-	        var url;
-	
-	        url = "/getData2Set";
-	     
-	        var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl,true);
-	        this.oModel = new JSONModel();
-			var data;
-			oDataModel.read(url, null, null, false, function(oData){
-//				data = oData;
-				data = oData.results;
-			});
-			var oModel = new sap.ui.model.json.JSONModel({ "data" : data });
-//			var oModel = new sap.ui.model.json.JSONModel(data); // {results : [] }
-			this.getView().setModel(oModel, "view"); 
-			
+			this.getServerUrl();
 
 			this.aKeys = [
 				"Zname", "Zcategory"
@@ -47,85 +27,55 @@ sap.ui.define([
 			if (oFB) {
 				oFB.variantsInitialized();
 			}
-			
-			
-//			IconTabBar
-			// reuse table sample component
-//			var oComp = sap.ui.getCore().createComponent({
-////				name : 'Table'
-//			});
-//			oComp.setModel(this.getView().getModel());
-//			this._oTable = oComp.getTable();
-//			this.getView().byId("idIconTabBar").insertContent(this._oTable);
-//
-//			// update table
-//			this._oTable.setHeaderText(null);
-//			this._oTable.setShowSeparators("Inner");
+
 
 		},
 		
 		getSelect: function(sId) {
 			return this.getView().byId(sId);
 		},
+		
+		getServerUrl : function(url) {
+			if(!url ){
+				url = "/getData2Set";
+			}
+			
+			var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/";	//CORSerror나면 http:// 를 proxy/http/로
+			sServiceUrl +=  "/sap/opu/odata/sap/ZFIORI_STU07_DEV02_SRV/"; // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
+	
+	     
+	        var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl,true);
+	        this.oModel = new JSONModel();
+			var data;
+			oDataModel.read(url, null, null, false, function(oData){
+//				data = oData;
+				data = oData.results;
+			});
+			var oModel = new sap.ui.model.json.JSONModel({ "data" : data });
+			this.getView().setModel(oModel, "view"); 
+						
+		},
 
 		handleIconTabBarSelect: function (oEvent) {
-			var oTable = new sap.m.Table("idColumeListItem", {   
-			      inset : true, 
-			      headerText : "List of Products",
-//			      headerDesign : sap.m.ListHeaderDesign.Standard, 
-			      mode : sap.m.ListMode.None,   
-			      includeItemInSelection : false,   
-			    });
-			  var col1 = new sap.m.Column("col1",{header: new sap.m.Label({text:"Product Name"})});
-			    oTable.addColumn(col1); 
-			    
-			  var col2 = new sap.m.Column("col2",{header: new sap.m.Label({text:"Description"})});
-			    oTable.addColumn(col2); 
-//			  var col3 = new sap.m.Column("col3",{header: new sap.m.Label({text:"Price"})});
-//			    oTable.addColumn(col3);    
-			  var colItems = new sap.m.ColumnListItem("colItems",{type:"Active"});
-			    oTable.bindAggregation("items","/value",colItems);
-			    
-			    
-		    var txtNAME = new sap.m.Text("txtNAME",{text:"{view>Zname}"});
-		    colItems.addCell(txtNAME); 
-		        
-		    var txtNAME2 = new sap.m.Text("txtNAME2",{text:"{view>Zname}"});
-		    colItems.addCell(txtNAME2); 
-		       
-//		    var txtNAME3 = new sap.m.Text("txtNAME3",{text:"{view>Zcategory}"});
-//		    colItems.addCell(txtNAME3);  
-		    
-		    return new sap.m.Page({
-				title: "Title",
-				content: [
-				            oTable
-				]
-			});
-//			var oBinding = this._oTable.getBinding("items"),
-//				sKey = oEvent.getParameter("key"),
-//				oFilter;
-//			if (sKey === "Ok") {
-//				oFilter = new Filter("Zname", "EQ", A);
-//				oBinding.filter([oFilter]);
-//			} else if (sKey === "Heavy") {
-//				oFilter = new Filter("Zname", "EQ", B);
-//				oBinding.filter([oFilter]);
-//			} else if (sKey === "Overweight") {
-//				oFilter = new Filter("Zname", "EQ", C);
-//				oBinding.filter([oFilter]);
-//			} else {
-//				oBinding.filter([]);
-//			}
-						
+			var url;
+			var tabBar =this.getView().byId("idIconTabBar");
+			var ii = tabBar.mProperties.selectedKey;
+//			조건 넣기
+//			var title = this.byId("title").getValue().toUpperCase();
+			
+			if(ii == "All"){				
+				url = "/getData2Set";
+			}else if(ii == "A"){
+
+				url = "/getData2Set?$filter=LvTitle eq '" + ii +"'" ;
+			}
+			
+			this.getServerUrl(url);
+			
 		},
 		
 //		__________________________________________________________________
-		onShow : function(oEvent){
-//			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-//			oRouter.navTo("view5");
-			
-		},
+
 		
 		goBack : function(oEvent) {
 			var oHistory = History.getInstance();
