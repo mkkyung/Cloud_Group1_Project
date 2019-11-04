@@ -12,8 +12,6 @@ sap.ui.define([
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View4", {
 		onInit: function() {
-
-
 			this.aKeys = [
 				"Zname", "Zcategory"
 			];
@@ -78,11 +76,11 @@ sap.ui.define([
 			}
 		},
 
-
 		
 		getSelect: function(sId) {
 			return this.getView().byId(sId);
 		},
+		
 		
 		getServerUrl : function(url) {
 			if(!url ){
