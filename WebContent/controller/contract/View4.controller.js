@@ -12,27 +12,7 @@ sap.ui.define([
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View4", {
 		onInit: function() {
-//			this.oModel = new JSONModel();
-//			this.oModel.loadData(sap.ui.require.toUrl("sap/ui/comp/sample/filterbar/DynamicPageListReport/model.json"), null, false);
-//			this.getView().setModel(this.oModel);
-		
-	        var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/";	//CORSerror나면 http:// 를 proxy/http/로
-			sServiceUrl +=  "/sap/opu/odata/sap/ZFIORI_STU07_DEV02_SRV/"; // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
-	        var url;
-	
-	        url = "/getData2Set";
-	     
-	        var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl,true);
-	        this.oModel = new JSONModel();
-			var data;
-			oDataModel.read(url, null, null, false, function(oData){
-//				data = oData;
-				data = oData.results;
-			});
-			var oModel = new sap.ui.model.json.JSONModel({ "data" : data });
-//			var oModel = new sap.ui.model.json.JSONModel(data); // {results : [] }
-			this.getView().setModel(oModel, "view"); 
-			
+			this.getServerUrl();
 
 			this.aKeys = [
 				"Zname", "Zcategory"
@@ -48,19 +28,54 @@ sap.ui.define([
 				oFB.variantsInitialized();
 			}
 
+
 		},
+		
 		getSelect: function(sId) {
 			return this.getView().byId(sId);
 		},
+		
+		getServerUrl : function(url) {
+			if(!url ){
+				url = "/getData2Set";
+			}
+			
+			var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/";	//CORSerror나면 http:// 를 proxy/http/로
+			sServiceUrl +=  "/sap/opu/odata/sap/ZFIORI_STU07_DEV02_SRV/"; // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
+	
+	     
+	        var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl,true);
+	        this.oModel = new JSONModel();
+			var data;
+			oDataModel.read(url, null, null, false, function(oData){
+//				data = oData;
+				data = oData.results;
+			});
+			var oModel = new sap.ui.model.json.JSONModel({ "data" : data });
+			this.getView().setModel(oModel, "view"); 
+						
+		},
 
-		
-		
-//		__________________________________________________________________
-		onShow : function(oEvent){
-//			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-//			oRouter.navTo("view5");
+		handleIconTabBarSelect: function (oEvent) {
+			var url;
+			var tabBar =this.getView().byId("idIconTabBar");
+			var ii = tabBar.mProperties.selectedKey;
+//			조건 넣기
+//			var title = this.byId("title").getValue().toUpperCase();
+			
+			if(ii == "All"){				
+				url = "/getData2Set";
+			}else if(ii == "A"){
+
+				url = "/getData2Set?$filter=LvTitle eq '" + ii +"'" ;
+			}
+			
+			this.getServerUrl(url);
 			
 		},
+		
+//		__________________________________________________________________
+
 		
 		goBack : function(oEvent) {
 			var oHistory = History.getInstance();
