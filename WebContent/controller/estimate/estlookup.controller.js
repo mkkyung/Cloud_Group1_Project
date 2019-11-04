@@ -15,6 +15,7 @@ sap.ui.define([
 		onInit: function () {
 			var oRouter = UIComponent.getRouterFor(this);
 			oRouter.getRoute("estlookup").attachPatternMatched(this._onObjectMatched, this);
+			this.getData();
 		},
 		
 		_onObjectMatched: function (oEvent) {
@@ -25,7 +26,23 @@ sap.ui.define([
 			});
 			
 		},
-	
+		
+		//임시 데이터 전달 필드
+		getData : function(){
+	        var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000"; // 로컬 서버 연결 하는 거 
+	        sServiceUrl += "/sap/opu/odata/sap/Z_FUNC_ESTIMATE_TEST_SRV";   // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
+	        var url;
+	        url = "/getestSet";
+	     
+	        var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+	        var data;
+	        oDataModel.read(url, null, null, false, function (oData) {
+	           data = oData.results;
+	        });
+	        var oModel = new sap.ui.model.json.JSONModel({ "data": data });
+	        this.getView().setModel(oModel , "estlist");
+		},
+	//임시 데이터 전달 필드
 		onShow : function(oEvent){
 			var oItem = oEvent.getSource();
 			var oRouter = UIComponent.getRouterFor(this);

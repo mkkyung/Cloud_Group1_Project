@@ -15,7 +15,6 @@ sap.ui.define([
 		onInit: function() {
 			this.getData();
 			this.GtCat3Set();
-			this.addSnappedLabel();
 		},
 		
 //		_______________________________________
@@ -92,27 +91,27 @@ sap.ui.define([
 			var sMessage = "onSearch trigered";
 			sap.m.MessageToast.show(sMessage);
 		},
-//필터바 숨기기 토글 로직
-		onToggleHeader: function () {
-			this.getPage().setHeaderExpanded(!this.getPage().getHeaderExpanded());
-		},
-		
-		addSnappedLabel : function() {
-			var oSnappedLabel = this.getSnappedLabel();
-			oSnappedLabel.attachBrowserEvent("click", this.onToggleHeader, this);
-			this.getPageTitle().addSnappedContent(oSnappedLabel);
-		},
-		
-		getSnappedLabel : function () {
-			return new sap.m.Label({text: " "});
-		},
-		
-		getPageTitle: function() {
-			return this.getPage().getTitle();
-		},
-		getPage : function() {
-			return this.getView().byId("dynamicPageId");
-		},
+////필터바 숨기기 토글 로직
+//		onToggleHeader: function () {
+//			this.getPage().setHeaderExpanded(!this.getPage().getHeaderExpanded());
+//		},
+//		
+//		addSnappedLabel : function() {
+//			var oSnappedLabel = this.getSnappedLabel();
+//			oSnappedLabel.attachBrowserEvent("click", this.onToggleHeader, this);
+//			this.getPageTitle().addSnappedContent(oSnappedLabel);
+//		},
+//		
+//		getSnappedLabel : function () {
+//			return new sap.m.Label({text: " "});
+//		},
+//		
+//		getPageTitle: function() {
+//			return this.getPage().getTitle();
+//		},
+//		getPage : function() {
+//			return this.getView().byId("dynamicPageId");
+//		},
 
 	});
 });
