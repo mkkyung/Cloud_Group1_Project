@@ -23,7 +23,7 @@ sap.ui.define([
 		
 		getData : function(item) {
 			if(item){
-				alert("hi");
+				alert(item);
 			}
 		},
 		

@@ -25,7 +25,7 @@
 					<ObjectAttribute title="품명" text="컴퓨터" />
 				</attributes>
 				<statuses>
-					<ObjectStatus title="Status" text="In Stock" state="Success" />
+					<ObjectStatus title="유효 여부" text="" state="Success" />
 				</statuses>
 			</ObjectHeader>
 			<IconTabBar
@@ -39,7 +39,7 @@
 							maxContainerCols="2"
 							layout="ResponsiveGridLayout" >
 							<f:title>
-								<core:Title text="A Form" />
+								<core:Title text="견적서 상세 사항" />
 							</f:title>
 							<Label text="{estlist>EstNo}"/>
 							<Text  text="Value"/>

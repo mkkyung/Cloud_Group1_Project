@@ -12,7 +12,7 @@ sap.ui.define([
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View4", {
 		onInit: function() {
-			this.getServerUrl();
+
 
 			this.aKeys = [
 				"Zname", "Zcategory"
@@ -28,8 +28,57 @@ sap.ui.define([
 				oFB.variantsInitialized();
 			}
 
+	sap.ui.getCore().attachParseError(
+			function(oEvent) {
+				var oElement = oEvent.getParameter("element");
 
+				if (oElement.setValueState) {
+					oElement.setValueState(sap.ui.core.ValueState.Error);
+				}
+			});
+
+	sap.ui.getCore().attachValidationSuccess(
+			function(oEvent) {
+				var oElement = oEvent.getParameter("element");
+
+				if (oElement.setValueState) {
+					oElement.setValueState(sap.ui.core.ValueState.None);
+				}
+			});
+		
 		},
+		
+		handleChange: function (oEvent) {
+			var oText = this.byId("C");
+			var oDP = oEvent.oSource;
+			var sValue = oEvent.getParameter("value");
+			var bValid = oEvent.getParameter("valid");
+			this._iEvent++;
+//			oText.setText("Change - Event " + this._iEvent + ": DatePicker " + oDP.getId() + ":" + sValue);
+
+			if (bValid) {
+				oDP.setValueState(sap.ui.core.ValueState.None);
+			} else {
+				oDP.setValueState(sap.ui.core.ValueState.Error);
+			}
+		},
+		
+		handleChange2: function (oEvent) {
+			var oText = this.byId("F");
+			var oDP = oEvent.oSource;
+			var sValue = oEvent.getParameter("value");
+			var bValid = oEvent.getParameter("valid");
+			this._iEvent++;
+//			oText.setText("Change - Event " + this._iEvent + ": DatePicker " + oDP.getId() + ":" + sValue);
+
+			if (bValid) {
+				oDP.setValueState(sap.ui.core.ValueState.None);
+			} else {
+				oDP.setValueState(sap.ui.core.ValueState.Error);
+			}
+		},
+
+
 		
 		getSelect: function(sId) {
 			return this.getView().byId(sId);
@@ -88,12 +137,12 @@ sap.ui.define([
 				oRouter.navTo("view3", {}, true);
 			}
 		},
-		
+
 		onPress : function (oEvent) {	//계약서 눌렀을 때 
 			var oItem = oEvent.getSource();
 			var oRouter = UIComponent.getRouterFor(this);
 			var routerData = oItem.mAggregations.cells[1].mProperties.text;
-			
+
 			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
 			MessageBox.warning(
 					"계약서를 등록하시겠습니까?\n"  + "한번 계약서 등록 시 변경이 불가능합니다.",
@@ -113,6 +162,10 @@ sap.ui.define([
 					}
 			);
 		}
+
+	
+		
+		
 		
 	});
 });
