@@ -33,6 +33,7 @@ sap.ui.define([
 //			var oModel = new sap.ui.model.json.JSONModel(data); // {results : [] }
 			this.getView().setModel(oModel, "view"); 
 			
+			
 
 			this.aKeys = [
 				"Zname", "Zcategory"
@@ -47,7 +48,63 @@ sap.ui.define([
 			if (oFB) {
 				oFB.variantsInitialized();
 			}
+		
+			sap.ui.getCore().attachParseError(
+					function(oEvent) {
+						var oElement = oEvent.getParameter("element");
+
+						if (oElement.setValueState) {
+							oElement.setValueState(sap.ui.core.ValueState.Error);
+						}
+					});
+
+			sap.ui.getCore().attachValidationSuccess(
+					function(oEvent) {
+						var oElement = oEvent.getParameter("element");
+
+						if (oElement.setValueState) {
+							oElement.setValueState(sap.ui.core.ValueState.None);
+						}
+					});
+		
+
+		
+		
+		
+		
+		
+		
+		
 		},
+		handleChange: function (oEvent) {
+			var oText = this.byId("C");
+			var oDP = oEvent.oSource;
+			var sValue = oEvent.getParameter("value");
+			var bValid = oEvent.getParameter("valid");
+			this._iEvent++;
+//			oText.setText("Change - Event " + this._iEvent + ": DatePicker " + oDP.getId() + ":" + sValue);
+
+			if (bValid) {
+				oDP.setValueState(sap.ui.core.ValueState.None);
+			} else {
+				oDP.setValueState(sap.ui.core.ValueState.Error);
+			}
+		},
+		handleChange2: function (oEvent) {
+			var oText = this.byId("F");
+			var oDP = oEvent.oSource;
+			var sValue = oEvent.getParameter("value");
+			var bValid = oEvent.getParameter("valid");
+			this._iEvent++;
+//			oText.setText("Change - Event " + this._iEvent + ": DatePicker " + oDP.getId() + ":" + sValue);
+
+			if (bValid) {
+				oDP.setValueState(sap.ui.core.ValueState.None);
+			} else {
+				oDP.setValueState(sap.ui.core.ValueState.Error);
+			}
+		},
+
 		onToggleHeader: function() {
 			this.getPage().setHeaderExpanded(!this.getPage().getHeaderExpanded());
 		},
@@ -153,11 +210,18 @@ sap.ui.define([
 				oRouter.navTo("view3", {}, true);
 			}
 		},
-		
+
 		onPress : function (oEvent) {	//계약서 눌렀을 때 
 			var oItem = oEvent.getSource();
 			var oRouter = UIComponent.getRouterFor(this);
 			var routerData = oItem.mAggregations.cells[1].mProperties.text;
+			
+//			var oComp = sap.ui.getCore().createComponent({
+//				name : 'sap.m.sample.Table'
+//			});
+//			oComp.setModel(this.getView().getModel());
+//			this._oTable = oComp.getTable();
+//			this.getView().byId("idIconTabBar").insertContent(this._oTable);
 			
 			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
 			MessageBox.warning(
@@ -178,6 +242,10 @@ sap.ui.define([
 					}
 			);
 		}
+
+	
+		
+		
 		
 	});
 });

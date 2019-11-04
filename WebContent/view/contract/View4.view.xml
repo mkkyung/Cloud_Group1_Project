@@ -15,29 +15,29 @@
 
 
 			<!-- DynamicPage Header -->
-			<f:DynamicPageHeader pinnable="false"
-				destroyContent="true">	 <!-- pinnable 고정여부 -->
-				<f:content>
-					<IconTabBar id="idIconTabBar"
+<!-- 			<f:DynamicPageHeader pinnable="false" -->
+<!-- 				destroyContent="true">	 pinnable 고정여부 -->
+<!-- 				<f:content> -->
+					<IconTabBar id="idIconTabBar" 
 						select="handleIconTabBarSelect"
 						class="sapUiResponsiveContentPadding">
 						<items>
 							<IconTabFilter showAll="true"
-								count="{/ProductCollectionStats/Counts/Total}" text="Products"
+								count="{/ProductCollectionStats/Counts/Total}" text="계약상태"
 								key="All" />
 							<IconTabSeparator />
 							<IconTabFilter icon="sap-icon://begin"
 								iconColor="Positive"
-								count="{/ProductCollectionStats/Counts/Weight/Ok}" text="Ok"
+								count="{/ProductCollectionStats/Counts/Weight/Ok}" text="승인"
 								key="Ok" />
 							<IconTabFilter icon="sap-icon://compare"
 								iconColor="Critical"
 								count="{/ProductCollectionStats/Counts/Weight/Heavy}"
-								text="Heavy" key="Heavy" />
+								text="대기" key="Heavy" />
 							<IconTabFilter icon="sap-icon://inventory"
 								iconColor="Negative"
 								count="{/ProductCollectionStats/Counts/Weight/Overweight}"
-								text="Overweight" key="Overweight" />
+								text="종료" key="Overweight" />
 						</items>
 					</IconTabBar>
 					<fb:FilterBar id="filterbar" reset="onReset"
@@ -51,13 +51,16 @@
 									<!-- <core:Item key="{key}" text="{name}"/> -->
 									<!-- </Select> -->
 									<!-- <Label text="제목" design="Bold" labelFor="title" class="sapUiSmallMarginTop"/> -->
-									<Input id="A" required="true" />
-
+									<ComboBox id="A" items="{view>/data}">
+               						<items>
+                  					<core:Item text="{view>Zname}" />
+               						</items>
+       								</ComboBox>
 								</fb:control>
 							</fb:FilterItem>
 							<fb:FilterItem name="B" label="계약번호">
 								<fb:control>
-									<Input id="B" required="true" />
+									<Input id="B" required="true" maxLength="11"/>
 								</fb:control>
 							</fb:FilterItem>
 							<fb:FilterItem name="C" label="계약일자">
@@ -71,17 +74,18 @@
 										strictParsing: true
 										}
 									}"
-										class="sapUiSmallMarginBottom" />
+										class="sapUiSmallMarginBottom"
+										change="handleChange" />
 								</fb:control>
 							</fb:FilterItem>
-							<fb:FilterItem name="D" label="공급업체명">
+							<fb:FilterItem name="D" label="공급업체명" >
 								<fb:control>
-									<Input id="D" required="true" />
+									<Input id="D" required="true" maxLength="15"/>
 								</fb:control>
 							</fb:FilterItem>
 							<fb:FilterItem name="E" label="사업자등록증">
 								<fb:control>
-									<Input id="E" required="true" />
+									<Input id="E" required="true" maxLength="10" />
 								</fb:control>
 							</fb:FilterItem>
 							<fb:FilterItem name="F" label="종료일자">
@@ -95,14 +99,15 @@
 										strictParsing: true
 										}
 									}"
-										class="sapUiSmallMarginBottom" />
+										class="sapUiSmallMarginBottom" 
+										change="handleChange2"/>
 								</fb:control>
 							</fb:FilterItem>
 
 						</fb:filterItems>
 					</fb:FilterBar>
-				</f:content>
-			</f:DynamicPageHeader>
+<!-- 				</f:content> -->
+<!-- 			</f:DynamicPageHeader> -->
 
 			<!-- DynamicPage Content -->
 			<Table items="{view>/data}" id="idProductsTable" inset="false"> <!-- items="{path: '/ProductCollection'}" -->
