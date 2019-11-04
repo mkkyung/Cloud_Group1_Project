@@ -31,9 +31,9 @@
 										key="All" />
 									<IconTabSeparator />
 									<IconTabFilter icon="sap-icon://begin"
-										iconColor="Positive" text="유효" key="Ok" />
+										iconColor="Positive" text="유효" key="ok" />
 									<IconTabFilter icon="sap-icon://inventory"
-										iconColor="Negative" text="비유효" key="Overweight" />
+										iconColor="Negative" text="비유효" key="nob" />
 								</items>
 							</IconTabBar>
 							<fb:FilterBar reset="onReset" search="onSearch"

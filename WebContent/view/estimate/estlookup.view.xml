@@ -25,7 +25,7 @@
 					<ObjectAttribute title="품명" text="컴퓨터" />
 				</attributes>
 				<statuses>
-					<ObjectStatus title="Status" text="In Stock" state="Success" />
+					<ObjectStatus title="유효 여부" text="" state="Success" />
 				</statuses>
 			</ObjectHeader>
 			<IconTabBar

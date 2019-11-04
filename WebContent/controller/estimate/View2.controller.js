@@ -92,7 +92,7 @@ sap.ui.define([
 			var sMessage = "onSearch trigered";
 			sap.m.MessageToast.show(sMessage);
 		},
-		
+//필터바 숨기기 토글 로직
 		onToggleHeader: function () {
 			this.getPage().setHeaderExpanded(!this.getPage().getHeaderExpanded());
 		},
