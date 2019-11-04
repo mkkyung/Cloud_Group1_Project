@@ -1,15 +1,22 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History",
-	"sap/ui/core/UIComponent"
-], function(Controller, History, UIComponent) {
+	"sap/ui/core/UIComponent",
+	'sap/ui/core/Fragment',
+	'sap/ui/model/Filter'
+//	'jquery.sap.global'
+], function(Controller, History, UIComponent, Fragment, Filter) {
 	"use strict";
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.po.View6", {
 		onInit: function() {
 			this.getData();
-		},
 		
+//		var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.demo.mock", "/products.json"));
+//		// the default limit of the model is set to 100. We want to show all the entries.
+//		oModel.setSizeLimit(1000000);
+//		this.getView().setModel(oModel);
+	},
 //		_______________________________________
 			
 		getData : function(){
@@ -59,5 +66,60 @@ sap.ui.define([
 			}
 		},
 		
-	});
+	handleValueHelp : function (oEvent) {
+		var sInputValue = oEvent.getSource().getValue();
+
+		this.inputId = oEvent.getSource().getId();
+		// create value help dialog
+		if (!this._valueHelpDialog) {
+			this._valueHelpDialog = sap.ui.xmlfragment(
+				"sap.m.sample.InputKeyValue.Dialog",
+				this
+			);
+			this.getView().addDependent(this._valueHelpDialog);
+		}
+
+		// create a filter for the binding
+		this._valueHelpDialog.getBinding("items").filter([new Filter(
+			"Name",
+			sap.ui.model.FilterOperator.Contains, sInputValue
+		)]);
+
+		// open value help dialog filtered by the input value
+		this._valueHelpDialog.open(sInputValue);
+	},
+
+	_handleValueHelpSearch : function (evt) {
+		var sValue = evt.getParameter("value");
+		var oFilter = new Filter(
+			"Name",
+			sap.ui.model.FilterOperator.Contains, sValue
+		);
+		evt.getSource().getBinding("items").filter([oFilter]);
+	},
+
+	_handleValueHelpClose : function (evt) {
+		var oSelectedItem = evt.getParameter("selectedItem");
+		if (oSelectedItem) {
+			var productInput = this.getView().byId(this.inputId),
+				oText = this.getView().byId('selectedKey'),
+				sDescription = oSelectedItem.getDescription();
+
+			productInput.setSelectedKey(sDescription);
+			oText.setText(sDescription);
+		}
+		evt.getSource().getBinding("items").filter([]);
+	},
+
+	suggestionItemSelected: function (evt) {
+
+		var oItem = evt.getParameter('selectedItem'),
+			oText = this.getView().byId('selectedKey'),
+			sKey = oItem ? oItem.getKey() : '';
+
+		oText.setText(sKey);
+	}
+	
+});
+	
 });

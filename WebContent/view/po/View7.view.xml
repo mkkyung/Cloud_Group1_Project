@@ -14,89 +14,146 @@
 			<Button text="next" id="button" type="Reject" press=".onShow" />
 				<!-- <Button text="next" id="button" type="Reject" press=".onShow" /> -->
 			</headerContent>
-		<f:DynamicPageHeader pinnable="false"
-				destroyContent="true">
-				<f:content>
-					<IconTabBar id="idIconTabBar"
+		
+					<IconTabBar
+						id="idIconTabBar"
 						select="handleIconTabBarSelect"
 						class="sapUiResponsiveContentPadding">
 						<items>
-							<IconTabFilter showAll="true"
-								count="{/ProductCollectionStats/Counts/Total}" text="전체조회"
-								key="All" />
-							<IconTabSeparator />
-							<IconTabFilter icon="sap-icon://begin"
+						<IconTabFilter
+								showAll="true"
+								text="Products"
+								key="All" >
+								<fb:FilterBar id="filterbar" reset="onReset"
+									search="onSearch" useToolbar="false" showGoOnFB="false" > <!-- search="onSearch" -->
+									<fb:filterItems>
+			
+										<fb:FilterItem name="A" label="발주번호">
+											<fb:control>
+												<Input id="A" required="true" maxLength="11" textFormatMode="KeyValue"
+				 										
+														showSuggestion="true"
+														showValueHelp="true"
+														valueHelpRequest="handleValueHelp"
+														suggestionItems="{/ProductCollection}"
+														suggestionItemSelected="suggestionItemSelected">
+												<suggestionItems>
+												<core:ListItem key="{ProductId}" text="{Name}" additionalText="{ProductId}" />
+												</suggestionItems>
+												</Input>
+											</fb:control>
+										</fb:FilterItem>
+										
+										<fb:FilterItem name="B" label="발주일자">
+											<fb:control>
+												<DatePicker id="B"
+													value="{
+												path:'/dateValue', 
+												type:'sap.ui.model.type.Date', 
+												formatOptions: { 
+													style: 'medium', 
+													strictParsing: true
+													}
+												}"
+													class="sapUiSmallMarginBottom"
+													change="handleChange" />
+											</fb:control>
+										</fb:FilterItem>
+										<fb:FilterItem name="C" label="공급업체명">
+											<fb:control>
+												<Input id="C" required="true" maxLength="15"/>
+											</fb:control>
+										</fb:FilterItem>
+										
+										<fb:FilterItem name="D" label="제품명" >
+											<fb:control>
+												<Input id="D" required="true" maxLength="15"/>
+											</fb:control>
+										</fb:FilterItem>
+										
+									</fb:filterItems>
+								</fb:FilterBar>
+							</IconTabFilter>	
+						
+						<IconTabFilter
+								icon="sap-icon://begin"
 								iconColor="Positive"
-								count="{/ProductCollectionStats/Counts/Weight/Ok}" text="유효"
-								key="Ok" />
-							<IconTabFilter icon="sap-icon://inventory"
-								iconColor="Negative"
-								count="{/ProductCollectionStats/Counts/Weight/Overweight}"
-								text="비유효" key="Overweight" />
+								text="Ok"
+								key="A" >
+								<fb:FilterBar id="filterbar1" reset="onReset"
+									search="onSearch" useToolbar="false" showGoOnFB="false" > <!-- search="onSearch" -->
+									<fb:filterItems>
+			
+										
+										<fb:FilterItem name="A" label="발주번호">
+											<fb:control>
+												<Input id="A1" required="true" maxLength="11" textFormatMode="KeyValue"
+				 									
+														suggestionItemSelected="suggestionItemSelected">
+												<suggestionItems>
+												<core:ListItem key="{ProductId}" text="{Name}" additionalText="{ProductId}" />
+												</suggestionItems>
+												</Input>
+											</fb:control>
+										</fb:FilterItem>
+										
+										<fb:FilterItem name="B" label="발주일자">
+											<fb:control>
+												<DatePicker id="B1"
+													value="{
+												path:'/dateValue', 
+												type:'sap.ui.model.type.Date', 
+												formatOptions: { 
+													style: 'medium', 
+													strictParsing: true
+													}
+												}"
+													class="sapUiSmallMarginBottom"
+													change="handleChange" />
+											</fb:control>
+										</fb:FilterItem>
+										<fb:FilterItem name="C" label="공급업체명">
+											<fb:control>
+												<Input id="C1" required="true" maxLength="15"/>
+											</fb:control>
+										</fb:FilterItem>
+										
+										<fb:FilterItem name="D" label="제품명" >
+											<fb:control>
+												<Input id="D1" required="true" maxLength="15"/>
+											</fb:control>
+										</fb:FilterItem>
+										
+										
+									</fb:filterItems>
+								</fb:FilterBar>
+							</IconTabFilter>
+<!-- 	Icon tabfilter 3						 -->							
+							<IconTabFilter
+								icon="sap-icon://compare"
+								iconColor="Critical"
+								text="Heavy"
+								key="B" >
+									
+							</IconTabFilter>
+							
+<!-- 	Icon tabfilter 4						 -->								
+<!-- 							<IconTabFilter -->
+<!-- 								icon="sap-icon://inventory" -->
+<!-- 								iconColor="Negative" -->
+<!-- 								text="Overweight" -->
+<!-- 								key="C" > -->
+																
+<!-- 							</IconTabFilter> -->
+								<!-- count="{/ProductCollectionStats/Counts/Weight/Overweight}" -->
+								
 						</items>
 					</IconTabBar>
-					<fb:FilterBar id="filterbar" reset="onReset"
-						search="onSearch" useToolbar="false" showGoOnFB="false"> <!-- search="onSearch" -->
-						<fb:filterItems>
-							
-							
-							<fb:FilterItem name="A" label="발주번호">
-								<fb:control>
-									<Input id="A" required="true" />
-								</fb:control>
-							</fb:FilterItem>
 
-							
-							<fb:FilterItem name="B" label="발주일자">
-								<fb:control>
-									<DatePicker id="B"
-										value="{
-									path:'/dateValue', 
-									type:'sap.ui.model.type.Date', 
-									formatOptions: { 
-										style: 'medium', 
-										strictParsing: true
-										}
-									}"
-										class="sapUiSmallMarginBottom" />
-								</fb:control>
-							</fb:FilterItem>
-							
+<!-- 				</f:content> -->
+<!-- 			</f:DynamicPageHeader> -->
 
-							<fb:FilterItem name="C" label="공급업체명">
-								<fb:control>
-									<Input id="C" required="true" />
-									<ComboBox showSecondaryValues="true"
-										items="{
-					                      		path: '/CountriesCollection',
-												sorter: { path: 'text' }
-												}">
-										<core:ListItem key="{key}" text="{text}"
-											additionalText="{key}" />
-									</ComboBox>
-								</fb:control>
-							</fb:FilterItem>
-							
-							
-							<fb:FilterItem name="D" label="제품명">
-								<fb:control>
-									<Input id="D" required="true" />
-									<ComboBox showSecondaryValues="true"
-										items="{
-					                      		path: '/CountriesCollection',
-												sorter: { path: 'text' }
-												}">
-										<core:ListItem key="{key}" text="{text}"
-											additionalText="{key}" />
-									</ComboBox>
-								</fb:control>
-							</fb:FilterItem>
-
-
-						</fb:filterItems>
-					</fb:FilterBar>
-				</f:content>
-			</f:DynamicPageHeader>
+			<!-- DynamicPage Content -->
 			<Table items="{estlist>/data}" id="esttable" inset="false">
 				<columns>
 				    <Column minScreenWidth="Tablet" demandPopin="true">
