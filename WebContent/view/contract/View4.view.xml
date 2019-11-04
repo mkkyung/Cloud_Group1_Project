@@ -13,6 +13,7 @@
 <!-- 				<Button text="next" id="button" type="Reject" press=".onShow" /> -->
 			</headerContent>
 
+
 <!-- 			<f:DynamicPageHeader pinnable="false" >	 pinnable 고정여부 -->
 <!-- 				<f:content> -->
 					<IconTabBar
@@ -96,7 +97,7 @@
 								iconColor="Positive"
 								text="Ok"
 								key="A" >
-								<fb:FilterBar id="filterbar" reset="onReset"
+								<fb:FilterBar id="filterbar1" reset="onReset"
 									search="onSearch" useToolbar="false" showGoOnFB="false" > <!-- search="onSearch" -->
 									<fb:filterItems>
 			
@@ -107,18 +108,18 @@
 			<!-- 									<core:Item key="{key}" text="{name}"/> -->
 			<!-- 									</Select> -->
 												<Label text="제목" design="Bold" labelFor="title" class="sapUiSmallMarginTop"/>
-												<Input id="A" required="true" />
+												<Input id="A1" required="true" />
 			
 											</fb:control>
 										</fb:FilterItem>
 										<fb:FilterItem name="B" label="계약번호">
 											<fb:control>
-												<Input id="B" required="true" />
+												<Input id="B1" required="true" />
 											</fb:control>
 										</fb:FilterItem>
 										<fb:FilterItem name="C" label="계약일자">
 											<fb:control>
-												<DatePicker id="C"
+												<DatePicker id="C1"
 													value="{
 					 									path:'/dateValue',  
 					 									type:'sap.ui.model.type.Date', 
@@ -132,17 +133,17 @@
 										</fb:FilterItem>
 										<fb:FilterItem name="D" label="공급업체명">
 											<fb:control>
-												<Input id="D" required="true" />
+												<Input id="D1" required="true" />
 											</fb:control>
 										</fb:FilterItem>
 										<fb:FilterItem name="E" label="사업자등록증">
 											<fb:control>
-												<Input id="E" required="true" />
+												<Input id="E1" required="true" />
 											</fb:control>
 										</fb:FilterItem>
 										<fb:FilterItem name="F" label="종료일자">
 											<fb:control>
-												<DatePicker id="F"
+												<DatePicker id="F1"
 													value="{
 			 									path:'/dateValue',  
 			 									type:'sap.ui.model.type.Date',  
@@ -184,7 +185,9 @@
 					
 <!-- 				</f:content> -->
 <!-- 			</f:DynamicPageHeader> -->
-
+			</f:DynamicPageHeader>
+			
+			
 			<!-- DynamicPage Content -->
 			<Table items="{view>/data}" id="idTable"> <!-- items="{path: '/ProductCollection'}"   -->
 				<columns>
