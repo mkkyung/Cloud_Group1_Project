@@ -9,30 +9,41 @@ sap.ui.define([
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.products.Detail", {
 		onInit: function () {
 			this.bus = sap.ui.getCore().getEventBus();
-			this.editable(false, true);
+			this.editable(false, true, "None");
 		},
-		editable : function(unvisi, visible) {		
+		editable : function(unvisi, visible, color) {		
 			var oModel = new sap.ui.model.json.JSONModel({
-				"Edit" : unvisi
+				"Edit" : visible
 			});
 			this.getView().setModel(oModel, "edit");
 			
 			var oModel2 = new sap.ui.model.json.JSONModel({
 				"Enter" : unvisi
 			});
-			this.getView().setModel(oModel2, "enter");
-			
+			this.getView().setModel(oModel2, "enter");			
+
 			var oModel3 = new sap.ui.model.json.JSONModel({
-				"Visible" : visible
+				"Cancel" : unvisi
 			});
-			this.getView().setModel(oModel3, "visible");
+			this.getView().setModel(oModel3, "cancel");			
+			
+			var oModel4 = new sap.ui.model.json.JSONModel({
+				"Color" : color
+			});
+			this.getView().setModel(oModel4, "color");
 				
 		},
 		enter : function() {
-			this.editable(false, true);
+			this.editable(false, true, "None");
 		},		
-		update : function() {
-			this.editable(true, false);
+		edit : function() {
+			this.editable(true, false, "Success");
+		},
+		cancel : function() {
+			this.editable(false, true, "None");
+		},
+		color : function() {
+			this.editable(true, false, "Success");
 		},
 		toggleAreaPriority: function(){
 //			this.getRouter();
