@@ -14,6 +14,8 @@ sap.ui.define([
 		
 		onInit: function() {
 			this.getData();
+			this.GtCat3Set();
+			this.addSnappedLabel();
 		},
 		
 //		_______________________________________
@@ -50,6 +52,18 @@ sap.ui.define([
 	        this.getView().setModel(oModel , "estlist");
 		},
 		
+		GtCat3Set : function() {
+	    	var sServiceUrl= "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/sap/opu/odata/sap/Z_FUNC_ESTIMATE_TEST_SRV";
+				
+	        var url = "/getcat3Set";
+	        var oDataModel= new sap.ui.model.odata.ODataModel(sServiceUrl,true);
+	        var data;
+	        oDataModel.read(url, null, null, false, function(oData) {
+	        data = oData.results;});
+	        var oModel = new sap.ui.model.json.JSONModel({ "cat3" : data});
+	        this.getView().setModel(oModel);
+	     },
+	     
 		onPress : function (oEvent) {	//계약서 눌렀을 때 
 			var oItem = oEvent.getSource();
 			var oRouter = UIComponent.getRouterFor(this);
@@ -63,6 +77,42 @@ sap.ui.define([
 			oRouter.navTo("estlookup", {
 				EstPath: routerData
 			});
-		}
+		},
+//필터바 메세지 출력
+		onReset: function(oEvent) {
+			jQuery.sap.require("sap.m.MessageToast");
+			// var params = oEvent.getParameters();
+			var sMessage = "onReset trigered";
+			sap.m.MessageToast.show(sMessage);
+		},
+		
+		onSearch: function(oEvent) {
+			jQuery.sap.require("sap.m.MessageToast");
+			// var params = oEvent.getParameters();
+			var sMessage = "onSearch trigered";
+			sap.m.MessageToast.show(sMessage);
+		},
+//필터바 숨기기 토글 로직
+		onToggleHeader: function () {
+			this.getPage().setHeaderExpanded(!this.getPage().getHeaderExpanded());
+		},
+		
+		addSnappedLabel : function() {
+			var oSnappedLabel = this.getSnappedLabel();
+			oSnappedLabel.attachBrowserEvent("click", this.onToggleHeader, this);
+			this.getPageTitle().addSnappedContent(oSnappedLabel);
+		},
+		
+		getSnappedLabel : function () {
+			return new sap.m.Label({text: " "});
+		},
+		
+		getPageTitle: function() {
+			return this.getPage().getTitle();
+		},
+		getPage : function() {
+			return this.getView().byId("dynamicPageId");
+		},
+
 	});
 });
