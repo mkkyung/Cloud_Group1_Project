@@ -1,54 +1,192 @@
-<mvc:View
-	height="100%"
+<mvc:View height="100%"
 	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.estlookup"
-	xmlns:f="sap.ui.layout.form"
-	xmlns:core="sap.ui.core"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m">
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:ux="sap.uxap" xmlns:sample="sap.uxap.sample.AnchorBar.block"
+	xmlns:blockcolor="sap.uxap.sample.SharedBlocks"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
 	<Page title="견적서 상세 화면" showNavButton="true"
-			navButtonPress="goBack">
-			<headerContent>
-				<Button text="계약서 조회" id="button" press=".onShow" />
-			</headerContent>
+		navButtonPress="goBack">
+		<headerContent>
+			<Button type="Accept" text="계약서 조회" id="button"
+				press=".onShow" />
+		</headerContent>
+
+		<!-- <ux:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false"> -->
+
+
+		<!-- <ux:headerTitle> -->
+		<!-- <ux:ObjectPageHeader objectTitle="견적번호"> -->
+		<!-- </ux:ObjectPageHeader> -->
+		<!-- </ux:headerTitle> -->
+
+		<!-- <ux:headerContent> -->
+		<!-- <ObjectAttribute title="유효 여부" text="" state="Success" /> -->
+		<!-- <ObjectAttribute title="견적일자" text="2019.10.31" /> -->
+		<!-- <ObjectAttribute title="품명" text="컴퓨터" /> -->
+		<!-- </ux:headerContent> -->
+
+		<!-- <ux:sections> -->
+		<!-- <ux:ObjectPageSection title="공급업체 조회"> -->
+		<!-- <ux:subSections> -->
+		<!-- <ux:ObjectPageSubSection title=""> -->
+		<!-- </ux:ObjectPageSubSection> -->
+		<!-- </ux:subSections> -->
+		<!-- </ux:ObjectPageSection> -->
+
+		<!-- <ux:ObjectPageSection title="Section 3"> -->
+		<!-- <ux:subSections> -->
+		<!-- <ux:ObjectPageSubSection title=" "> -->
+		<!-- <ux:blocks> -->
+		<!-- </ux:blocks> -->
+		<!-- </ux:ObjectPageSubSection> -->
+		<!-- </ux:subSections> -->
+		<!-- </ux:ObjectPageSection> -->
+
+		<!-- </ux:sections> -->
+
+		<!-- </ux:ObjectPageLayout> -->
+
+
+
 		<content>
-			<ObjectHeader
-				title="견적번호"
-				backgroundDesign="Solid">
-<!-- 				number="{ -->
-<!-- 					parts:[{path:'Price'},{path:'CurrencyCode'}], -->
-<!-- 					type: 'sap.ui.model.type.Currency', -->
-<!-- 					formatOptions: {showMeasure: false} -->
-<!-- 				}" -->
-<!-- 				numberUnit="{CurrencyCode}" > -->
+			<ObjectHeader title="견적번호" backgroundDesign="Solid">
+				<!-- number="{ -->
+				<!-- parts:[{path:'Price'},{path:'CurrencyCode'}], -->
+				<!-- type: 'sap.ui.model.type.Currency', -->
+				<!-- formatOptions: {showMeasure: false} -->
+				<!-- }" -->
+				<!-- numberUnit="{CurrencyCode}" > -->
 				<attributes>
+					<ObjectAttribute title="유효 여부" text=""
+						state="Success" />
 					<ObjectAttribute title="견적일자" text="2019.10.31" />
 					<ObjectAttribute title="품명" text="컴퓨터" />
 				</attributes>
-				<statuses>
-					<ObjectStatus title="유효 여부" text="" state="Success" />
-				</statuses>
+
 			</ObjectHeader>
-			<IconTabBar
-				expanded=""
+			<IconTabBar expanded=""
 				class="sapUiSmallMarginBottom sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter
-						text="견적서 상세 조회">
-						<f:SimpleForm
-							minWidth="1024"
-							maxContainerCols="2"
-							layout="ResponsiveGridLayout" >
-							<f:title>
-								<core:Title text="견적서 상세 사항" />
-							</f:title>
-							<Label text="{estlist>EstNo}"/>
-							<Text  text="Value"/>
-						</f:SimpleForm>
-					</IconTabFilter>
-					<IconTabFilter
-						text="Attachments">
-						<List headerText="A List" showSeparators="Inner" >
-						</List>
+					<IconTabFilter text="견적서 상세 조회">
+						<VBox class="sapUiSmallMargin">
+							<f:SimpleForm id="Form1" editable="false"
+								layout="ResponsiveGridLayout" title="공급업체 설명" labelSpanXL="4"
+								labelSpanL="3" labelSpanM="12" labelSpanS="12"
+								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2"
+								columnsM="1" singleContainerFullSize="false">
+								<f:content>
+									<core:Title text="" />
+									<Label text="공급업체명" />
+									<Text text="1100" />
+									<Label text="공급업체 코드" />
+									<Text text="452" />
+									<Label text="사업자 등록번호" />
+									<Text text="452" />
+									<Label text="공급업체 주소" />
+									<Text text="452" />
+									<Label text="대표자" />
+									<Text text="99999999" />
+									<core:Title text="" />
+									<Label text="업태" />
+									<Text text="452" />
+									<Label text="종목" />
+									<Text text="452" />
+									<Label text="이메일" />
+									<Text text="452" />
+									<Label text="제조사" />
+									<Text text="452" />
+								</f:content>
+							</f:SimpleForm>
+<!-- 							<f:SimpleForm id="Form2" editable="false" -->
+<!-- 								layout="ResponsiveGridLayout" title="제퓸 설명 " labelSpanXL="1" -->
+<!-- 								labelSpanL="1" labelSpanM="12" labelSpanS="12" -->
+<!-- 								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" -->
+<!-- 								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" -->
+<!-- 								columnsM="1" singleContainerFullSize="false"> -->
+<!-- 								<f:content> -->
+									<!-- <core:Title text="" /> -->
+									<!-- <Label text="대분류 코드" /> -->
+									<!-- <Text text="1100" /> -->
+									<!-- <Label text="중분류 코드" /> -->
+									<!-- <Text text="452" /> -->
+									<!-- <Label text="제품명" /> -->
+									<!-- <Text text="452" /> -->
+									<!-- <Label text="제품코드" /> -->
+									<!-- <Text text="452" /> -->
+									<!-- <Label text="비고" /> -->
+									<!-- <Text text="452" /> -->
+									<!-- <core:Title text="" /> -->
+									<!-- <Label text="수량" /> -->
+									<!-- <Text text="99999999" /> -->
+									<!-- <Label text="단가" /> -->
+									<!-- <Text text="452" /> -->
+									<!-- <Label text="총금액" /> -->
+									<!-- <Text text="452" /> -->
+									<!-- <Label text="금액단위" /> -->
+									<!-- <Text text="452" /> -->
+									<f:SimpleForm title="제품 설명" layout="ResponsiveGridLayout">
+									</f:SimpleForm>
+									<Table items="{estlist>/data}" id="esttable"
+										inset="false">
+										<columns>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="대분류 코드" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="중분류 코드" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="제품명" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="제품코드" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="수량" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="단가" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="공급업체코드" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="수량" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="단가" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="총금액" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="금액단위" />
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem type="Navigation"
+												vAlign="Middle" press=".onPress">
+												<cells>
+													<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
+													<Text text="{estlist>EstNo}" />
+													<Text text="{estlist>EstAva}" />
+													<Text text="{estlist>EstCat1}" />
+													<Text text="{estlist>EstCat2}" />
+													<Text text="{estlist>EstCat3}" />
+													<Text text="{estlist>EstVname}" />
+													<Text text="{estlist>EstVcode}" />
+													<Text text="{estlist>EstAmt}" />
+													<Text text="{estlist>EstPrice}" />
+													<Text text="{estlist>EstTotal}" />
+													<Text text="{estlist>EstCuky}" />
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+<!-- 								</f:content> -->
+<!-- 							</f:SimpleForm> -->
+						</VBox>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
