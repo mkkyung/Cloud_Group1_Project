@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View
 	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.po.View7"
-	xmlns:core="sap.ui.core"
-	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
-	xmlns:fb="sap.ui.comp.filterbar" xmlns:f="sap.f">
+	xmlns:core="sap.ui.core" 
+	xmlns:t="sap.ui.table" xmlns="sap.m" xmlns:u="sap.uxap" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:f="sap.f" xmlns:fA="sap.ui.layout.form">
 	
 	<App id="apps">
 		<Page title="view7 : 발주조회" showNavButton="true"
@@ -13,6 +13,17 @@
 			<headerContent>
 			<Button text="next" id="button" type="Reject" press=".onShow" />
 				<!-- <Button text="next" id="button" type="Reject" press=".onShow" /> -->
+		   
+					<Button id="update" icon="sap-icon://edit" type="Emphasized"
+						press="edit" visible="{edit>/Edit}" />
+					<Button id="enter" icon="sap-icon://save" type="Emphasized"
+						visible="{enter>/Enter}" press="enter" />
+					<Button icon="sap-icon://delete" type="Reject" visible="{edit>/Edit}"/>
+					<Button icon="sap-icon://reset" type="Reject" visible="{cancel>/Cancel}" press="cancel" />
+					<Button icon="sap-icon://action" type="Transparent" />
+			
+			
+			
 			</headerContent>
 		
 					<IconTabBar
@@ -43,7 +54,7 @@
 												</Input>
 											</fb:control>
 										</fb:FilterItem>
-										
+									
 										<fb:FilterItem name="B" label="발주일자">
 											<fb:control>
 												<DatePicker id="B"
@@ -154,70 +165,185 @@
 <!-- 			</f:DynamicPageHeader> -->
 
 			<!-- DynamicPage Content -->
-			<Table items="{estlist>/data}" id="esttable" inset="false">
-				<columns>
-				    <Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="발주번호" />
-					</Column>
-				    <Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="발주일자" />
-					</Column>
+		
+		<fA:SimpleForm id="Form1" editable="false"
+								layout="ResponsiveGridLayout" title="PO_NO LIST" labelSpanXL="4"
+								labelSpanL="3" labelSpanM="12" labelSpanS="12"
+								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2"
+								columnsM="1" singleContainerFullSize="false" >
+								
+								
+								
+								</fA:SimpleForm>
+		
+		  <t:Table id ="po_no" rows="{/PoCollection}" selectionMode="Single"
+				visibleRowCount="7">
+		   <t:columns>
+		    <t:Column>
+		     <Label text = "발주번호"/>
+		      <t:template>
+		       <Text text= "{poNo}"/>
+		      </t:template>
+		    </t:Column>
+		    <t:Column>
+		     <Label text = "발주일자"/>
+		      <t:template>
+		       <Text text= "{poDate}"/>
+		      </t:template>
+		    </t:Column>
+		    <t:Column>
+		     <Label text = "제품명"/>
+		      <t:template>
+		       <Text text= "{poCat3}"/>
+		      </t:template>
+		    </t:Column>
+		    <t:Column>
+		     <Label text = "공급업체"/>
+		      <t:template>
+		       <Text text= "{poVname}"/>
+		      </t:template>
+		    </t:Column>
+		    <t:Column>
+		     <Label text = "공급업체코드"/>
+		      <t:template>
+		       <Text text= "{poVcode}"/>
+		      </t:template>
+		    </t:Column>
+		    <t:Column>
+		     <Label text = "잔여수량"/>
+		      <t:template>
+		       <Text text= "{poTotal}"/>
+		      </t:template>
+		    </t:Column>
+		    
+		      <t:Column>
+		     <Label text = "발주수량"/>
+		      <t:template>
+		       <Input value = "{poAmt}" editable="false" />
+		      </t:template>
+		    </t:Column>
+		    <t:Column>
+		     <Label text = "단가"/>
+		      <t:template>
+		       <Text text= "{poEprice}"/>
+		      </t:template>
+		    </t:Column>
+		    <t:Column>
+		     <Label text = "총금액"/>
+		      <t:template>
+		       <Text text= "{poTprice}"/>
+		      </t:template>
+		    </t:Column>
+		    <t:Column>
+		     <Label text = "입고예정일"/>
+		      <t:template>
+		       <Text text= "{poDdate}"/>
+		      </t:template>
+		    </t:Column>
+		    <t:Column>
+		     <Label text = "결제예정일"/>
+		      <t:template>
+		       <Text text= "{poEtc}"/>
+		      </t:template>
+		    </t:Column>
+		    
+		   </t:columns>
+		  </t:Table>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<!-- 			<Table id="esttable" inset="false"> -->
+<!-- 			rows="{/ProductCollection}" --> 
+				
+<!-- 				<columns> -->
+<!-- 				    <Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="발주번호" /> -->
+<!-- 					</Column> -->
+<!-- 				    <Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="발주일자" /> -->
+<!-- 					</Column> -->
 				   
 				   
 				   
 					
 				
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="제품명" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="공급업체명" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="공급업체코드" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="잔여수량" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="발주수량" />
-					</Column>
+<!-- 					<Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="제품명" /> -->
+<!-- 					</Column> -->
+<!-- 					<Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="공급업체명" /> -->
+<!-- 					</Column> -->
+<!-- 					<Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="공급업체코드" /> -->
+<!-- 					</Column> -->
+<!-- 					<Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="잔여수량" /> -->
+<!-- 					</Column> -->
+<!-- 					<Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="발주수량" /> -->
+<!-- 					</Column> -->
 					
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="단가" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="총금액" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="입고예정일" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="결제예정일" />
-					</Column>
+<!-- 					<Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="단가" /> -->
+<!-- 					</Column> -->
+<!-- 					<Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="총금액" /> -->
+<!-- 					</Column> -->
+<!-- 					<Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="입고예정일" /> -->
+<!-- 					</Column> -->
+<!-- 					<Column minScreenWidth="Tablet" demandPopin="true"> -->
+<!-- 						<Text text="결제예정일" /> -->
+<!-- 					</Column> -->
 					
-				</columns>
-				<items>
-					<ColumnListItem type="Navigation" vAlign="Middle"
-						press=".onPress">
-						<cells>
-							<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
-							<Text text="{estlist>EstNo}" />
-							<Text text="{estlist>EstAva}" />
-							<Text text="{estlist>EstCat1}" />
-							<Text text="{estlist>EstCat2}" />
-							<Text text="{estlist>EstCat3}" />
-							<Text text="{estlist>EstVname}" />
-							<Text text="{estlist>EstVcode}" />
-							<Text text="{estlist>EstAmt}" />
-							<Text text="{estlist>EstPrice}" />
-							<Text text="{estlist>EstTotal}" />
-							<Text text="{estlist>EstDate}" />
-							<Text text="{estlist>EstCuky}" />
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
+<!-- 				</columns> -->
+<!-- 				<items> -->
+<!-- 					<ColumnListItem type="Navigation" vAlign="Middle" -->
+<!-- 						press=".onPress"> -->
+<!-- 						<cells> -->
+<!-- 							<ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
+<!-- 							<Text text="A" /> -->
+<!-- 							<Text text="B" /> -->
+<!-- 							<Text text="C" /> -->
+<!-- 							<Text text="D" /> -->
+<!-- 							<Text text="E" /> -->
+<!-- 							<Text text="F" /> -->
+<!-- 							<Text text="G" /> -->
+<!-- 							<Text text="H" /> -->
+<!-- 							<Text text="I" /> -->
+<!-- 							<Text text="J" /> -->
+<!-- 							<Text text="K" /> -->
+<!-- 							<Text text="L" /> -->
+<!-- 						</cells> -->
+<!-- 					</ColumnListItem> -->
+<!-- 				</items> -->
+<!-- 			</Table> -->
 		</Page>
 	</App>
 </mvc:View>

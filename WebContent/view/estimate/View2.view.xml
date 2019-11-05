@@ -1,95 +1,308 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View
 	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.View2"
-	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:fb="sap.ui.comp.filterbar" xmlns:f="sap.f">
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:f="sap.f"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
 	<App id="apps">
 		<Page title="view2 : 견적상세" showNavButton="true"
 			navButtonPress="goBack">
 			<Button text="button" press="getData" />
 			<headerContent text="view2">
-				<Button text="next" id="button" type="Reject" press=".onShow" />
+				<!-- <Button text="next" id="button" type="Reject" press=".onShow" /> -->
 			</headerContent>
-			<f:DynamicPageHeader pinnable="false"
-				destroyContent="true">	 <!-- pinnable 고정여부 -->
-				<f:content>
+
 			<IconTabBar id="idIconTabBar"
 				select="handleIconTabBarSelect"
 				class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter showAll="true"
-						count="{/ProductCollectionStats/Counts/Total}" text="전체조회"
-						key="All" />
+
+					<IconTabFilter showAll="true" text="전체조회" key="All">
+						<fb:FilterBar reset="onReset" search="onSearch"
+							showRestoreButton="true" showClearButton="true">
+
+							<fb:filterItems>
+
+								<fb:FilterItem name="1A" label="대분류"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="001" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="1B" label="중분류"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="002" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="1C" label="제품명 및 코드"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox showSecondaryValues="true"
+											items="{
+															path: '/CountriesCollection', 
+															sorter: { path: 'text' } 
+ 														}">
+											<core:ListItem key="{key}" text="{text}"
+												additionalText="{key}" />
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="1D" label="공급업체명"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="003" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="1E" label="공급업체 코드"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="004" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="1F" label="견적일자">
+									<fb:control>
+										<DatePicker id="1C1"
+											value="{
+												 path:'/dateValue', 
+												 type:'sap.ui.model.type.Date', 
+												 formatOptions: { 
+												 style: 'medium', 
+												 strictParsing: true
+												 } 
+												 }"
+											class="sapUiSmallMarginBottom" />
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="1G" label="제조사"
+									labelTooltip="Tooltip Example">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="005" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+							</fb:filterItems>
+						</fb:FilterBar>
+
+					</IconTabFilter>
 					<IconTabSeparator />
 					<IconTabFilter icon="sap-icon://begin"
-						iconColor="Positive"
-						count="{/ProductCollectionStats/Counts/Weight/Ok}" text="유효"
-						key="Ok" />
+						iconColor="Positive" text="유효" key="ok">
+						<fb:FilterBar reset="onReset" search="onSearch"
+							showRestoreButton="true" showClearButton="true">
+
+							<fb:filterItems>
+
+								<fb:FilterItem name="2A" label="대분류"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="001" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="2B" label="중분류"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="002" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="2C" label="제품명 및 코드"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox showSecondaryValues="true"
+											items="{
+															path: '/CountriesCollection', 
+															sorter: { path: 'text' } 
+ 														}">
+											<core:ListItem key="{key}" text="{text}"
+												additionalText="{key}" />
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="2D" label="공급업체명"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="003" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="2E" label="공급업체 코드"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="004" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="2F" label="견적일자">
+									<fb:control>
+										<DatePicker id="2C1"
+											value="{
+												 path:'/dateValue', 
+												 type:'sap.ui.model.type.Date', 
+												 formatOptions: { 
+												 style: 'medium', 
+												 strictParsing: true
+												 } 
+												 }"
+											class="sapUiSmallMarginBottom" />
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="2G" label="제조사"
+									labelTooltip="Tooltip Example">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="005" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+							</fb:filterItems>
+						</fb:FilterBar>
+					</IconTabFilter>
 					<IconTabFilter icon="sap-icon://inventory"
-						iconColor="Negative"
-						count="{/ProductCollectionStats/Counts/Weight/Overweight}"
-						text="비유효" key="Overweight" />
+						iconColor="Negative" text="비유효" key="nob">
+						<fb:FilterBar reset="onReset" search="onSearch"
+							showRestoreButton="true" showClearButton="true">
+
+							<fb:filterItems>
+
+								<fb:FilterItem name="3A" label="대분류"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="001" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="3B" label="중분류"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="002" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="3C" label="제품명 및 코드"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox showSecondaryValues="true"
+											items="{
+															path: '/CountriesCollection', 
+															sorter: { path: 'text' } 
+ 														}">
+											<core:ListItem key="{key}" text="{text}"
+												additionalText="{key}" />
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="3D" label="공급업체명"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="003" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="3E" label="공급업체 코드"
+									labelTooltip="Tooltip Example" mandatory="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="004" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="3F" label="견적일자">
+									<fb:control>
+										<DatePicker id="3C1"
+											value="{
+												 path:'/dateValue', 
+												 type:'sap.ui.model.type.Date', 
+												 formatOptions: { 
+												 style: 'medium', 
+												 strictParsing: true
+												 } 
+												 }"
+											class="sapUiSmallMarginBottom" />
+									</fb:control>
+								</fb:FilterItem>
+
+								<fb:FilterItem name="3G" label="제조사"
+									labelTooltip="Tooltip Example">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="005" text="EMEA" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+
+							</fb:filterItems>
+						</fb:FilterBar>
+					</IconTabFilter>
 				</items>
 			</IconTabBar>
-					<fb:FilterBar id="filterbar" reset="onReset"
-						search="onSearch" useToolbar="false" showGoOnFB="false"> <!-- search="onSearch" -->
-						<fb:filterItems>
-							<fb:FilterItem name="A" label="계약구분">
-								<fb:control>
-									<!-- <Select id="slName" forceSelection="true" change="onSelectChange" -->
-									<!-- items="{path: '/ProductNames'}"> -->
-									<!-- <core:Item key="{key}" text="{name}"/> -->
-									<!-- </Select> -->
-									<!-- <Label text="제목" design="Bold" labelFor="title" class="sapUiSmallMarginTop"/> -->
-									<Input id="A" required="true" />
-								</fb:control>
-							</fb:FilterItem>
-							<fb:FilterItem name="B" label="계약번호">
-								<fb:control>
-									<Input id="B" required="true" />
-								</fb:control>
-							</fb:FilterItem>
-							<fb:FilterItem name="C" label="계약일자">
-								<fb:control>
-									<DatePicker id="C"
-										value="{
-									path:'/dateValue', 
-									type:'sap.ui.model.type.Date', 
-									formatOptions: { 
-										style: 'medium', 
-										strictParsing: true
-										}
-									}"
-										class="sapUiSmallMarginBottom" />
-								</fb:control>
-							</fb:FilterItem>
-							<fb:FilterItem name="D" label="공급업체명">
-								<fb:control>
-									<Input id="D" required="true" />
-								</fb:control>
-							</fb:FilterItem>
-							<fb:FilterItem name="E" label="사업자등록증">
-								<fb:control>
-									<Input id="E" required="true" />
-								</fb:control>
-							</fb:FilterItem>
-							<fb:FilterItem name="F" label="종료일자">
-								<fb:control>
-									<DatePicker id="F"
-										value="{
-									path:'/dateValue', 
-									type:'sap.ui.model.type.Date', 
-									formatOptions: { 
-										style: 'medium', 
-										strictParsing: true
-										}
-									}"
-										class="sapUiSmallMarginBottom" />
-								</fb:control>
-							</fb:FilterItem>
-						</fb:filterItems>
-					</fb:FilterBar>
-				</f:content>
-			</f:DynamicPageHeader>
+			<VBox class="sapUiSmallMargin">
 			<Table items="{estlist>/data}" id="esttable" inset="false">
 				<columns>
 					<Column minScreenWidth="Tablet" demandPopin="true">
@@ -131,9 +344,9 @@
 				</columns>
 				<items>
 					<ColumnListItem type="Navigation" vAlign="Middle"
-					press=".onPress">
+						press=".onPress">
 						<cells>
-<!-- 							<ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
+							<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
 							<Text text="{estlist>EstNo}" />
 							<Text text="{estlist>EstAva}" />
 							<Text text="{estlist>EstCat1}" />
@@ -150,6 +363,9 @@
 					</ColumnListItem>
 				</items>
 			</Table>
+			<!-- </f:content> -->
+			<!-- </f:DynamicPage> -->
+			</VBox>
 		</Page>
 	</App>
 </mvc:View>

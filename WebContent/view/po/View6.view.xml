@@ -10,6 +10,8 @@
 			navButtonPress="goBack">
 			<Button text="button" press="getData" />
 			<headerContent text="view2">
+			     <Button id="enter" icon="sap-icon://save" type="Emphasized"
+						press=".onPress"/>
 				<Button text="next" id="button" type="Reject" press=".onShow" />
 			</headerContent>
 			<IconTabBar

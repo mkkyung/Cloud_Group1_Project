@@ -3,9 +3,9 @@ sap.ui.define([
 	"sap/ui/core/routing/History",
 	"sap/ui/core/UIComponent",
 	'sap/ui/core/Fragment',
-	'sap/ui/model/Filter'
-//	'jquery.sap.global'
-], function(Controller, History, UIComponent, Fragment, Filter) {
+	'sap/ui/model/Filter',
+	'sap/m/MessageBox'
+], function(Controller, History, UIComponent, Fragment, Filter, MessageBox) {
 	"use strict";
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.po.View6", {
@@ -48,7 +48,7 @@ sap.ui.define([
 //				EstPath: routerData
 //			});
 //		},
-
+		
 		onShow : function(){
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("view7");
@@ -118,6 +118,30 @@ sap.ui.define([
 			sKey = oItem ? oItem.getKey() : '';
 
 		oText.setText(sKey);
+	},
+	
+	onPress : function (oEvent) {	//계약서 눌렀을 때 
+//		var oItem = oEvent.getSource();
+		var oRouter = UIComponent.getRouterFor(this);
+//		var routerData = oItem.mAggregations.cells[1].mProperties.text;
+
+		var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
+		MessageBox.warning(
+				"발주서를 등록하시겠습니까?\n"  + "한번 발주서 등록 시 변경이 불가능합니다.",
+				{
+					icon: MessageBox.Icon.WARNING,
+					title: "발주서 등록",
+					actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
+					styleClass: bCompact ? "sapUiSizeCompact" : "",
+					initialFocus: MessageBox.Action.CANCEL,
+					onClose: function(oAction){
+						if(oAction == 'OK'){
+							//abap 데이터 저장 로직 추가
+							oRouter.navTo("view7");
+						}
+					}
+				}
+		);
 	}
 	
 });
