@@ -11,20 +11,21 @@
 
 		<content>
 			<ObjectHeader title="견적번호" backgroundDesign="Solid">
-				<!-- number="{ -->
-				<!-- parts:[{path:'Price'},{path:'CurrencyCode'}], -->
-				<!-- type: 'sap.ui.model.type.Currency', -->
-				<!-- formatOptions: {showMeasure: false} -->
-				<!-- }" -->
-				<!-- numberUnit="{CurrencyCode}" > -->
 				<attributes>
 					<ObjectAttribute id="" title="유효 여부" text="" state="Success" />
 					<ObjectAttribute title="견적일자" text="2019.10.31" />
 					<ObjectAttribute title="품명" text="컴퓨터" />
-					<ObjectAttribute title="총 합계 금액" text="123456789" /> 
+					<ObjectAttribute title="총 합계 금액" text="{sum>/sum}" />
 				</attributes>
-
 			</ObjectHeader>
+				<ObjectNumber title="총 합계 금액"
+						class="sapUiSmallMarginBottom"
+						number="{
+						parts:[{path: '{sum>/sum}'},{path:'view>/currency'}], 
+						type: 'sap.ui.model.type.Currency', 
+						formatOptions: {showMeasure: false} 
+						}" 
+						numberUnit="{view>/currency}" /> 
 			<IconTabBar expanded=""
 				class="sapUiSmallMarginBottom sapUiResponsiveContentPadding">
 				<items>
@@ -269,6 +270,7 @@
 										<items>
 											<ColumnListItem type="Navigation"
 												vAlign="Middle" press=".onPress">
+												
 												<cells>
 													<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
 													<Text text="{estlist>EstNo}" />
@@ -280,9 +282,23 @@
 													<Text text="{estlist>EstVcode}" />
 													<Text text="{estlist>EstAmt}" />
 													<Text text="{estlist>EstPrice}" />
+														<ObjectNumber
+													number="{
+														parts:[{path: 'estlist>EstTotal'},{path:'view>/currency'}],
+														type: 'sap.ui.model.type.Currency',
+														formatOptions: {showMeasure: false}
+													}"/>
+<!-- 													<ObjectNumber -->
+<!-- 													number="{ -->
+<!-- 														parts:[{path: 'estlist>EstTotal'},{path:'view>/currency'}],  -->
+<!-- 														type: 'sap.ui.model.type.Currency',  -->
+<!-- 														formatOptions: {showMeasure: false}  -->
+<!-- 													}"  -->
+<!-- 													numberUnit="{view>/currency}" /> -->
 													<Text text="{estlist>EstTotal}" />
 													<Text text="{estlist>EstCuky}" />
 												</cells>
+
 											</ColumnListItem>
 										</items>
 									</Table>
