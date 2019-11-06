@@ -7,9 +7,9 @@
 	<App id="apps">
 		<Page title="view2 : 견적상세" showNavButton="true"
 			navButtonPress="goBack">
-			<Button text="button" press="getData" />
+<!-- 			<Button text="button" press="getData" /> -->
 			<headerContent text="view2">
-				<!-- <Button text="next" id="button" type="Reject" press=".onShow" /> -->
+				<Button text="검색" id="button" type="Accept" press=".onShow" />
 			</headerContent>
 
 			<IconTabBar id="idIconTabBar"
@@ -303,7 +303,7 @@
 				</items>
 			</IconTabBar>
 			<VBox class="sapUiSmallMargin">
-			<Table items="{estlist>/data}" id="esttable" inset="false">
+ 			<Table items="" id="esttable" inset="false"> <!-- items="{estlist>/data}"  -->
 				<columns>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="견적번호" />
@@ -347,18 +347,30 @@
 						press=".onPress">
 						<cells>
 							<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
-							<Text text="{estlist>EstNo}" />
-							<Text text="{estlist>EstAva}" />
-							<Text text="{estlist>EstCat1}" />
-							<Text text="{estlist>EstCat2}" />
-							<Text text="{estlist>EstCat3}" />
-							<Text text="{estlist>EstVname}" />
-							<Text text="{estlist>EstVcode}" />
-							<Text text="{estlist>EstAmt}" />
-							<Text text="{estlist>EstPrice}" />
-							<Text text="{estlist>EstTotal}" />
-							<Text text="{estlist>EstDate}" />
-							<Text text="{estlist>EstCuky}" />
+<!-- 							<Text text="{estlist>EstNo}" /> -->
+<!-- 							<Text text="{estlist>EstAva}" /> -->
+<!-- 							<Text text="{estlist>EstCat1}" /> -->
+<!-- 							<Text text="{estlist>EstCat2}" /> -->
+<!-- 							<Text text="{estlist>EstCat3}" /> -->
+<!-- 							<Text text="{estlist>EstVname}" /> -->
+<!-- 							<Text text="{estlist>EstVcode}" /> -->
+<!-- 							<Text text="{estlist>EstAmt}" /> -->
+<!-- 							<Text text="{estlist>EstPrice}" /> -->
+<!-- 							<Text text="{estlist>EstTotal}" /> -->
+<!-- 							<Text text="{estlist>EstDate}" /> -->
+<!-- 							<Text text="{estlist>EstCuky}" /> -->
+							<Text text="1" />
+							<Text text="2" />
+							<Text text="3" />
+							<Text text="4" />
+							<Text text="5" />
+							<Text text="6" />
+							<Text text="7" />
+							<Text text="8" />
+							<Text text="9" />
+							<Text text="10" />
+							<Text text="11" />
+							<Text text="12" />
 						</cells>
 					</ColumnListItem>
 				</items>

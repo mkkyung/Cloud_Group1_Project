@@ -14,7 +14,7 @@ sap.ui.define([
 		
 		onInit: function() {
 			this.getData();
-			this.GtCat3Set();
+//			this.GtCat3Set();
 		},
 		
 //		_______________________________________
@@ -50,18 +50,18 @@ sap.ui.define([
 	        var oModel = new sap.ui.model.json.JSONModel({ "data": data });
 	        this.getView().setModel(oModel , "estlist");
 		},
-		
-		GtCat3Set : function() {
-	    	var sServiceUrl= "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/sap/opu/odata/sap/Z_FUNC_ESTIMATE_TEST_SRV";
-				
-	        var url = "/getcat3Set";
-	        var oDataModel= new sap.ui.model.odata.ODataModel(sServiceUrl,true);
-	        var data;
-	        oDataModel.read(url, null, null, false, function(oData) {
-	        data = oData.results;});
-	        var oModel = new sap.ui.model.json.JSONModel({ "cat3" : data});
-	        this.getView().setModel(oModel);
-	     },
+//		
+//		GtCat3Set : function() {
+//	    	var sServiceUrl= "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/sap/opu/odata/sap/Z_FUNC_ESTIMATE_TEST_SRV";
+//				
+//	        var url = "/getcat3Set";
+//	        var oDataModel= new sap.ui.model.odata.ODataModel(sServiceUrl,true);
+//	        var data;
+//	        oDataModel.read(url, null, null, false, function(oData) {
+//	        data = oData.results;});
+//	        var oModel = new sap.ui.model.json.JSONModel({ "cat3" : data});
+//	        this.getView().setModel(oModel);
+//	     },
 	     
 		onPress : function (oEvent) {	//계약서 눌렀을 때 
 			var oItem = oEvent.getSource();
