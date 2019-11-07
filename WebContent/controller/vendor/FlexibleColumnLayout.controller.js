@@ -5,7 +5,7 @@ sap.ui.define([
 ], function (SplitContainer, Device, Controller) {
 	"use strict";
 
-	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.products.FlexibleColumnLayout", {
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.vendor.FlexibleColumnLayout", {
 		onInit: function () {
 			this.bus = sap.ui.getCore().getEventBus();
 			this.bus.subscribe("flexible", "setDetailPage", this.setDetailPage, this);

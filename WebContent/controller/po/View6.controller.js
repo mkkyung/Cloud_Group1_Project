@@ -16,9 +16,11 @@ sap.ui.define([
 //		// the default limit of the model is set to 100. We want to show all the entries.
 //		oModel.setSizeLimit(1000000);
 //		this.getView().setModel(oModel);
-	},
+
 //		_______________________________________
-			
+
+		},
+	
 		getData : function(){
 	        var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000"; // 로컬 서버 연결 하는 거 
 	        sServiceUrl += "/sap/opu/odata/sap/Z_FUNC_ESTIMATE_TEST_SRV";   // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
@@ -73,15 +75,15 @@ sap.ui.define([
 		// create value help dialog
 		if (!this._valueHelpDialog) {
 			this._valueHelpDialog = sap.ui.xmlfragment(
-				"sap.m.sample.InputKeyValue.Dialog",
+				"Cloud_Group1_ProjectCloud_Group1_Project.view.po.Dialog",
 				this
 			);
 			this.getView().addDependent(this._valueHelpDialog);
 		}
 
 		// create a filter for the binding
-		this._valueHelpDialog.getBinding("items").filter([new Filter(
-			"Name",
+		this._valueHelpDialog.getBinding("items").filter([new sap.ui.model.Filter(
+			"EstCat1",
 			sap.ui.model.FilterOperator.Contains, sInputValue
 		)]);
 
@@ -91,8 +93,8 @@ sap.ui.define([
 
 	_handleValueHelpSearch : function (evt) {
 		var sValue = evt.getParameter("value");
-		var oFilter = new Filter(
-			"Name",
+		var oFilter = new sap.ui.model.Filter(
+			"EstCat1",
 			sap.ui.model.FilterOperator.Contains, sValue
 		);
 		evt.getSource().getBinding("items").filter([oFilter]);

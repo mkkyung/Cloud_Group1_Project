@@ -1,5 +1,5 @@
 <mvc:View displayBlock="true"
-	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.products.Detail"
+	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.vendor.Detail"
 	height="100%" xmlns="sap.uxap" xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core" xmlns:m="sap.m" xmlns:f="sap.f"
 	xmlns:form="sap.ui.layout.form">

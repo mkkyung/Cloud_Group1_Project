@@ -3,9 +3,9 @@
 	xmlns:core="sap.ui.core">
 	<TableSelectDialog
 	   noDataText="No Products Found"
-		title="Products"
+		title="PoCollection"
 		class="sapUiPopupWithPadding"
-		items="{estlist>/data}"
+		items="{}"
 		search="_handleValueHelpSearch"
 		confirm="_handleValueHelpClose"
 		cancel="_handleValueHelpClose">
@@ -20,19 +20,15 @@
 				<Text text="{MainData>BName}" />
 				<Text text="{MainData>BName}" />
 				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
+				
+				
 				
 			</cells>
 		</ColumnListItem>
 		<columns>
 			<Column >
 				<header>
-					<Text text="Conttype" />
+					<Text text="Pono" />
 				</header>
 			</Column>
 			<Column
@@ -40,7 +36,7 @@
 				demandPopin="true"
 				>
 				<header>
-					<Text text="Contno" />
+					<Text text="Podate" />
 				</header>
 			</Column>
 			<Column
@@ -48,7 +44,7 @@
 				demandPopin="true"
 				hAlign="Left">
 				<header>
-					<Text text="Contvname" />
+					<Text text="Povname" />
 				</header>
 			</Column>
 			<Column
@@ -56,35 +52,15 @@
 				demandPopin="true"
 				hAlign="Left">
 				<header>
-					<Text text="Contsdate" />
+					<Text text="Pocat3" />
 				</header>
 			</Column>
-			<Column hAlign="Left">
-				<header>
-					<Text text="Contcat3" />
-				</header>
-			</Column>
-			<Column hAlign="Left">
-				<header>
-					<Text text="Contamt" />
-				</header>
-			</Column>
-			<Column hAlign="Left">
-				<header>
-					<Text text="Conteprice" />
-				</header>
-			</Column>
+			
 <!-- 			<Column hAlign="Left"> -->
 <!-- 				<header> -->
 <!-- 					<Text text="Conttprice" /> -->
 <!-- 				</header> -->
 <!-- 			</Column> -->
-			<Column hAlign="Center">
-				<header>
-					<Text text="Contprice" />
-				</header>
-			</Column>
-			
 			
 		</columns>
 			

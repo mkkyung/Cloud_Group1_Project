@@ -220,7 +220,7 @@
 		      <t:Column>
 		     <Label text = "발주수량"/>
 		      <t:template>
-		       <Input value = "{poAmt}" editable="false" />
+		       <Input value = "{poAmt}" valueState="{color>/Color}"  editable="false" />
 		      </t:template>
 		    </t:Column>
 		    <t:Column>

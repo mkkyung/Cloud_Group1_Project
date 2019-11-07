@@ -1,14 +1,16 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-
+	"sap/ui/model/Filter",
 	"sap/ui/core/routing/History",
 	"sap/ui/core/UIComponent",
+	"sap/ui/core/Fragment",
 	"sap/m/routing/Router" 
-], function(Controller, History, UIComponent, Router) {
+], function(Controller, Filter, History, UIComponent, Fragment, Router) {
 	"use strict";
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.po.View7", {
-	onInit: function () {
+
+		onInit: function () {
 		this.bus = sap.ui.getCore().getEventBus();
 		this.editable(false, true, "None");
 		
@@ -232,7 +234,8 @@ sap.ui.define([
 		this.getView().setModel(oJSONModel);
 		//var oModel = new sap.ui.model.json.JSONModel({ "data": testData });
         //this.getView().setModel(oModel , "polist");
-        
+		
+		
         console.log(this.getView().getModel());
 
 	},
@@ -270,6 +273,11 @@ sap.ui.define([
 	color : function() {
 		this.editable(true, false, "Success");
 	},
+//	color : function() {															  //input 태그 valuestate 변경
+//		this.editable(true, false, "Success");
+//	},
+	
+	
 //	toggleAreaPriority: function(){
 ////		this.getRouter();
 //		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -280,6 +288,73 @@ sap.ui.define([
 //	}
 //});
 //}, true);
+	
+	handleValueHelp : function (oEvent) {
+		var sInputValue = oEvent.getSource().getValue();
+
+		this.inputId = oEvent.getSource().getId();
+		// create value help dialog
+		if (!this._valueHelpDialog) {
+			this._valueHelpDialog = sap.ui.xmlfragment(
+				"Cloud_Group1_ProjectCloud_Group1_Project.view.po.Dialog",
+				this
+			);
+			this.getView().addDependent(this._valueHelpDialog);
+		}
+
+		// create a filter for the binding
+		this._valueHelpDialog.getBinding("items").filter([new sap.ui.model.Filter(
+			"EstCat1",
+			sap.ui.model.FilterOperator.Contains, sInputValue
+		)]);
+
+		// open value help dialog filtered by the input value
+		this._valueHelpDialog.open(sInputValue);
+	},
+
+	_handleValueHelpSearch : function (evt) {
+		var sValue = evt.getParameter("value");
+		var oFilter = new sap.ui.model.Filter(
+			"EstCat1",
+			sap.ui.model.FilterOperator.Contains, sValue
+		);
+		evt.getSource().getBinding("items").filter([oFilter]);
+	},
+
+	_handleValueHelpClose : function (evt) {
+		var oSelectedItem = evt.getParameter("selectedItem");
+		if (oSelectedItem) {
+			var productInput = this.getView().byId(this.inputId),
+				oText = this.getView().byId('selectedKey'),
+				sDescription = oSelectedItem.getDescription();
+
+			productInput.setSelectedKey(sDescription);
+			oText.setText(sDescription);
+		}
+		evt.getSource().getBinding("items").filter([]);
+	},
+
+	suggestionItemSelected: function (evt) {
+
+		var oItem = evt.getParameter('selectedItem'),
+			oText = this.getView().byId('selectedKey'),
+			sKey = oItem ? oItem.getKey() : '';
+
+		oText.setText(sKey);
+	},
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	onPress : function (oEvent) {
+		
+	},
 	
 	
 	
