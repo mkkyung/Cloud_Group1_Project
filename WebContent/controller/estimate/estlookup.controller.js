@@ -16,6 +16,13 @@ sap.ui.define([
 			var oRouter = UIComponent.getRouterFor(this);
 			oRouter.getRoute("estlookup").attachPatternMatched(this._onObjectMatched, this);
 			this.getData();
+			
+			
+//			통화 설정
+			var oViewModel = new JSONModel({
+				currency: "KRW"
+			});
+			this.getView().setModel(oViewModel, "view");
 		},
 		
 		_onObjectMatched: function (oEvent) {
@@ -41,6 +48,19 @@ sap.ui.define([
 	        });
 	        var oModel = new sap.ui.model.json.JSONModel({ "data": data });
 	        this.getView().setModel(oModel , "estlist");
+	        
+//	        총합 로직으로 최종 합계 금액은 sum에 담기게 된다 
+	        var aaa = parseInt(oModel.oData.data[0].EstTotal);	// 배열
+	        var bbb = oModel.oData.data.length;
+	        var sum = 0;
+	        var i = 0;
+	        for (i = 0; i < bbb; i++) {
+	        	sum += parseInt(data[i].EstTotal)*1000;
+	        }
+//	        oMdel2에 데이터를 담아줌으로써 sum 변수를 view에 사용
+	        var oModel2 = new sap.ui.model.json.JSONModel({ "sum": sum });
+	        this.getView().setModel(oModel2 , "sum");
+	        
 		},
 	//임시 데이터 전달 필드
 		onShow : function(oEvent){
