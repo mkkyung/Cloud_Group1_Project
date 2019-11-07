@@ -58,6 +58,7 @@ sap.ui.define([
 	        	sum += parseInt(data[i].EstTotal)*1000;
 	        }
 //	        oMdel2에 데이터를 담아줌으로써 sum 변수를 view에 사용
+    		sum =  sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	        var oModel2 = new sap.ui.model.json.JSONModel({ "sum": sum });
 	        this.getView().setModel(oModel2 , "sum");
 	        
@@ -97,6 +98,8 @@ sap.ui.define([
 				oRouter.navTo("view2", {}, true);
 			}
 		},
+		
+
 		
 	});
 
