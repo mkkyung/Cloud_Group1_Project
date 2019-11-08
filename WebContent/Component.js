@@ -16,6 +16,8 @@ sap.ui.define([ "sap/ui/core/UIComponent", "sap/m/routing/Router" ], function(
 //					  "List.view.xml", "Detail.controller.js",
 //					  "Detail.view.xml" ] } },
 
+//					  "Detail.view.xml", "Create.view.xml", "Create.controller.js" ] } },
+
 
 					manifest : "json"
 

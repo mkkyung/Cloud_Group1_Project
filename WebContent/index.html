@@ -11,6 +11,7 @@
 		background-color: white
 	}
 </style>
+
 <script id="sap-ui-bootstrap"
 			src="https://sapui5.hana.ondemand.com/1.52.13/resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m"
@@ -26,14 +27,9 @@
 
 <script>
 	sap.ui.getCore().attachInit(function() {
-		new sap.m.App({
-			pages : [ new sap.m.Page({
-				enableScrolling : false,
-				content : [ new sap.ui.core.ComponentContainer({
+		new sap.ui.core.ComponentContainer({
 					height : "100%",
-					name : "Cloud_Group1_ProjectCloud_Group1_Project"
-				}) ]
-			}) ]
+					name : "Cloud_Group1_ProjectCloud_Group1_Project"			
 		}).placeAt("content");
 	});
 </script>

@@ -1,14 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mvc:View
 	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View3"
-	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"
+	xmlns:fb="sap.ui.comp.filterbar" displayBlock="true">
 	<App id="apps">
 		<Page title="view3 : 계약등록" showNavButton="true"
 			navButtonPress="goBack">
-			<Button text="button" press="getData" />
 			<headerContent text="view3">
 				<Button text="next" id="button" type="Reject" press=".onShow" />
 			</headerContent>
+				<l:VerticalLayout
+		class="sapUiContentPadding"
+		width="100%">
+		<l:content>
+			<Button
+				class="sapUiSmallMarginBottom"
+				text="견적서 불러오기"
+				press="handleTableSelectDialogPress">
+			</Button>
+		</l:content>
+	</l:VerticalLayout>
+
+
+             
+			<fb:FilterBar id="filterbar5" reset="onReset"
+				search="onSearch" useToolbar="false" showGoOnFB="true"> <!-- search="onSearch" -->
+				<fb:filterItems>
+					<fb:FilterItem name="1" label="견적번호">
+						<fb:control>
+							<Input id="1" maxLength="11" />
+						</fb:control>
+					</fb:FilterItem>
+					<fb:FilterItem name="A" label="계약구분">
+						<fb:control>
+							<ComboBox id="A" items="{view>/data}">
+								<items>
+									<core:Item text="{view>Zname}" />
+								</items>
+							</ComboBox>
+						</fb:control>
+					</fb:FilterItem>
+
+					<fb:FilterItem name="B" label="계약번호">
+						<fb:control>
+							<Input id="B" maxLength="11" />
+						</fb:control>
+					</fb:FilterItem>
+
+					<fb:FilterItem name="C" label="대분류명">
+						<fb:control>
+							<ComboBox id="C" items="{view>/data}">
+								<items>
+									<core:Item text="{view>Zname}" />
+								</items>
+							</ComboBox>
+						</fb:control>
+					</fb:FilterItem>
+
+					<fb:FilterItem name="D" label="중분류명">
+						<fb:control>
+							<ComboBox id="D" items="{view>/data}">
+								<items>
+									<core:Item text="{view>Zname}" />
+								</items>
+							</ComboBox>
+						</fb:control>
+					</fb:FilterItem>
+
+					<fb:FilterItem name="E" label="상품명">
+						<fb:control>
+							<Input id="E" maxLength="15" />
+						</fb:control>
+					</fb:FilterItem>
+					<fb:FilterItem name="F" label="공급업체명">
+						<fb:control>
+							<Input id="F" maxLength="15" />
+						</fb:control>
+					</fb:FilterItem>
+					<fb:FilterItem name="G" label="사업자등록증">
+						<fb:control>
+							<Input id="G" maxLength="10" />
+						</fb:control>
+					</fb:FilterItem>
+					<fb:FilterItem name="H" label="계약일자">
+						<fb:control>
+							<DatePicker id="H"
+								value="{
+												path:'/dateValue', 
+												type:'sap.ui.model.type.Date', 
+												formatOptions: { 
+													style: 'medium', 
+													strictParsing: true
+													}
+												}"
+								class="sapUiSmallMarginBottom" change="handleChange" />
+						</fb:control>
+					</fb:FilterItem>
+					<fb:FilterItem name="I" label="종료일자">
+						<fb:control>
+							<DatePicker id="I"
+								value="{
+												path:'/dateValue', 
+												type:'sap.ui.model.type.Date', 
+												formatOptions: { 
+													style: 'medium', 
+													strictParsing: true
+													}
+												}"
+								class="sapUiSmallMarginBottom" change="handleChange2" />
+						</fb:control>
+					</fb:FilterItem>
+
+				</fb:filterItems>
+			</fb:FilterBar>
+			<Table items="{view>/data}" id="idTable"> <!-- items="{path: '/ProductCollection'}" -->
+				<columns>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="계약상태" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="계약구분" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="계약번호" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="공급업체" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="대분류" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="중분류" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="물품명" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="수량" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="단가" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="총합계" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="계약일자" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="종료일자" />
+					</Column>
+
+				</columns>
+
+				<items>
+					<ColumnListItem type="Navigation" vAlign="Middle"
+						press=".onPress" id="idColumnListItem">
+						<cells>
+							<ObjectIdentifier title="{data>/data}" /> <!-- text="{ProductId}" -->
+							<Text text="{view>Zname}" />
+							<Text text="{view>Zcategory}" />
+						</cells>
+
+					</ColumnListItem>
+
+				</items>
+			</Table>
 		</Page>
 	</App>
 </mvc:View>

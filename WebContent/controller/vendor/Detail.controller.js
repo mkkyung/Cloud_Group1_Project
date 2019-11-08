@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (Controller, MessageToast, UIComponent, Router) {
 	"use strict";
 
-	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.products.Detail", {
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.vendor.Detail", {
 		onInit: function () {                         
 			this.editable(false, true, "None");
 		},

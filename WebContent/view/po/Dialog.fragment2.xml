@@ -1,0 +1,71 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+	   noDataText="No Products Found"
+		title="PoCollection"
+		class="sapUiPopupWithPadding"
+		items="{}"
+		search="_handleValueHelpSearch"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose">
+		<ColumnListItem>
+<!-- 		title="{estlist>EstCat1}" -->
+<!-- 			description="{estlist>EstVname}" /> -->
+		
+		<cells>
+				<ObjectIdentifier
+					title="{MainData>BName}"
+					text="{MainData>BName}" />
+				<Text text="{MainData>BName}" />
+				<Text text="{MainData>BName}" />
+				<Text text="{MainData>BName}" />
+				
+				
+				
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column >
+				<header>
+					<Text text="Pono" />
+				</header>
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				>
+				<header>
+					<Text text="Podate" />
+				</header>
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Left">
+				<header>
+					<Text text="Povname" />
+				</header>
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Left">
+				<header>
+					<Text text="Pocat3" />
+				</header>
+			</Column>
+			
+<!-- 			<Column hAlign="Left"> -->
+<!-- 				<header> -->
+<!-- 					<Text text="Conttprice" /> -->
+<!-- 				</header> -->
+<!-- 			</Column> -->
+			
+		</columns>
+			
+			
+			
+			
+	</TableSelectDialog>
+</core:FragmentDefinition>
