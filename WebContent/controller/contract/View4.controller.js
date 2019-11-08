@@ -12,7 +12,25 @@ sap.ui.define([
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View4", {
 		onInit: function() {
-
+		
+	        var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/";	//CORSerror나면 http:// 를 proxy/http/로
+			sServiceUrl +=  "/sap/opu/odata/sap/ZFIORI_STU07_DEV02_SRV/"; // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
+	        var url;
+	
+	        url = "/getData2Set";
+	     
+	        var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl,true);
+	        this.oModel = new JSONModel();
+			var data;
+			oDataModel.read(url, null, null, false, function(oData){
+//				data = oData;
+				data = oData.results;
+			});
+			var oModel = new sap.ui.model.json.JSONModel({ "data" : data });
+//			var oModel = new sap.ui.model.json.JSONModel(data); // {results : [] }
+			this.getView().setModel(oModel, "view"); 
+			
+			
 
 			this.aKeys = [
 				"Zname", "Zcategory"
@@ -27,27 +45,34 @@ sap.ui.define([
 			if (oFB) {
 				oFB.variantsInitialized();
 			}
+		
+			sap.ui.getCore().attachParseError(
+					function(oEvent) {
+						var oElement = oEvent.getParameter("element");
 
-	sap.ui.getCore().attachParseError(
-			function(oEvent) {
-				var oElement = oEvent.getParameter("element");
+						if (oElement.setValueState) {
+							oElement.setValueState(sap.ui.core.ValueState.Error);
+						}
+					});
 
-				if (oElement.setValueState) {
-					oElement.setValueState(sap.ui.core.ValueState.Error);
-				}
-			});
+			sap.ui.getCore().attachValidationSuccess(
+					function(oEvent) {
+						var oElement = oEvent.getParameter("element");
 
-	sap.ui.getCore().attachValidationSuccess(
-			function(oEvent) {
-				var oElement = oEvent.getParameter("element");
+						if (oElement.setValueState) {
+							oElement.setValueState(sap.ui.core.ValueState.None);
+						}
+					});
+		
 
-				if (oElement.setValueState) {
-					oElement.setValueState(sap.ui.core.ValueState.None);
-				}
-			});
+		
+		
+		
+		
+		
+		
 		
 		},
-		
 		handleChange: function (oEvent) {
 			var oText = this.byId("C");
 			var oDP = oEvent.oSource;
@@ -62,7 +87,6 @@ sap.ui.define([
 				oDP.setValueState(sap.ui.core.ValueState.Error);
 			}
 		},
-		
 		handleChange2: function (oEvent) {
 			var oText = this.byId("F");
 			var oDP = oEvent.oSource;
@@ -78,53 +102,13 @@ sap.ui.define([
 			}
 		},
 
-
 		
 		getSelect: function(sId) {
 			return this.getView().byId(sId);
 		},
 		
-		getServerUrl : function(url) {
-			if(!url ){
-				url = "/getData2Set";
-			}
-			
-			var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/";	//CORSerror나면 http:// 를 proxy/http/로
-			sServiceUrl +=  "/sap/opu/odata/sap/ZFIORI_STU07_DEV02_SRV/"; // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
-	
-	     
-	        var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl,true);
-	        this.oModel = new JSONModel();
-			var data;
-			oDataModel.read(url, null, null, false, function(oData){
-//				data = oData;
-				data = oData.results;
-			});
-			var oModel = new sap.ui.model.json.JSONModel({ "data" : data });
-			this.getView().setModel(oModel, "view"); 
-						
-		},
-
-		handleIconTabBarSelect: function (oEvent) {
-			var url;
-			var tabBar =this.getView().byId("idIconTabBar");
-			var ii = tabBar.mProperties.selectedKey;
-//			조건 넣기
-//			var title = this.byId("title").getValue().toUpperCase();
-			
-			if(ii == "All"){				
-				url = "/getData2Set";
-			}else if(ii == "A"){
-
-				url = "/getData2Set?$filter=LvTitle eq '" + ii +"'" ;
-			}
-			
-			this.getServerUrl(url);
-			
-		},
-		
 //		__________________________________________________________________
-
+	
 		
 		goBack : function(oEvent) {
 			var oHistory = History.getInstance();
@@ -142,6 +126,7 @@ sap.ui.define([
 			var oItem = oEvent.getSource();
 			var oRouter = UIComponent.getRouterFor(this);
 			var routerData = oItem.mAggregations.cells[1].mProperties.text;
+			
 
 			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
 			MessageBox.warning(
