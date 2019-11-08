@@ -10,51 +10,25 @@
 		</headerContent>
 
 		<content>
-			<!-- <ObjectHeader title="견적번호" backgroundDesign="Solid"> -->
-			<!-- <attributes> -->
-			<!-- <ObjectAttribute id="" title="유효 여부" text="" -->
-			<!-- state="Success" /> -->
-			<!-- <ObjectAttribute title="견적일자" text="2019.10.31" /> -->
-			<!-- <ObjectAttribute title="품명" text="컴퓨터" /> -->
-			<!-- <ObjectAttribute title="총 합계 금액" text="{sum>/sum}" /> -->
-			<!-- </attributes> -->
-			<!-- <statuses> -->
-			<!-- <ObjectStatus title="공급업체명" text="Some Damaged" /> -->
-			<!-- <ObjectStatus text="In Stock" /> -->
-			<!-- </statuses> -->
-			<!-- <statuses> -->
-			<!-- <ObjectStatus title="공급업체명" text="Some Damaged" /> -->
-			<!-- <ObjectStatus text="In Stock" /> -->
-			<!-- </statuses> -->
-			<!-- </ObjectHeader> -->
-			<!-- <ObjectNumber title="총 합계 금액" -->
-			<!-- class="sapUiSmallMarginBottom" -->
-			<!-- number="{ -->
-			<!-- parts:[{path: '{sum>/sum}'},{path:'view>/currency'}], -->
-			<!-- type: 'sap.ui.model.type.Currency', -->
-			<!-- formatOptions: {showMeasure: false} -->
-			<!-- }" -->
-			<!-- numberUnit="{view>/currency}" /> -->
-
-			<l:Grid defaultSpan="L4 M6 S6" class="white" >
-				
-					<l:VerticalLayout class="sapUiTinyMarginEnd" >
-						<Title level="H2" titleStyle="H2" text="견적번호"
-							class="sapUiMediumMarginBottom" />
-						<Text text="유효여부" class="sapUiTinyMarginBottom" />
-						<Text text="상품명" class="sapUiTinyMarginBottom" />
-						<Text text="총금액"  class="sapUiTinyMarginBottom" />
-					</l:VerticalLayout>
-					<l:VerticalLayout class="sapUiTinyMarginEnd">
-						<Title level="H2" titleStyle="H2" text="공급업체"
-							class="sapUiMediumMarginBottom" />
-						<Text text="공급업체명" class="sapUiTinyMarginBottom" />
-						<Text text="공급업체코드" class="sapUiTinyMarginBottom" />
-						<Text text="사업자등록번호"  class="sapUiTinyMarginBottom" />
-					</l:VerticalLayout>				
+			<l:Grid defaultSpan="L4 M6 S6" class="white">
+				<l:VerticalLayout class="sapUiTinyMarginEnd">
+					<Title level="H2" titleStyle="H2" text="견적번호"
+						class="sapUiMediumMarginBottom" />
+					<Text text="유효여부" class="sapUiTinyMarginBottom" />
+					<Text text="상품명" class="sapUiTinyMarginBottom" />
+					<Text text="총금액" class="sapUiTinyMarginBottom" />
+				</l:VerticalLayout>
+				<l:VerticalLayout class="sapUiTinyMarginEnd">
+					<Title level="H2" titleStyle="H2" text="공급업체"
+						class="sapUiMediumMarginBottom" />
+					<Text text="공급업체명" class="sapUiTinyMarginBottom" />
+					<Text text="공급업체코드" class="sapUiTinyMarginBottom" />
+					<Text text="사업자등록번호" class="sapUiTinyMarginBottom" />
+				</l:VerticalLayout>
 			</l:Grid>
 			<IconTabBar expanded=""
-				class="sapUiSmallMarginBottom sapUiResponsiveContentPadding" backgroundDesign="Solid">
+				class="sapUiSmallMarginBottom sapUiResponsiveContentPadding"
+				backgroundDesign="Solid">
 				<items>
 					<IconTabFilter text="견적서 상세 조회">
 						<VBox class="sapUiSmallMargin">
