@@ -1,26 +1,26 @@
 <mvc:View height="100%"
-	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.estlookup"
+	controllerName="Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.contDetail"
 	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
 	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
-	<Page title="견적서 상세 화면" showNavButton="true"
+	<Page title="계약서 상세 화면" showNavButton="true"
 		navButtonPress="goBack">
 		<headerContent>
-			<Button type="Accept" text="계약서 등록" id="button"
+			<Button type="Accept" text="발주서 등록" id="button"
 				press=".onShow" />
 		</headerContent>
 
 		<content>
 			<l:Grid defaultSpan="L4 M6 S6" class="white">
 				<l:VerticalLayout class="sapUiTinyMarginEnd">
-					<f:SimpleForm title="견적번호"
+					<f:SimpleForm title="계약번호"
 						layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3"
 						labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
 						emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
 						columnsXL="2" columnsL="2" columnsM="1"
 						singleContainerFullSize="false">
-						<Text text="유효여부" class="sapUiTinyMarginBottom" />
-						<Text text="상품명" class="sapUiTinyMarginBottom" />
-						<Text text="합계" class="sapUiTinyMarginBottom" />
+						<Text text="계약상태" class="sapUiTinyMarginBottom" />
+						<Text text="계약구분" class="sapUiTinyMarginBottom" />
+						<Text text="계약일자" class="sapUiTinyMarginBottom" />
 					</f:SimpleForm>
 				</l:VerticalLayout>
 				<l:VerticalLayout class="sapUiTinyMarginEnd">
@@ -51,12 +51,11 @@
 						<Text text="업태" class="sapUiTinyMarginBottom" />
 						<Text text="종목" class="sapUiTinyMarginBottom" />
 						<Text text="이메일" class="sapUiTinyMarginBottom" />
-						<Text text="제조사" class="sapUiTinyMarginBottom" />
 					</f:SimpleForm>
 				</l:VerticalLayout>
 			</l:Grid>
 			<VBox class="sapUiSmallMargin">
-				<f:SimpleForm title="제품 설명"
+				<f:SimpleForm title="제품 리스트"
 					layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3"
 					labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
 					emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
@@ -78,20 +77,11 @@
 							<Text text="제품코드" />
 						</Column>
 						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="수량" />
-						</Column>
-						<Column minScreenWidth="Tablet" demandPopin="true">
 							<Text text="단가" />
 						</Column>
 						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="공급업체코드" />
-						</Column>
-						<Column minScreenWidth="Tablet" demandPopin="true">
 							<Text text="수량" />
-						</Column>
-						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="단가" />
-						</Column>
+						</Column>						
 						<Column minScreenWidth="Tablet" demandPopin="true">
 							<Text text="총금액" />
 						</Column>

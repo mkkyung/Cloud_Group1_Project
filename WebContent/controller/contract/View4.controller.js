@@ -150,26 +150,18 @@ sap.ui.define([
 //					}
 //			);
 //		}
-		onExit : function () {
-			if (this._oPopover) {
-				this._oPopover.destroy();
-			}
+		onPress : function (oEvent) {	//계약서 눌렀을 때 
+			var oItem = oEvent.getSource();
+			var oRouter = UIComponent.getRouterFor(this);
+			var routerData = oItem.mAggregations.cells[0].mProperties.text;
+//			routerData = oItem.getBindingContext("estlist").getPath().substr(1);
+			this.onClose(oRouter, 0);
 		},
-
-		handlePopoverPress: function (oEvent) {
-
-			// create popover
-			if (!this._oPopover) {
-				this._oPopover = sap.ui.xmlfragment("Cloud_Group1_ProjectCloud_Group1_Project.view.contract.Popover", this);
-				this.getView().addDependent(this._oPopover);
-				this._oPopover.bindElement("/ProductCollection/0");
-			}
-
-			this._oPopover.openBy(oEvent.getSource());
-		}
-
-	
-		
+		onClose: function(oRouter, routerData){
+			oRouter.navTo("contDetail", {
+				contDetail: routerData
+			});
+		},
 		
 		
 	});

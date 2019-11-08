@@ -10,26 +10,20 @@ sap.ui.define([
 	], function(jQuery, Controller, JSONModel , History, UIComponent, Label, Filter, MessageBox) {
 	"use strict";
 
-	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.estimate.estlookup", {
+	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.contDetail", {
 
 		onInit: function () {
 			var oRouter = UIComponent.getRouterFor(this);
-			oRouter.getRoute("estlookup").attachPatternMatched(this._onObjectMatched, this);
+			oRouter.getRoute("contDetail").attachPatternMatched(this._onObjectMatched, this);
 			this.getData();
-			
-			
-//			통화 설정
-			var oViewModel = new JSONModel({
-				currency: "KRW"
-			});
-			this.getView().setModel(oViewModel, "view");
+
 		},
 		
 		_onObjectMatched: function (oEvent) {
 			var oRouter = UIComponent.getRouterFor(this);
 			this.getView().bindElement({
 				path: "/" + oEvent.getParameter("arguments").EstPath,
-				model: "estlist"
+				model: "contDetail"
 			});
 			
 		},
@@ -47,21 +41,8 @@ sap.ui.define([
 	           data = oData.results;
 	        });
 	        var oModel = new sap.ui.model.json.JSONModel({ "data": data });
-	        this.getView().setModel(oModel , "estlist");
-	        
-//	        총합 로직으로 최종 합계 금액은 sum에 담기게 된다 
-//	        var aaa = parseInt(oModel.oData.data[0].EstTotal);	// 배열
-//	        var bbb = oModel.oData.data.length;
-//	        var sum = 0;
-//	        var i = 0;
-//	        for (i = 0; i < bbb; i++) {
-//	        	sum += parseInt(data[i].EstTotal)*1000;
-//	        }
-////	        oMdel2에 데이터를 담아줌으로써 sum 변수를 view에 사용
-//    		sum =  sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-//	        var oModel2 = new sap.ui.model.json.JSONModel({ "sum": sum });
-//	        this.getView().setModel(oModel2 , "sum");
-	        
+	        this.getView().setModel(oModel , "contDetail");
+
 		},
 	//임시 데이터 전달 필드
 		onShow : function(oEvent){
@@ -71,16 +52,16 @@ sap.ui.define([
 //			
 			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
 			MessageBox.warning(
-					"계약서 화면으로 이동하시겠습니까?",
+					"발주서 등록 화면으로 이동하시겠습니까?",
 					{
 						icon: MessageBox.Icon.WARNING,
-						title: "계약서 상세 조회",
+						title: "발주서 등록",
 						actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
 						styleClass: bCompact ? "sapUiSizeCompact" : "",
 						initialFocus: MessageBox.Action.CANCEL,
 						onClose: function(oAction){
 							if(oAction == 'OK'){
-								oRouter.navTo("view3");
+								oRouter.navTo("view6");
 							}
 						}
 					}
@@ -95,7 +76,7 @@ sap.ui.define([
 				window.history.go(-1);							//just before screen
 			} else {
 				var oRouter = UIComponent.getRouterFor(this);	//before screen in process flow
-				oRouter.navTo("view2", {}, true);
+				oRouter.navTo("view4", {}, true);
 			}
 		},
 		

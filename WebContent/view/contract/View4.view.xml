@@ -438,7 +438,7 @@
 
 				<items>
 					<ColumnListItem type="Navigation" vAlign="Middle"
-						press="handlePopoverPress" id="idColumnListItem">
+						press=".onPress" id="idColumnListItem">
 						<cells>
 							<ObjectIdentifier title="{data>/data}" /> <!-- text="{ProductId}" -->
 							<Text text="{view>Zname}" />
