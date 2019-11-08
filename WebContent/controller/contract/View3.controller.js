@@ -39,7 +39,7 @@ sap.ui.define([
 		handleTableSelectDialogPress: function(oEvent) {
 			if (!this._oDialog) {
 				this._oDialog = sap.ui.xmlfragment("sap.m.sample.TableSelectDialog.Dialog", this);
-////			}
+			}
 //
 			   var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/";	//CORSerror나면 http:// 를 proxy/http/로
 				sServiceUrl +=  "/sap/opu/odata/sap/ZFIORI_STU07_DEV02_SRV/"; // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
@@ -65,14 +65,14 @@ sap.ui.define([
 			this._oDialog.open();
 		},
 
-		handleSearch: function(oEvent) {
+		handleSearch : function(oEvent) {
 			var sValue = oEvent.getParameter("value");
 			var oFilter = new Filter("Name", sap.ui.model.FilterOperator.Contains, sValue);
 			var oBinding = oEvent.getSource().getBinding("items");
 			oBinding.filter([oFilter]);
 		},
 
-		handleClose: function(oEvent) {
+		handleClose : function(oEvent) {
 			var aContexts = oEvent.getParameter("selectedContexts");
 			if (aContexts && aContexts.length) {
 				MessageToast.show("You have chosen " + aContexts.map(function(oContext) { return oContext.getObject().Name; }).join(", "));
