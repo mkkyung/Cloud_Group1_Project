@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Popover
+		title="{Name}"
+		class="sapUiContentPadding"
+		placement="Bottom"
+			initialFocus="email">
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button
+					id="PO"
+					text="발주서 등록"
+					press="handleEmailPress" />
+			</Toolbar>
+		</footer>
+	</Popover>
+</core:FragmentDefinition>

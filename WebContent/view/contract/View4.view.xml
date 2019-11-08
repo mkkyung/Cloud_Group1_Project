@@ -438,10 +438,19 @@
 
 				<items>
 					<ColumnListItem type="Navigation" vAlign="Middle"
-						press=".onPress" id="idColumnListItem">
+						press="handlePopoverPress" id="idColumnListItem">
 						<cells>
 							<ObjectIdentifier title="{data>/data}" /> <!-- text="{ProductId}" -->
 							<Text text="{view>Zname}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
 							<Text text="{view>Zcategory}" />
 						</cells>
 
