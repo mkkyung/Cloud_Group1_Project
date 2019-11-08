@@ -10,361 +10,376 @@
 		</headerContent>
 
 		<content>
-			<ObjectHeader title="견적번호" backgroundDesign="Solid">
-				<attributes>
-					<ObjectAttribute id="" title="유효 여부" text="" state="Success" />
-					<ObjectAttribute title="견적일자" text="2019.10.31" />
-					<ObjectAttribute title="품명" text="컴퓨터" />
-					<ObjectAttribute title="총 합계 금액" text="{sum>/sum}" />
-				</attributes>
-			</ObjectHeader>
-				<ObjectNumber title="총 합계 금액"
-						class="sapUiSmallMarginBottom"
-						number="{
-						parts:[{path: '{sum>/sum}'},{path:'view>/currency'}], 
-						type: 'sap.ui.model.type.Currency', 
-						formatOptions: {showMeasure: false} 
-						}" 
-						numberUnit="{view>/currency}" /> 
+			<!-- <ObjectHeader title="견적번호" backgroundDesign="Solid"> -->
+			<!-- <attributes> -->
+			<!-- <ObjectAttribute id="" title="유효 여부" text="" -->
+			<!-- state="Success" /> -->
+			<!-- <ObjectAttribute title="견적일자" text="2019.10.31" /> -->
+			<!-- <ObjectAttribute title="품명" text="컴퓨터" /> -->
+			<!-- <ObjectAttribute title="총 합계 금액" text="{sum>/sum}" /> -->
+			<!-- </attributes> -->
+			<!-- <statuses> -->
+			<!-- <ObjectStatus title="공급업체명" text="Some Damaged" /> -->
+			<!-- <ObjectStatus text="In Stock" /> -->
+			<!-- </statuses> -->
+			<!-- <statuses> -->
+			<!-- <ObjectStatus title="공급업체명" text="Some Damaged" /> -->
+			<!-- <ObjectStatus text="In Stock" /> -->
+			<!-- </statuses> -->
+			<!-- </ObjectHeader> -->
+			<!-- <ObjectNumber title="총 합계 금액" -->
+			<!-- class="sapUiSmallMarginBottom" -->
+			<!-- number="{ -->
+			<!-- parts:[{path: '{sum>/sum}'},{path:'view>/currency'}], -->
+			<!-- type: 'sap.ui.model.type.Currency', -->
+			<!-- formatOptions: {showMeasure: false} -->
+			<!-- }" -->
+			<!-- numberUnit="{view>/currency}" /> -->
+
+			<l:Grid defaultSpan="L4 M6 S6" class="white" >
+				
+					<l:VerticalLayout class="sapUiTinyMarginEnd" >
+						<Title level="H2" titleStyle="H2" text="견적번호"
+							class="sapUiMediumMarginBottom" />
+						<Text text="유효여부" class="sapUiTinyMarginBottom" />
+						<Text text="상품명" class="sapUiTinyMarginBottom" />
+						<Text text="총금액"  class="sapUiTinyMarginBottom" />
+					</l:VerticalLayout>
+					<l:VerticalLayout class="sapUiTinyMarginEnd">
+						<Title level="H2" titleStyle="H2" text="공급업체"
+							class="sapUiMediumMarginBottom" />
+						<Text text="공급업체명" class="sapUiTinyMarginBottom" />
+						<Text text="공급업체코드" class="sapUiTinyMarginBottom" />
+						<Text text="사업자등록번호"  class="sapUiTinyMarginBottom" />
+					</l:VerticalLayout>				
+			</l:Grid>
 			<IconTabBar expanded=""
-				class="sapUiSmallMarginBottom sapUiResponsiveContentPadding">
+				class="sapUiSmallMarginBottom sapUiResponsiveContentPadding" backgroundDesign="Solid">
 				<items>
 					<IconTabFilter text="견적서 상세 조회">
 						<VBox class="sapUiSmallMargin">
-							<f:SimpleForm id="Form1" editable="false"
-								layout="ResponsiveGridLayout" title="공급업체 설명" labelSpanXL="4"
-								labelSpanL="3" labelSpanM="12" labelSpanS="12"
-								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
-								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2"
-								columnsM="1" singleContainerFullSize="false">
-								<f:content>
-									<core:Title text="" />
-									<Label text="공급업체명" />
-									<Text text="1100" />
-									<Label text="공급업체 코드" />
-									<Text text="452" />
-									<Label text="사업자 등록번호" />
-									<Text text="452" />
-									<Label text="공급업체 주소" />
-									<Text text="452" />
-									<Label text="대표자" />
-									<Text text="99999999" />
-									<core:Title text="" />
-									<Label text="업태" />
-									<Text text="452" />
-									<Label text="종목" />
-									<Text text="452" />
-									<Label text="이메일" />
-									<Text text="452" />
-									<Label text="제조사" />
-									<Text text="452" />
-								</f:content>
+							<!-- <f:SimpleForm id="Form1" editable="false" -->
+							<!-- layout="ResponsiveGridLayout" title="공급업체 설명" labelSpanXL="4" -->
+							<!-- labelSpanL="3" labelSpanM="12" labelSpanS="12" -->
+							<!-- adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" -->
+							<!-- emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" -->
+							<!-- columnsM="1" singleContainerFullSize="false"> -->
+							<!-- <f:content> -->
+							<!-- <core:Title /> -->
+							<!-- <Label text="공급업체명" /> -->
+							<!-- <Text text="1100" /> -->
+							<!-- <Label text="공급업체 코드" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="사업자 등록번호" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="공급업체 주소" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="대표자" /> -->
+							<!-- <Text text="99999999" /> -->
+							<!-- <core:Title /> -->
+							<!-- <Label text="업태" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="종목" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="이메일" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="제조사" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- </f:content> -->
+							<!-- </f:SimpleForm> -->
+							<!-- <f:SimpleForm id="Form2" editable="false" -->
+							<!-- layout="ResponsiveGridLayout" title="제퓸 설명 " labelSpanXL="1" -->
+							<!-- labelSpanL="1" labelSpanM="12" labelSpanS="12" -->
+							<!-- adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" -->
+							<!-- emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" -->
+							<!-- columnsM="1" singleContainerFullSize="false"> -->
+							<!-- <f:content> -->
+							<!-- <core:Title text="" /> -->
+							<!-- <Label text="대분류 코드" /> -->
+							<!-- <Text text="1100" /> -->
+							<!-- <Label text="중분류 코드" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="제품명" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="제품코드" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="비고" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <core:Title text="" /> -->
+							<!-- <Label text="수량" /> -->
+							<!-- <Text text="99999999" /> -->
+							<!-- <Label text="단가" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="총금액" /> -->
+							<!-- <Text text="452" /> -->
+							<!-- <Label text="금액단위" /> -->
+							<!-- <Text text="452" /> -->
+							<f:SimpleForm title="제품 설명"
+								layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3"
+								labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+								emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+								columnsXL="2" columnsL="2" columnsM="1"
+								singleContainerFullSize="false">
 							</f:SimpleForm>
-<!-- 							<f:SimpleForm id="Form2" editable="false" -->
-<!-- 								layout="ResponsiveGridLayout" title="제퓸 설명 " labelSpanXL="1" -->
-<!-- 								labelSpanL="1" labelSpanM="12" labelSpanS="12" -->
-<!-- 								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" -->
-<!-- 								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" -->
-<!-- 								columnsM="1" singleContainerFullSize="false"> -->
-<!-- 								<f:content> -->
-									<!-- <core:Title text="" /> -->
-									<!-- <Label text="대분류 코드" /> -->
-									<!-- <Text text="1100" /> -->
-									<!-- <Label text="중분류 코드" /> -->
-									<!-- <Text text="452" /> -->
-									<!-- <Label text="제품명" /> -->
-									<!-- <Text text="452" /> -->
-									<!-- <Label text="제품코드" /> -->
-									<!-- <Text text="452" /> -->
-									<!-- <Label text="비고" /> -->
-									<!-- <Text text="452" /> -->
-									<!-- <core:Title text="" /> -->
-									<!-- <Label text="수량" /> -->
-									<!-- <Text text="99999999" /> -->
-									<!-- <Label text="단가" /> -->
-									<!-- <Text text="452" /> -->
-									<!-- <Label text="총금액" /> -->
-									<!-- <Text text="452" /> -->
-									<!-- <Label text="금액단위" /> -->
-									<!-- <Text text="452" /> -->
-									<f:SimpleForm title="제품 설명" layout="ResponsiveGridLayout" labelSpanXL="4"
-								labelSpanL="3" labelSpanM="12" labelSpanS="12"
-								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
-								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2"
-								columnsM="1" singleContainerFullSize="false">
-									</f:SimpleForm>
-									<Table items="{estlist>/data}" id="esttable"
-										inset="false">
-										<columns>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="대분류 코드" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="중분류 코드" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="제품명" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="제품코드" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="수량" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="단가" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="공급업체코드" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="수량" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="단가" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="총금액" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="금액단위" />
-											</Column>
-										</columns>
-										<items>
-											<ColumnListItem type="Navigation"
-												vAlign="Middle" press=".onPress">
-												<cells>
-													<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
-													<Text text="{estlist>EstNo}" />
-													<Text text="{estlist>EstAva}" />
-													<Text text="{estlist>EstCat1}" />
-													<Text text="{estlist>EstCat2}" />
-													<Text text="{estlist>EstCat3}" />
-													<Text text="{estlist>EstVname}" />
-													<Text text="{estlist>EstVcode}" />
-													<Text text="{estlist>EstAmt}" />
-													<Text text="{estlist>EstPrice}" />
-													<Text text="{estlist>EstTotal}" />
-													<Text text="{estlist>EstCuky}" />
-												</cells>
-											</ColumnListItem>
-										</items>
-									</Table>
-<!-- 								</f:content> -->
-<!-- 							</f:SimpleForm> -->
+							<Table items="{estlist>/data}" id="esttable" inset="false">
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="대분류 코드" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="중분류 코드" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="제품명" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="제품코드" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="수량" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="단가" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="공급업체코드" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="수량" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="단가" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="총금액" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="금액단위" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem type="Navigation"
+										vAlign="Middle" press=".onPress">
+										<cells>
+											<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
+											<Text text="{estlist>EstNo}" />
+											<Text text="{estlist>EstAva}" />
+											<Text text="{estlist>EstCat1}" />
+											<Text text="{estlist>EstCat2}" />
+											<Text text="{estlist>EstCat3}" />
+											<Text text="{estlist>EstVname}" />
+											<Text text="{estlist>EstVcode}" />
+											<Text text="{estlist>EstAmt}" />
+											<Text text="{estlist>EstPrice}" />
+											<Text text="{estlist>EstTotal}" />
+											<Text text="{estlist>EstCuky}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<!-- </f:content> -->
+							<!-- </f:SimpleForm> -->
 						</VBox>
 					</IconTabFilter>
 					<IconTabFilter text="계약서 및 발주서 등록 화면">
-					<VBox class="sapUiSmallMargin">
-		<f:SimpleForm id="SimpleFormToolbar"
-			editable="true"
-			layout="ResponsiveGridLayout"
-			labelSpanXL="4"
-			labelSpanL="3"
-			labelSpanM="4"
-			labelSpanS="12"
-			adjustLabelSpan="false"
-			emptySpanXL="0"
-			emptySpanL="4"
-			emptySpanM="0"
-			emptySpanS="0"
-			columnsXL="2"
-			columnsL="1"
-			columnsM="1"
-			singleContainerFullSize="false"
-			ariaLabelledBy="Title1" >
-			<f:toolbar>
-				<Toolbar id="TB1">
-					<Title id="Title1" text="계약서 등록화면" level="H4" titleStyle="H4"/>
-					<ToolbarSpacer />
-					<Button icon="sap-icon://settings"/>
-					<Button icon="sap-icon://drop-down-list" />
-				</Toolbar>
-			</f:toolbar>
-			<f:content>
-				<Toolbar ariaLabelledBy="Title2">
-					<Title id="Title2" text="Office" level="H5" titleStyle="H5"/>
-					<ToolbarSpacer />
-					<Button icon="sap-icon://settings"/>
-				</Toolbar>
-				<Label text="Name" />
-				<Input value="{SupplierName}" />
-				<Label text="Street/No." />
-				<Input value="{Street}">
-				</Input>
-				<Input value="{HouseNumber}">
-					<layoutData>
-						<l:GridData span="XL2 L1 M3 S4" />
-					</layoutData>
-				</Input>
-				<Label text="ZIP Code/City" />
-				<Input value="{ZIPCode}">
-					<layoutData>
-						<l:GridData span="XL2 L1 M3 S4" />
-					</layoutData>
-				</Input>
-				<Input value="{City}" />
-				<Label text="Country" />
-				<Select id="country" selectedKey="{Country}">
-					<items>
-						<core:Item text="England" key="England"/>
-						<core:Item text="Germany" key="Germany"/>
-						<core:Item text="USA" key="USA"/>
-					</items>
-				</Select>
-				<Toolbar ariaLabelledBy="Title3">
-					<Title id="Title3" text="Online" level="H5" titleStyle="H5"/>
-					<ToolbarSpacer />
-					<Button icon="sap-icon://settings"/>
-				</Toolbar>
-				<Label text="Web" />
-				<Input value="{Url}" type="Url" />
-				<Label text="Twitter" />
-				<Input value="{Twitter}" />
-			</f:content>
-		</f:SimpleForm>
-	</VBox>
-						<f:SimpleForm title="제품 상세 등록 화면" layout="ResponsiveGridLayout" labelSpanXL="4"
-								labelSpanL="3" labelSpanM="12" labelSpanS="12"
-								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
-								emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2"
-								columnsM="1" singleContainerFullSize="false">
-									</f:SimpleForm>
-									<Table items="{estlist>/data}" id="esttable2"
-										inset="false">
-										<columns>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="대분류 코드" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="중분류 코드" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="제품명" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="제품코드" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="수량" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="단가" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="공급업체코드" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="수량" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="단가" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="총금액" />
-											</Column>
-											<Column minScreenWidth="Tablet" demandPopin="true">
-												<Text text="금액단위" />
-											</Column>
-										</columns>
+						<VBox class="sapUiSmallMargin">
+							<f:SimpleForm id="SimpleFormToolbar" editable="true"
+								layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3"
+								labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+								emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+								columnsXL="2" columnsL="1" columnsM="1"
+								singleContainerFullSize="false" ariaLabelledBy="Title1">
+								<f:toolbar>
+									<Toolbar id="TB1">
+										<Title id="Title1" text="계약서 등록화면" level="H4"
+											titleStyle="H4" />
+										<ToolbarSpacer />
+										<Button icon="sap-icon://settings" />
+										<Button icon="sap-icon://drop-down-list" />
+									</Toolbar>
+								</f:toolbar>
+								<f:content>
+									<Toolbar ariaLabelledBy="Title2">
+										<Title id="Title2" text="Office" level="H5"
+											titleStyle="H5" />
+										<ToolbarSpacer />
+										<Button icon="sap-icon://settings" />
+									</Toolbar>
+									<Label text="Name" />
+									<Input value="{SupplierName}" />
+									<Label text="Street/No." />
+									<Input value="{Street}">
+									</Input>
+									<Input value="{HouseNumber}">
+										<layoutData>
+											<l:GridData span="XL2 L1 M3 S4" />
+										</layoutData>
+									</Input>
+									<Label text="ZIP Code/City" />
+									<Input value="{ZIPCode}">
+										<layoutData>
+											<l:GridData span="XL2 L1 M3 S4" />
+										</layoutData>
+									</Input>
+									<Input value="{City}" />
+									<Label text="Country" />
+									<Select id="country" selectedKey="{Country}">
 										<items>
-											<ColumnListItem type="Navigation"
-												vAlign="Middle" press=".onPress">
-												
-												<cells>
-													<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
-													<Text text="{estlist>EstNo}" />
-													<Text text="{estlist>EstAva}" />
-													<Text text="{estlist>EstCat1}" />
-													<Text text="{estlist>EstCat2}" />
-													<Text text="{estlist>EstCat3}" />
-													<Text text="{estlist>EstVname}" />
-													<Text text="{estlist>EstVcode}" />
-													<Text text="{estlist>EstAmt}" />
-													<Text text="{estlist>EstPrice}" />
-														<ObjectNumber
-													number="{
+											<core:Item text="England" key="England" />
+											<core:Item text="Germany" key="Germany" />
+											<core:Item text="USA" key="USA" />
+										</items>
+									</Select>
+									<Toolbar ariaLabelledBy="Title3">
+										<Title id="Title3" text="Online" level="H5"
+											titleStyle="H5" />
+										<ToolbarSpacer />
+										<Button icon="sap-icon://settings" />
+									</Toolbar>
+									<Label text="Web" />
+									<Input value="{Url}" type="Url" />
+									<Label text="Twitter" />
+									<Input value="{Twitter}" />
+								</f:content>
+							</f:SimpleForm>
+						</VBox>
+						<f:SimpleForm title="제품 상세 등록 화면"
+							layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3"
+							labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+							emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+							columnsXL="2" columnsL="2" columnsM="1"
+							singleContainerFullSize="false">
+						</f:SimpleForm>
+						<Table items="{estlist>/data}" id="esttable2" inset="false">
+							<columns>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="대분류 코드" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="중분류 코드" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="제품명" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="제품코드" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="수량" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="단가" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="공급업체코드" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="수량" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="단가" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="총금액" />
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true">
+									<Text text="금액단위" />
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Navigation" vAlign="Middle"
+									press=".onPress">
+
+									<cells>
+										<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
+										<Text text="{estlist>EstNo}" />
+										<Text text="{estlist>EstAva}" />
+										<Text text="{estlist>EstCat1}" />
+										<Text text="{estlist>EstCat2}" />
+										<Text text="{estlist>EstCat3}" />
+										<Text text="{estlist>EstVname}" />
+										<Text text="{estlist>EstVcode}" />
+										<Text text="{estlist>EstAmt}" />
+										<Text text="{estlist>EstPrice}" />
+										<ObjectNumber
+											number="{
 														parts:[{path: 'estlist>EstTotal'},{path:'view>/currency'}],
 														type: 'sap.ui.model.type.Currency',
 														formatOptions: {showMeasure: false}
-													}"/>
-<!-- 													<ObjectNumber -->
-<!-- 													number="{ -->
-<!-- 														parts:[{path: 'estlist>EstTotal'},{path:'view>/currency'}],  -->
-<!-- 														type: 'sap.ui.model.type.Currency',  -->
-<!-- 														formatOptions: {showMeasure: false}  -->
-<!-- 													}"  -->
-<!-- 													numberUnit="{view>/currency}" /> -->
-													<Text text="{estlist>EstTotal}" />
-													<Text text="{estlist>EstCuky}" />
-												</cells>
+													}" />
+										<!-- <ObjectNumber -->
+										<!-- number="{ -->
+										<!-- parts:[{path: 'estlist>EstTotal'},{path:'view>/currency'}], -->
+										<!-- type: 'sap.ui.model.type.Currency', -->
+										<!-- formatOptions: {showMeasure: false} -->
+										<!-- }" -->
+										<!-- numberUnit="{view>/currency}" /> -->
+										<Text text="{estlist>EstTotal}" />
+										<Text text="{estlist>EstCuky}" />
+									</cells>
 
-											</ColumnListItem>
-										</items>
-									</Table>
+								</ColumnListItem>
+							</items>
+						</Table>
 					</IconTabFilter>
 					<IconTabFilter text="계약서 및 발주서 등록 화면(Merge Cells)">
-					<Table
-		headerText="Products"
-		items="{
+						<Table headerText="Products"
+							items="{
 			path:'/ProductCollection',
 			sorter: {
 				path: 'SupplierName',
 				descending: false
 			}
-		}" >
-		<columns>
-			<Column mergeDuplicates="true">
-				<header>
-					<Text text="Supplier" />
-				</header>
-			</Column>
-			<Column mergeDuplicates="true">
-				<header>
-					<Text text="Product" />
-				</header>
-			</Column>
-			<Column
-				minScreenWidth="Tablet"
-				demandPopin="true"
-				hAlign="End" >
-				<header>
-					<Text text="Dimensions" />
-				</header>
-			</Column>
-			<Column
-				minScreenWidth="Tablet"
-				demandPopin="true"
-				hAlign="Center" >
-				<header>
-					<Text text="Weight" />
-				</header>
-			</Column>
-			<Column hAlign="End">
-				<header>
-					<Text text="Price" />
-				</header>
-			</Column>
-		</columns>
-		<ColumnListItem>
-			<Text text="{SupplierName}" />
-			<ObjectIdentifier title="{Name}" text="{ProductId}" />
-			<Text text="{Width} x {Depth} x {Height} {DimUnit}" />
-			<ObjectNumber
-				number="{WeightMeasure}" unit="{WeightUnit}"
-				state="{
+		}">
+							<columns>
+								<Column mergeDuplicates="true">
+									<header>
+										<Text text="Supplier" />
+									</header>
+								</Column>
+								<Column mergeDuplicates="true">
+									<header>
+										<Text text="Product" />
+									</header>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="End">
+									<header>
+										<Text text="Dimensions" />
+									</header>
+								</Column>
+								<Column minScreenWidth="Tablet" demandPopin="true"
+									hAlign="Center">
+									<header>
+										<Text text="Weight" />
+									</header>
+								</Column>
+								<Column hAlign="End">
+									<header>
+										<Text text="Price" />
+									</header>
+								</Column>
+							</columns>
+							<ColumnListItem>
+								<Text text="{SupplierName}" />
+								<ObjectIdentifier title="{Name}"
+									text="{ProductId}" />
+								<Text text="{Width} x {Depth} x {Height} {DimUnit}" />
+								<ObjectNumber number="{WeightMeasure}"
+									unit="{WeightUnit}"
+									state="{
 					path: 'WeightMeasure',
 					formatter: 'sap.m.sample.TableMergeCells.Formatter.weightState'
 				}" />
-			<ObjectNumber
-					number="{
+								<ObjectNumber
+									number="{
 						parts:[{path:'Price'},{path:'CurrencyCode'}],
 						type: 'sap.ui.model.type.Currency',
 						formatOptions: {showMeasure: false}
 					}"
-					unit="{CurrencyCode}" />
-		</ColumnListItem>
-	</Table>
+									unit="{CurrencyCode}" />
+							</ColumnListItem>
+						</Table>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>

@@ -10,48 +10,44 @@
 			navButtonPress="goBack">
 			<Button text="button" press="getData" />
 			<headerContent>
-<!-- 				<Button text="next" id="button" type="Reject" press=".onShow" /> -->
+				<!-- <Button text="next" id="button" type="Reject" press=".onShow" /> -->
 			</headerContent>
 
-<!-- 			<f:DynamicPageHeader pinnable="false" >	 pinnable 고정여부 -->
-<!-- 				<f:content> -->
-					<IconTabBar
-						id="idIconTabBar"
-						select="handleIconTabBarSelect"
-						class="sapUiResponsiveContentPadding">
-						<items>
-<!-- 	Icon tabfilter 1						 -->
-							<IconTabFilter
-								showAll="true"
-								text="Products"
-								key="All" >
-								<fb:FilterBar id="filterbar" reset="onReset"
-									search="onSearch" useToolbar="false" showGoOnFB="false" > <!-- search="onSearch" -->
-									<fb:filterItems>
-			
-										<fb:FilterItem name="A" label="계약구분">
-											<fb:control>
-												<!-- <Select id="slName" forceSelection="true" change="onSelectChange" -->
-												<!-- items="{path: '/ProductNames'}"> -->
-												<!-- <core:Item key="{key}" text="{name}"/> -->
-												<!-- </Select> -->
-												<!-- <Label text="제목" design="Bold" labelFor="title" class="sapUiSmallMarginTop"/> -->
-												<ComboBox id="A" items="{view>/data}">
-			               						<items>
-			                  					<core:Item text="{view>Zname}" />
-			               						</items>
-			       								</ComboBox>
-											</fb:control>
-										</fb:FilterItem>
-										<fb:FilterItem name="B" label="계약번호">
-											<fb:control>
-												<Input id="B" required="true" maxLength="11"/>
-											</fb:control>
-										</fb:FilterItem>
-										<fb:FilterItem name="C" label="계약일자">
-											<fb:control>
-												<DatePicker id="C"
-													value="{
+			<!-- <f:DynamicPageHeader pinnable="false" > pinnable 고정여부 -->
+			<!-- <f:content> -->
+			<IconTabBar id="idIconTabBar"
+				select="handleIconTabBarSelect"
+				class="sapUiResponsiveContentPadding">
+				<items>
+					<!-- Icon tabfilter 1 -->
+					<IconTabFilter showAll="true" text="Products"
+						key="All">
+						<fb:FilterBar id="filterbar" reset="onReset"
+							search="onSearch" useToolbar="false" showGoOnFB="true"> <!-- search="onSearch" -->
+							<fb:filterItems>
+								<fb:FilterItem name="A" label="계약구분">
+									<fb:control>
+										<!-- <Select id="slName" forceSelection="true" change="onSelectChange" -->
+										<!-- items="{path: '/ProductNames'}"> -->
+										<!-- <core:Item key="{key}" text="{name}"/> -->
+										<!-- </Select> -->
+										<!-- <Label text="제목" design="Bold" labelFor="title" class="sapUiSmallMarginTop"/> -->
+										<ComboBox id="A" items="{view>/data}">
+											<items>
+												<core:Item text="{view>Zname}" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="B" label="계약번호">
+									<fb:control>
+										<Input id="B" required="true" maxLength="11" />
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="C" label="계약일자">
+									<fb:control>
+										<DatePicker id="C"
+											value="{
 												path:'/dateValue', 
 												type:'sap.ui.model.type.Date', 
 												formatOptions: { 
@@ -59,24 +55,23 @@
 													strictParsing: true
 													}
 												}"
-													class="sapUiSmallMarginBottom"
-													change="handleChange" />
-											</fb:control>
-										</fb:FilterItem>
-										<fb:FilterItem name="D" label="공급업체명" >
-											<fb:control>
-												<Input id="D" required="true" maxLength="15"/>
-											</fb:control>
-										</fb:FilterItem>
-										<fb:FilterItem name="E" label="사업자등록증">
-											<fb:control>
-												<Input id="E" required="true" maxLength="10" />
-											</fb:control>
-										</fb:FilterItem>
-										<fb:FilterItem name="F" label="종료일자">
-											<fb:control>
-												<DatePicker id="F"
-													value="{
+											class="sapUiSmallMarginBottom" change="handleChange" />
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="D" label="공급업체명">
+									<fb:control>
+										<Input id="D" required="true" maxLength="15" />
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="E" label="사업자등록증">
+									<fb:control>
+										<Input id="E" required="true" maxLength="10" />
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="F" label="종료일자">
+									<fb:control>
+										<DatePicker id="F"
+											value="{
 												path:'/dateValue', 
 												type:'sap.ui.model.type.Date', 
 												formatOptions: { 
@@ -84,123 +79,112 @@
 													strictParsing: true
 													}
 												}"
-													class="sapUiSmallMarginBottom" 
-													change="handleChange2"/>
-											</fb:control>
-										</fb:FilterItem>
-			
-									</fb:filterItems>
-								</fb:FilterBar>
-								
-							</IconTabFilter>	
+											class="sapUiSmallMarginBottom" change="handleChange2" />
+									</fb:control>
+								</fb:FilterItem>
+							</fb:filterItems>
+						</fb:FilterBar>
+					</IconTabFilter>
 
 
-							
-<!-- 	Icon tabfilter 2						 -->
-							<IconTabFilter
-								icon="sap-icon://begin"
-								iconColor="Positive"
-								text="Ok"
-								key="A" >
-								<fb:FilterBar id="filterbar1" reset="onReset"
-									search="onSearch" useToolbar="false" showGoOnFB="false" > <!-- search="onSearch" -->
-									<fb:filterItems>
-			
-										<fb:FilterItem name="A" label="계약구분">
-											<fb:control>
-												<!-- <Select id="slName" forceSelection="true" change="onSelectChange" -->
-												<!-- items="{path: '/ProductNames'}"> -->
-												<!-- <core:Item key="{key}" text="{name}"/> -->
-												<!-- </Select> -->
-												<!-- <Label text="제목" design="Bold" labelFor="title" class="sapUiSmallMarginTop"/> -->
-												<ComboBox id="A1" items="{view>/data}">
-			               						<items>
-			                  					<core:Item text="{view>Zname}" />
-			               						</items>
-			       								</ComboBox>
-											</fb:control>
-										</fb:FilterItem>
-										<fb:FilterItem name="B" label="계약번호">
-											<fb:control>
-												<Input id="B1" required="true" maxLength="11"/>
-											</fb:control>
-										</fb:FilterItem>
-										<fb:FilterItem name="C" label="계약일자">
-											<fb:control>
-												<DatePicker id="C1"
-													value="{
-												path:'/dateValue', 
-												type:'sap.ui.model.type.Date', 
-												formatOptions: { 
-													style: 'medium', 
-													strictParsing: true
-													}
-												}"
-													class="sapUiSmallMarginBottom"
-													change="handleChange" />
-											</fb:control>
-										</fb:FilterItem>
-										<fb:FilterItem name="D" label="공급업체명" >
-											<fb:control>
-												<Input id="D1" required="true" maxLength="15"/>
-											</fb:control>
-										</fb:FilterItem>
-										<fb:FilterItem name="E" label="사업자등록증">
-											<fb:control>
-												<Input id="E1" required="true" maxLength="10" />
-											</fb:control>
-										</fb:FilterItem>
-										<fb:FilterItem name="F" label="종료일자">
-											<fb:control>
-												<DatePicker id="F1"
-													value="{
-												path:'/dateValue', 
-												type:'sap.ui.model.type.Date', 
-												formatOptions: { 
-													style: 'medium', 
-													strictParsing: true
-													}
-												}"
-													class="sapUiSmallMarginBottom" 
-													change="handleChange2"/>
-											</fb:control>
-										</fb:FilterItem>
-			
-									</fb:filterItems>
-								</fb:FilterBar>
-							</IconTabFilter>
-<!-- 	Icon tabfilter 3						 -->							
-							<IconTabFilter
-								icon="sap-icon://compare"
-								iconColor="Critical"
-								text="Heavy"
-								key="B" >
-									
-							</IconTabFilter>
-							
-<!-- 	Icon tabfilter 4						 -->								
-<!-- 							<IconTabFilter -->
-<!-- 								icon="sap-icon://inventory" -->
-<!-- 								iconColor="Negative" -->
-<!-- 								text="Overweight" -->
-<!-- 								key="C" > -->
-																
-<!-- 							</IconTabFilter> -->
-								<!-- count="{/ProductCollectionStats/Counts/Weight/Overweight}" -->
-								
-						</items>
-					</IconTabBar>
 
-<!-- 				</f:content> -->
-<!-- 			</f:DynamicPageHeader> -->
+					<!-- Icon tabfilter 2 -->
+					<IconTabFilter icon="sap-icon://begin"
+						iconColor="Positive" text="Ok" key="A">
+						<fb:FilterBar id="filterbar1" reset="onReset"
+							search="onSearch" useToolbar="false" showGoOnFB="false"> <!-- search="onSearch" -->
+							<fb:filterItems>
+
+								<fb:FilterItem name="A" label="계약구분">
+									<fb:control>
+										<!-- <Select id="slName" forceSelection="true" change="onSelectChange" -->
+										<!-- items="{path: '/ProductNames'}"> -->
+										<!-- <core:Item key="{key}" text="{name}"/> -->
+										<!-- </Select> -->
+										<!-- <Label text="제목" design="Bold" labelFor="title" class="sapUiSmallMarginTop"/> -->
+										<ComboBox id="A1" items="{view>/data}">
+											<items>
+												<core:Item text="{view>Zname}" />
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="B" label="계약번호">
+									<fb:control>
+										<Input id="B1" required="true" maxLength="11" />
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="C" label="계약일자">
+									<fb:control>
+										<DatePicker id="C1"
+											value="{
+												path:'/dateValue', 
+												type:'sap.ui.model.type.Date', 
+												formatOptions: { 
+													style: 'medium', 
+													strictParsing: true
+													}
+												}"
+											class="sapUiSmallMarginBottom" change="handleChange" />
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="D" label="공급업체명">
+									<fb:control>
+										<Input id="D1" required="true" maxLength="15" />
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="E" label="사업자등록증">
+									<fb:control>
+										<Input id="E1" required="true" maxLength="10" />
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="F" label="종료일자">
+									<fb:control>
+										<DatePicker id="F1"
+											value="{
+												path:'/dateValue', 
+												type:'sap.ui.model.type.Date', 
+												formatOptions: { 
+													style: 'medium', 
+													strictParsing: true
+													}
+												}"
+											class="sapUiSmallMarginBottom" change="handleChange2" />
+									</fb:control>
+								</fb:FilterItem>
+
+							</fb:filterItems>
+						</fb:FilterBar>
+					</IconTabFilter>
+					<!-- Icon tabfilter 3 -->
+					<IconTabFilter icon="sap-icon://compare"
+						iconColor="Critical" text="Heavy" key="B">
+
+					</IconTabFilter>
+
+					<!-- Icon tabfilter 4 -->
+					<!-- <IconTabFilter -->
+					<!-- icon="sap-icon://inventory" -->
+					<!-- iconColor="Negative" -->
+					<!-- text="Overweight" -->
+					<!-- key="C" > -->
+
+					<!-- </IconTabFilter> -->
+					<!-- count="{/ProductCollectionStats/Counts/Weight/Overweight}" -->
+
+				</items>
+			</IconTabBar>
+
+			<!-- </f:content> -->
+			<!-- </f:DynamicPageHeader> -->
 
 			<!-- DynamicPage Content -->
-			<Table items="{view>/data}" id="idTable"> <!-- items="{path: '/ProductCollection'}"   -->
+			<Table items="{view>/data}" id="idTable"> <!-- items="{path: '/ProductCollection'}" -->
 				<columns>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="계약상태" />
 					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" >
+					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="계약구분" />
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
@@ -237,10 +221,10 @@
 				</columns>
 
 				<items>
-					<ColumnListItem type="Navigation" vAlign="Middle" 
-									press=".onPress" id="idColumnListItem">
+					<ColumnListItem type="Navigation" vAlign="Middle"
+						press=".onPress" id="idColumnListItem">
 						<cells>
-							<ObjectIdentifier title="{data>/data}" /> <!--  text="{ProductId}"-->
+							<ObjectIdentifier title="{data>/data}" /> <!-- text="{ProductId}" -->
 							<Text text="{view>Zname}" />
 							<Text text="{view>Zcategory}" />
 						</cells>
