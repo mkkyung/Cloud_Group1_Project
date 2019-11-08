@@ -3,8 +3,9 @@ sap.ui.define([
 	"sap/ui/core/routing/History",
 	"sap/ui/core/UIComponent",
 	"sap/ui/model/json/JSONModel",
-	"sap/ui/xml/fragment"
-], function(Controller, History, UIComponent,JSONModel) {
+	'sap/ui/core/Fragment',
+	'sap/ui/model/Filter',
+], function(Controller, History, UIComponent, JSONModel, Fragment, Filter) {
 	"use strict";
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View3", {
@@ -24,61 +25,93 @@ sap.ui.define([
 				oRouter.navTo("view2", {}, true);
 			}
 		},
+		MainData : function(searchData) {
+			var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000"
+					+ "/sap/opu/odata/sap/ZFIORI_STU03_DEV03_SRV";
+			
+			if (searchData != null){
+				var url = "/MainDataSet?$filter=PName eq '" + searchData[0] + "'"
+				+ " and PCode eq '" + searchData[1] + "'"
+				+ " and PGrade eq '" + searchData[2] + "'"
+				+ " and PCan eq '" + searchData[3] + "'";
+			} else {
+				var url = "/MainDataSet";
+			}
+
+
+			var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+
+			var MainData;
+
+			oDataModel.read(url, null, null, false, function(oData) {
+				MainData = oData.results;
+			});
+
+			var oModel = new sap.ui.model.json.JSONModel({
+				"MainData" : MainData
+			});
+
+			
+			this.getView().setModel(oModel, "MainData");
+
+		},
+		
+		inputId: '',
 		onInit : function () {
-//			// set explored app's demo model on this sample
-//			var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.demo.mock", "/products.json"));
-//			this.getView().setModel(oModel);
+			this.MainData();
 		},
+		handleValueHelp : function (oEvent) {						  //Table Dialog
+			var sInputValue = oEvent.getSource().getValue();
 
-		onExit : function () {
-			if (this._oDialog) {
-				this._oDialog.destroy();
+			this.inputId = oEvent.getSource().getId();
+			// create value help dialog
+			if (!this._valueHelpDialog) {
+				this._valueHelpDialog = sap.ui.xmlfragment(
+					"Cloud_Group1_ProjectCloud_Group1_Project.view.contract.Dialog",
+					this
+				);
+				this.getView().addDependent(this._valueHelpDialog);
 			}
+
+			// create a filter for the binding
+			this._valueHelpDialog.getBinding("items").filter([new sap.ui.model.Filter(
+				"BName",
+				sap.ui.model.FilterOperator.Contains, sInputValue
+			)]);
+
+			// open value help dialog filtered by the input value
+			this._valueHelpDialog.open(sInputValue);
+		},
+		_handleValueHelpSearch : function (evt) {
+			var sValue = evt.getParameter("value");
+			var oFilter = new sap.ui.model.Filter(
+				"BName",
+				sap.ui.model.FilterOperator.Contains, sValue
+			);
+			evt.getSource().getBinding("items").filter([oFilter]);
 		},
 
-		handleTableSelectDialogPress: function(oEvent) {
-			if (!this._oDialog) {
-				this._oDialog = sap.ui.xmlfragment("sap.m.sample.TableSelectDialog.Dialog", this);
+		_handleValueHelpClose : function (evt) {
+			var oSelectedItem = evt.getParameter("selectedItem");
+			if (oSelectedItem) {
+				var productInput = this.getView().byId(this.inputId),
+					oText = this.getView().byId('selectedKey'),
+					sDescription = oSelectedItem.getDescription();
+
+				productInput.setSelectedKey(sDescription);
+				oText.setText(sDescription);
 			}
-//
-			   var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/";	//CORSerror나면 http:// 를 proxy/http/로
-				sServiceUrl +=  "/sap/opu/odata/sap/ZFIORI_STU07_DEV02_SRV/"; // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
-		        var url;
-		
-		        url = "/getData2Set";
-		     
-		        var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl,true);
-		        this.oModel = new JSONModel();
-				var data;
-				oDataModel.read(url, null, null, false, function(oData){
-					data = oData.results;
-				});
-				var oModel = new JSONModel({ "data" : data });
-//				var oModel = new sap.ui.model.json.JSONModel(data); // {results : [] }
-				this.getView().setModel(oModel, "view"); 
-			
-			
-			this.getView().addDependent(this._oDialog);
-
-			// toggle compact style
-			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
-			this._oDialog.open();
+			evt.getSource().getBinding("items").filter([]);
 		},
 
-		handleSearch : function(oEvent) {
-			var sValue = oEvent.getParameter("value");
-			var oFilter = new Filter("Name", sap.ui.model.FilterOperator.Contains, sValue);
-			var oBinding = oEvent.getSource().getBinding("items");
-			oBinding.filter([oFilter]);
-		},
+		suggestionItemSelected: function (evt) {
 
-		handleClose : function(oEvent) {
-			var aContexts = oEvent.getParameter("selectedContexts");
-			if (aContexts && aContexts.length) {
-				MessageToast.show("You have chosen " + aContexts.map(function(oContext) { return oContext.getObject().Name; }).join(", "));
-			}
-			oEvent.getSource().getBinding("items").filter([]);
+			var oItem = evt.getParameter('selectedItem'),
+				oText = this.getView().byId('selectedKey'),
+				sKey = oItem ? oItem.getKey() : '';
+
+			oText.setText(sKey);
 		}
-		
+
 	});
 });

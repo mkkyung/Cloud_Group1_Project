@@ -443,6 +443,15 @@
 							<ObjectIdentifier title="{data>/data}" /> <!-- text="{ProductId}" -->
 							<Text text="{view>Zname}" />
 							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
+							<Text text="{view>Zcategory}" />
 						</cells>
 
 					</ColumnListItem>

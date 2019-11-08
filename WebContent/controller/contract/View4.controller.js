@@ -6,8 +6,11 @@ sap.ui.define([
 	'sap/ui/model/json/JSONModel',
 	'sap/m/Label',
 	'sap/ui/model/Filter',
-	'sap/m/MessageBox'
-], function(Controller, History, UIComponent, ODataModel, JSONModel, Label, Filter, MessageBox) {
+	'sap/m/MessageBox',
+	'jquery.sap.global',
+	'sap/m/MessageToast',
+	'sap/ui/core/Fragment'
+], function(Controller, History, UIComponent, ODataModel, JSONModel, Label, Filter, MessageBox, jQuery, MessageToast, Fragment) {
 	"use strict";
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View4", {
@@ -122,34 +125,43 @@ sap.ui.define([
 			}
 		},
 
+//		onPress : function (oEvent) {	//계약서 눌렀을 때 
+//			var oItem = oEvent.getSource();
+//			var oRouter = UIComponent.getRouterFor(this);
+//			var routerData = oItem.mAggregations.cells[1].mProperties.text;
+//			
+//
+//			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
+//			MessageBox.warning(
+//					"계약서를 등록하시겠습니까?\n"  + "한번 계약서 등록 시 변경이 불가능합니다.",
+//					{
+//						icon: MessageBox.Icon.WARNING,
+//						title: "계약서 등록",
+//						actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
+//						styleClass: bCompact ? "sapUiSizeCompact" : "",
+//						initialFocus: MessageBox.Action.CANCEL,
+//						onClose: function(oAction){
+//							if(oAction == 'OK'){
+//								oRouter.navTo("view5", {
+//									ContractPath: routerData
+//								});
+//							}
+//						}
+//					}
+//			);
+//		}
 		onPress : function (oEvent) {	//계약서 눌렀을 때 
 			var oItem = oEvent.getSource();
 			var oRouter = UIComponent.getRouterFor(this);
-			var routerData = oItem.mAggregations.cells[1].mProperties.text;
-			
-
-			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
-			MessageBox.warning(
-					"계약서를 등록하시겠습니까?\n"  + "한번 계약서 등록 시 변경이 불가능합니다.",
-					{
-						icon: MessageBox.Icon.WARNING,
-						title: "계약서 등록",
-						actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
-						styleClass: bCompact ? "sapUiSizeCompact" : "",
-						initialFocus: MessageBox.Action.CANCEL,
-						onClose: function(oAction){
-							if(oAction == 'OK'){
-								oRouter.navTo("view5", {
-									ContractPath: routerData
-								});
-							}
-						}
-					}
-			);
-		}
-
-	
-		
+			var routerData = oItem.mAggregations.cells[0].mProperties.text;
+//			routerData = oItem.getBindingContext("estlist").getPath().substr(1);
+			this.onClose(oRouter, 0);
+		},
+		onClose: function(oRouter, routerData){
+			oRouter.navTo("contDetail", {
+				contDetail: routerData
+			});
+		},
 		
 		
 	});
