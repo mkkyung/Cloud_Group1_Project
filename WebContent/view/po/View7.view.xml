@@ -176,9 +176,9 @@
 								
 								
 								</fA:SimpleForm>
-		
+		<content>
 		  <t:Table id ="po_no" rows="{/PoCollection}" selectionMode="Single"
-				visibleRowCount="7">
+				visibleRowCount="7" rowSelectionChange="changetable">
 		   <t:columns>
 		    <t:Column>
 		     <Label text = "발주번호"/>
@@ -250,7 +250,7 @@
 		    
 		   </t:columns>
 		  </t:Table>
-		
+		</content>
 		
 		
 		

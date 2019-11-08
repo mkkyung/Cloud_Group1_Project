@@ -371,5 +371,14 @@ sap.ui.define([
 			}
 		},
 		
+		
+		changetable : function(oEvent){
+			var context = oEvent.getParameter("rowContext");
+			
+		}
+		
+
+		
 	});
+
 });
