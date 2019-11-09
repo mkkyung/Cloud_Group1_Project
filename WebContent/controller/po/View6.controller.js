@@ -4,8 +4,9 @@ sap.ui.define([
 	"sap/ui/core/UIComponent",
 	'sap/ui/core/Fragment',
 	'sap/ui/model/Filter',
-	'sap/m/MessageBox'
-], function(Controller, History, UIComponent, Fragment, Filter, MessageBox) {
+	'sap/m/MessageBox',
+	'sap/ui/model/json/JSONModel'
+], function(Controller, History, UIComponent, Fragment, Filter, MessageBox, JSONModel) {
 	"use strict";
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.po.View6", {
@@ -68,59 +69,91 @@ sap.ui.define([
 			}
 		},
 		
-	handleValueHelp : function (oEvent) {
-		var sInputValue = oEvent.getSource().getValue();
+//	handleValueHelp : function (oEvent) {
+//		var sInputValue = oEvent.getSource().getValue();
+//
+//		this.inputId = oEvent.getSource().getId();
+//		// create value help dialog
+//		if (!this._valueHelpDialog) {
+//			this._valueHelpDialog = sap.ui.xmlfragment(
+//				"Cloud_Group1_ProjectCloud_Group1_Project.view.po.Dialog",
+//				this
+//			);
+//			this.getView().addDependent(this._valueHelpDialog);
+//		}
+//
+//		// create a filter for the binding
+//		this._valueHelpDialog.getBinding("items").filter([new sap.ui.model.Filter(
+//			"EstCat1",
+//			sap.ui.model.FilterOperator.Contains, sInputValue
+//		)]);
+//
+//		// open value help dialog filtered by the input value
+//		this._valueHelpDialog.open(sInputValue);
+//	},
+//
+//	_handleValueHelpSearch : function (evt) {
+//		var sValue = evt.getParameter("value");
+//		var oFilter = new sap.ui.model.Filter(
+//			"EstCat1",
+//			sap.ui.model.FilterOperator.Contains, sValue
+//		);
+//		evt.getSource().getBinding("items").filter([oFilter]);
+//	},
+//
+//	_handleValueHelpClose : function (evt) {
+//		var oSelectedItem = evt.getParameter("selectedItem");
+//		if (oSelectedItem) {
+//			var productInput = this.getView().byId(this.inputId),
+//				oText = this.getView().byId('selectedKey'),
+//				sDescription = oSelectedItem.getDescription();
+//
+//			productInput.setSelectedKey(sDescription);
+//			oText.setText(sDescription);
+//		}
+//		evt.getSource().getBinding("items").filter([]);
+//	},
+//
+//	suggestionItemSelected: function (evt) {
+//
+//		var oItem = evt.getParameter('selectedItem'),
+//			oText = this.getView().byId('selectedKey'),
+//			sKey = oItem ? oItem.getKey() : '';
+//
+//		oText.setText(sKey);
+//	},
+	onExit : function () {
+		if (this._oDialog) {
+			this._oDialog.destroy();
+		}
+	},
 
-		this.inputId = oEvent.getSource().getId();
-		// create value help dialog
-		if (!this._valueHelpDialog) {
-			this._valueHelpDialog = sap.ui.xmlfragment(
-				"Cloud_Group1_ProjectCloud_Group1_Project.view.po.Dialog",
-				this
-			);
-			this.getView().addDependent(this._valueHelpDialog);
+	handleTableSelectDialogPress: function(oEvent) {
+		if (!this._oDialog) {
+			this._oDialog = sap.ui.xmlfragment("Cloud_Group1_ProjectCloud_Group1_Project.view.po.Dialog", this);
 		}
 
-		// create a filter for the binding
-		this._valueHelpDialog.getBinding("items").filter([new sap.ui.model.Filter(
-			"EstCat1",
-			sap.ui.model.FilterOperator.Contains, sInputValue
-		)]);
+		// Multi-select if required
+		var bMultiSelect = !!oEvent.getSource().data("multi");
+		this._oDialog.setMultiSelect(bMultiSelect);
 
-		// open value help dialog filtered by the input value
-		this._valueHelpDialog.open(sInputValue);
 	},
 
-	_handleValueHelpSearch : function (evt) {
-		var sValue = evt.getParameter("value");
-		var oFilter = new sap.ui.model.Filter(
-			"EstCat1",
-			sap.ui.model.FilterOperator.Contains, sValue
-		);
-		evt.getSource().getBinding("items").filter([oFilter]);
+	handleSearch: function(oEvent) {
+		var sValue = oEvent.getParameter("value");
+		var oFilter = new Filter("EstCat1", sap.ui.model.FilterOperator.Contains, sValue);
+		var oBinding = oEvent.getSource().getBinding("items");
+		oBinding.filter([oFilter]);
 	},
 
-	_handleValueHelpClose : function (evt) {
-		var oSelectedItem = evt.getParameter("selectedItem");
-		if (oSelectedItem) {
-			var productInput = this.getView().byId(this.inputId),
-				oText = this.getView().byId('selectedKey'),
-				sDescription = oSelectedItem.getDescription();
-
-			productInput.setSelectedKey(sDescription);
-			oText.setText(sDescription);
+	handleClose: function(oEvent) {
+		var aContexts = oEvent.getParameter("selectedContexts");
+		if (aContexts && aContexts.length) {
+			MessageToast.show("You have chosen " + aContexts.map(function(oContext) { return oContext.getObject().Name; }).join(", "));
 		}
-		evt.getSource().getBinding("items").filter([]);
+		oEvent.getSource().getBinding("items").filter([]);
 	},
-
-	suggestionItemSelected: function (evt) {
-
-		var oItem = evt.getParameter('selectedItem'),
-			oText = this.getView().byId('selectedKey'),
-			sKey = oItem ? oItem.getKey() : '';
-
-		oText.setText(sKey);
-	},
+	
 	
 	onPress : function (oEvent) {	//계약서 눌렀을 때 
 //		var oItem = oEvent.getSource();

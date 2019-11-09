@@ -1,59 +1,44 @@
-<core:FragmentDefinition
-	xmlns="sap.m"
+<core:FragmentDefinition xmlns="sap.m"
 	xmlns:core="sap.ui.core">
-	<TableSelectDialog
-	   noDataText="No Products Found"
-		title="Products"
-		class="sapUiPopupWithPadding"
-		items="{estlist>/data}"
-		search="_handleValueHelpSearch"
-		confirm="_handleValueHelpClose"
-		cancel="_handleValueHelpClose">
+	<TableSelectDialog noDataText="No Products Found"
+		title="Products" class="sapUiPopupWithPadding" items="{estlist>/data}"
+		search="handleSearch" confirm="handleClose" cancel="handleClose">
 		<ColumnListItem>
-<!-- 		title="{estlist>EstCat1}" -->
-<!-- 			description="{estlist>EstVname}" /> -->
-		
-		<cells>
-				<ObjectIdentifier
-					title="{MainData>BName}"
-					text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				<Text text="{MainData>BName}" />
-				
+			<!-- title="{estlist>EstCat1}" -->
+			<!-- description="{estlist>EstVname}" /> -->
+
+			<cells>
+				<ObjectIdentifier title="{MainData>BName}" text="{MainData>BName}" />
+					<Text text="{MainData>BName}" />
+					<Text text="{MainData>BName}" />
+					<Text text="{MainData>BName}" />
+					<Text text="{MainData>BName}" />
+					<Text text="{MainData>BName}" />
+					<Text text="{MainData>BName}" />
+					<Text text="{MainData>BName}" />
+					<Text text="{MainData>BName}" />
+					<Text text="{MainData>BName}" />
+
 			</cells>
 		</ColumnListItem>
 		<columns>
-			<Column >
+			<Column>
 				<header>
 					<Text text="Conttype" />
 				</header>
 			</Column>
-			<Column
-				minScreenWidth="Tablet"
-				demandPopin="true"
-				>
+			<Column minScreenWidth="Tablet" demandPopin="true">
 				<header>
 					<Text text="Contno" />
 				</header>
 			</Column>
-			<Column
-				minScreenWidth="Desktop"
-				demandPopin="true"
+			<Column minScreenWidth="Desktop" demandPopin="true"
 				hAlign="Left">
 				<header>
 					<Text text="Contvname" />
 				</header>
 			</Column>
-			<Column
-				minScreenWidth="Desktop"
-				demandPopin="true"
+			<Column minScreenWidth="Desktop" demandPopin="true"
 				hAlign="Left">
 				<header>
 					<Text text="Contsdate" />
@@ -74,22 +59,22 @@
 					<Text text="Conteprice" />
 				</header>
 			</Column>
-<!-- 			<Column hAlign="Left"> -->
-<!-- 				<header> -->
-<!-- 					<Text text="Conttprice" /> -->
-<!-- 				</header> -->
-<!-- 			</Column> -->
+			<!-- <Column hAlign="Left"> -->
+			<!-- <header> -->
+			<!-- <Text text="Conttprice" /> -->
+			<!-- </header> -->
+			<!-- </Column> -->
 			<Column hAlign="Center">
 				<header>
 					<Text text="Contprice" />
 				</header>
 			</Column>
-			
-			
+
+
 		</columns>
-			
-			
-			
-			
+
+
+
+
 	</TableSelectDialog>
 </core:FragmentDefinition>

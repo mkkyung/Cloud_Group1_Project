@@ -4,7 +4,7 @@
 	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
 	xmlns:l="sap.ui.layout" displayBlock="true">
 	<App id="apps">
-		<Page title="view3 : 계약등록" showNavButton="true"
+		<Page title="계약등록" showNavButton="true"
 			navButtonPress="goBack">
 			<headerContent text="view3">
 				<Button text="next" id="button" type="Reject" press=".onShow" />
