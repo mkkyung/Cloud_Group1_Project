@@ -141,7 +141,7 @@ sap.ui.define([
 
 	handleSearch: function(oEvent) {
 		var sValue = oEvent.getParameter("value");
-		var oFilter = new Filter("EstCat1", sap.ui.model.FilterOperator.Contains, sValue);
+		var oFilter = new sap.ui.model.Filter("EstCat1", sap.ui.model.FilterOperator.Contains, sValue);
 		var oBinding = oEvent.getSource().getBinding("items");
 		oBinding.filter([oFilter]);
 	},

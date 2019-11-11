@@ -16,11 +16,8 @@
 				<l:VerticalLayout>
 					<Label text="계약서 조회" design="Bold" />
 					<Input id="productInput" type="Text"
-						textFormatMode="KeyValue" placeholder="견적번호 입력"
-						showSuggestion="true" showValueHelp="true"
-						valueHelpRequest="handleTableSelectDialogPress"
-						suggestionItems="{estlist>/data}"
-						suggestionItemSelected="suggestionItemSelected">
+						textFormatMode="KeyValue" placeholder="계약번호 입력" showValueHelp="true"
+						valueHelpRequest="handleTableSelectDialogPress">
 						<suggestionItems>
 							<core:ListItem key="{MainData>BNumber}"
 								text="{MainData>BName}" additionalText="{MainData>BName}" />

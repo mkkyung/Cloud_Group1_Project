@@ -9,26 +9,6 @@
 	<App id="apps">
 		<Page title="view7 : 발주조회" showNavButton="true"
 			navButtonPress="goBack">
-			<Button text="button" press="getData" />
-			<!-- <Button text="재고화면dmf 확인하자 ㅇㅅㅇ" press="viewStock"/> -->
-			<headerContent>
-				<Button text="next" id="button" type="Reject" press=".onShow" />
-				<!-- <Button text="next" id="button" type="Reject" press=".onShow" /> -->
-
-				<Button id="update" icon="sap-icon://edit" type="Emphasized"
-					press="edit" visible="{edit>/Edit}" />
-				<Button id="enter" icon="sap-icon://save" type="Emphasized"
-					visible="{enter>/Enter}" press="enter" />
-				<Button icon="sap-icon://delete" type="Reject"
-					visible="{edit>/Edit}" />
-				<Button icon="sap-icon://reset" type="Reject"
-					visible="{cancel>/Cancel}" press="cancel" />
-				<Button icon="sap-icon://action" type="Transparent" />
-
-
-
-			</headerContent>
-
 			<IconTabBar id="idIconTabBar"
 				select="handleIconTabBarSelect"
 				class="sapUiResponsiveContentPadding">
@@ -40,16 +20,7 @@
 							<fb:filterItems>
 								<fb:FilterItem name="PO_N" label="발주번호">
 									<fb:control>
-										<Input id="PO_N" maxLength="11"
-											textFormatMode="KeyValue" showSuggestion="true"
-											showValueHelp="true" valueHelpRequest="handleValueHelp"
-											suggestionItems="{/ProductCollection}"
-											suggestionItemSelected="suggestionItemSelected">
-											<suggestionItems>
-												<core:ListItem key="{ProductId}" text="{Name}"
-													additionalText="{ProductId}" />
-											</suggestionItems>
-										</Input>
+										<Input id="PO_N" maxLength="11" />											
 									</fb:control>
 								</fb:FilterItem>
 								<fb:FilterItem name="PO_DF" label="발주일자(From)">
