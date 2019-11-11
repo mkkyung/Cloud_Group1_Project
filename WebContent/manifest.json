@@ -128,9 +128,9 @@
 					"target": "view4"
 				},
 				{
-					"pattern": "view5/{ContractPath}",
-					"name": "view5",
-					"target": "view5"
+					"pattern": "contDetail/{contDetail}",
+					"name": "contDetail",
+					"target": "contDetail"
 				},
 				{
 					"pattern": "view6",
@@ -183,9 +183,9 @@
 					"viewId": "view4",
 					"viewName": "contract.View4"
 				},
-				"view5": {
-					"viewId": "view5",
-					"viewName": "contract.View5"
+				"contDetail": {
+					"viewId": "contDetail",
+					"viewName": "contract.contDetail"
 				},
 				"view6": {
 					"viewId": "view6",

@@ -15,7 +15,12 @@ sap.ui.define([
 		onInit: function() {
 			this.getData();
 			this.GtCat3Set();
-			this.addSnappedLabel();
+			this.GtVenSet();
+//			통화설정
+			var oViewModel = new JSONModel({
+				currency: "KRW"
+			});
+			this.getView().setModel(oViewModel, "view");
 		},
 		
 //		_______________________________________
@@ -61,8 +66,20 @@ sap.ui.define([
 	        oDataModel.read(url, null, null, false, function(oData) {
 	        data = oData.results;});
 	        var oModel = new sap.ui.model.json.JSONModel({ "cat3" : data});
-	        this.getView().setModel(oModel);
+	        this.getView().setModel(oModel, "cat3");
 	     },
+	     
+	     GtVenSet : function() {
+		    	var sServiceUrl= "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000/sap/opu/odata/sap/Z_FUNC_ESTIMATE_TEST_SRV";
+					
+		        var url = "/getvenSet";
+		        var oDataModel= new sap.ui.model.odata.ODataModel(sServiceUrl,true);
+		        var data;
+		        oDataModel.read(url, null, null, false, function(oData) {
+		        data = oData.results;});
+		        var oModel = new sap.ui.model.json.JSONModel({ "ven" : data});
+		        this.getView().setModel(oModel, "ven");
+		     },
 	     
 		onPress : function (oEvent) {	//계약서 눌렀을 때 
 			var oItem = oEvent.getSource();
@@ -70,7 +87,6 @@ sap.ui.define([
 			var routerData = oItem.mAggregations.cells[0].mProperties.text;
 //			routerData = oItem.getBindingContext("estlist").getPath().substr(1);
 			this.onClose(oRouter, 0);
-
 		},
 		
 		onClose: function(oRouter, routerData){
@@ -92,27 +108,27 @@ sap.ui.define([
 			var sMessage = "onSearch trigered";
 			sap.m.MessageToast.show(sMessage);
 		},
-//필터바 숨기기 토글 로직
-		onToggleHeader: function () {
-			this.getPage().setHeaderExpanded(!this.getPage().getHeaderExpanded());
-		},
-		
-		addSnappedLabel : function() {
-			var oSnappedLabel = this.getSnappedLabel();
-			oSnappedLabel.attachBrowserEvent("click", this.onToggleHeader, this);
-			this.getPageTitle().addSnappedContent(oSnappedLabel);
-		},
-		
-		getSnappedLabel : function () {
-			return new sap.m.Label({text: " "});
-		},
-		
-		getPageTitle: function() {
-			return this.getPage().getTitle();
-		},
-		getPage : function() {
-			return this.getView().byId("dynamicPageId");
-		},
+////필터바 숨기기 토글 로직
+//		onToggleHeader: function () {
+//			this.getPage().setHeaderExpanded(!this.getPage().getHeaderExpanded());
+//		},
+//		
+//		addSnappedLabel : function() {
+//			var oSnappedLabel = this.getSnappedLabel();
+//			oSnappedLabel.attachBrowserEvent("click", this.onToggleHeader, this);
+//			this.getPageTitle().addSnappedContent(oSnappedLabel);
+//		},
+//		
+//		getSnappedLabel : function () {
+//			return new sap.m.Label({text: " "});
+//		},
+//		
+//		getPageTitle: function() {
+//			return this.getPage().getTitle();
+//		},
+//		getPage : function() {
+//			return this.getView().byId("dynamicPageId");
+//		},
 
 	});
 });
