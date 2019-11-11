@@ -10,8 +10,40 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.po.View6", {
+			
+		MainData : function(searchData) {
+			var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000"
+					+ "/sap/opu/odata/sap/ZFIORI_STU03_DEV03_SRV";
+			
+			if (searchData != null){
+				var url = "/MainDataSet?$filter=PName eq '" + searchData[0] + "'"
+				+ " and PCode eq '" + searchData[1] + "'"
+				+ " and PGrade eq '" + searchData[2] + "'"
+				+ " and PCan eq '" + searchData[3] + "'";
+			} else {
+				var url = "/MainDataSet";
+			}
+
+
+			var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+
+			var MainData;
+
+			oDataModel.read(url, null, null, false, function(oData) {
+				MainData = oData.results;
+			});
+
+			var oModel = new sap.ui.model.json.JSONModel({
+				"MainData" : MainData
+			});
+
+			
+			this.getView().setModel(oModel, "MainData");
+
+		},
+		
 		onInit: function() {
-			this.getData();
+			this.MainData();
 		
 //		var oModel = new JSONModel(jQuery.sap.getModulePath("sap.ui.demo.mock", "/products.json"));
 //		// the default limit of the model is set to 100. We want to show all the entries.
@@ -20,21 +52,6 @@ sap.ui.define([
 
 //		_______________________________________
 
-		},
-	
-		getData : function(){
-	        var sServiceUrl = "proxy/http/zenedus4ap1.zenconsulting.co.kr:50000"; // 로컬 서버 연결 하는 거 
-	        sServiceUrl += "/sap/opu/odata/sap/Z_FUNC_ESTIMATE_TEST_SRV";   // 여기를 /n/iwfnd/maint_service 에 들어가서 내가 만든 경로를 복사 해와야 함.
-	        var url;
-	        url = "/getestSet";
-	     
-	        var oDataModel = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
-	        var data;
-	        oDataModel.read(url, null, null, false, function (oData) {
-	           data = oData.results;
-	        });
-	        var oModel = new sap.ui.model.json.JSONModel({ "data": data });
-	        this.getView().setModel(oModel , "estlist");
 		},
 		
 //		onPress : function (oEvent) {	//계약서 눌렀을 때 
@@ -136,12 +153,14 @@ sap.ui.define([
 		// Multi-select if required
 		var bMultiSelect = !!oEvent.getSource().data("multi");
 		this._oDialog.setMultiSelect(bMultiSelect);
+		this.getView().addDependent(this._oDialog);
+		this._oDialog.open();
 
 	},
 
 	handleSearch: function(oEvent) {
 		var sValue = oEvent.getParameter("value");
-		var oFilter = new sap.ui.model.Filter("EstCat1", sap.ui.model.FilterOperator.Contains, sValue);
+		var oFilter = new sap.ui.model.Filter("BName", sap.ui.model.FilterOperator.Contains, sValue);
 		var oBinding = oEvent.getSource().getBinding("items");
 		oBinding.filter([oFilter]);
 	},

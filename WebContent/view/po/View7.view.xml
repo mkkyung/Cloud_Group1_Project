@@ -230,7 +230,7 @@
 				columnsM="1" singleContainerFullSize="false">
 			</fA:SimpleForm>
 
-			<Table items="{estlist>/data}" id="esttable" inset="false">
+			<Table items="{MainData>/MainData}" id="esttable" inset="false">
 				<columns>
 					<Column minScreenWidth="Tablet" demandPopin="true"
 						mergeDuplicates="true">
@@ -271,21 +271,21 @@
 					</Column>
 				</columns>
 				<items>
-					<ColumnListItem vAlign="Middle" press=".onPress">
+					<ColumnListItem vAlign="Middle" press=".onPress" type="Navigation">
 						<cells>
 							<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
-							<Text text="{estlist>EstNo}" />
-							<Text text="{estlist>EstAva}" />
-							<Text text="{estlist>EstCat1}" />
-							<Text text="{estlist>EstCat2}" />
-							<Text text="{estlist>EstCat3}" />
-							<Text text="{estlist>EstVname}" />
-							<Text text="{estlist>EstVcode}" />
-							<Text text="{estlist>EstAmt}" />
-							<Text text="{estlist>EstPrice}" />
-							<Text text="{estlist>EstTotal}" />
-							<Text text="{estlist>EstCuky}" />
-							<Text text="{estlist>EstDate}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
+							<Text text="{MainData>BName}" />
 						</cells>
 					</ColumnListItem>
 				</items>

@@ -143,6 +143,11 @@
 					"target": "view7"
 				},
 				{
+					"pattern": "poDetail/{poDetail}",
+					"name": "poDetail",
+					"target": "poDetail"
+				},
+				{
 					"pattern": "view8",
 					"name": "view8",
 					"target": "view8"
@@ -194,6 +199,10 @@
 				"view7": {
 					"viewId": "view7",
 					"viewName": "po.View7"
+				},
+				"poDetail": {
+					"viewId": "poDetail",
+					"viewName": "po.poDetail"
 				},
 				"view8": {
 					"viewId": "view8",

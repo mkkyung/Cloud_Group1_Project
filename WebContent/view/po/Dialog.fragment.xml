@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns="sap.m"
 	xmlns:core="sap.ui.core">
 	<TableSelectDialog noDataText="No Products Found"
-		title="Products" class="sapUiPopupWithPadding" items="{estlist>/data}"
+		title="Products" class="sapUiPopupWithPadding" items="{MainData>/MainData}"
 		search="handleSearch" confirm="handleClose" cancel="handleClose">
 		<ColumnListItem>
 			<!-- title="{estlist>EstCat1}" -->
@@ -24,39 +24,37 @@
 		<columns>
 			<Column>
 				<header>
-					<Text text="Conttype" />
+					<Text text="계약번호" minScreenWidth="Desktop" demandPopin="true"/>
 				</header>
 			</Column>
 			<Column minScreenWidth="Tablet" demandPopin="true">
 				<header>
-					<Text text="Contno" />
+					<Text text="구분"/>
 				</header>
 			</Column>
-			<Column minScreenWidth="Desktop" demandPopin="true"
-				hAlign="Left">
+			<Column>
 				<header>
-					<Text text="Contvname" />
+					<Text text="공급업체명" minScreenWidth="Desktop" demandPopin="true"/>
 				</header>
 			</Column>
-			<Column minScreenWidth="Desktop" demandPopin="true"
-				hAlign="Left">
+			<Column minScreenWidth="Desktop" demandPopin="true">
 				<header>
-					<Text text="Contsdate" />
+					<Text text="제품명" />
 				</header>
 			</Column>
-			<Column hAlign="Left">
+			<Column minScreenWidth="Desktop" demandPopin="true">
 				<header>
-					<Text text="Contcat3" />
+					<Text text="제품코드" />
 				</header>
 			</Column>
-			<Column hAlign="Left">
+			<Column>
 				<header>
-					<Text text="Contamt" />
+					<Text text="수량" />
 				</header>
 			</Column>
-			<Column hAlign="Left">
+			<Column>
 				<header>
-					<Text text="Conteprice" />
+					<Text text="합계" />
 				</header>
 			</Column>
 			<!-- <Column hAlign="Left"> -->
@@ -64,9 +62,9 @@
 			<!-- <Text text="Conttprice" /> -->
 			<!-- </header> -->
 			<!-- </Column> -->
-			<Column hAlign="Center">
+			<Column>
 				<header>
-					<Text text="Contprice" />
+					<Text text="계약일자" />
 				</header>
 			</Column>
 

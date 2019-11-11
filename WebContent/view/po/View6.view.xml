@@ -16,12 +16,12 @@
 				<l:VerticalLayout>
 					<Label text="계약서 조회" design="Bold" />
 					<Input id="productInput" type="Text"
-						textFormatMode="KeyValue" placeholder="계약번호 입력" showValueHelp="true"
+						textFormatMode="KeyValue" placeholder="계약번호 입력"
+						showValueHelp="true"
 						valueHelpRequest="handleTableSelectDialogPress">
-						<suggestionItems>
-							<core:ListItem key="{MainData>BNumber}"
-								text="{MainData>BName}" additionalText="{MainData>BName}" />
-						</suggestionItems>
+						<customData>
+							<core:CustomData key="multi" value="true" />
+						</customData>
 					</Input>
 				</l:VerticalLayout>
 				<l:VerticalLayout>
@@ -69,11 +69,15 @@
 			</l:Grid>
 			<Table items="{estlist>/data}" id="esttable" inset="false">
 				<columns>
-					<Column minScreenWidth="Tablet" demandPopin="true" mergeDuplicates="true">
+					<Column minScreenWidth="Tablet" demandPopin="true"
+						mergeDuplicates="true">
 						<Text text="계약번호" />
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="계약구분" />
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="공급업체명" />
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="대분류" />
@@ -86,9 +90,6 @@
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="제품코드" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="공급업체코드" />
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="수량" />
@@ -107,8 +108,7 @@
 					</Column>
 				</columns>
 				<items>
-					<ColumnListItem  vAlign="Middle"
-						press=".onPress">
+					<ColumnListItem vAlign="Middle" press=".onPress">
 						<cells>
 							<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
 							<Text text="{estlist>EstNo}" />
