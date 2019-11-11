@@ -18,9 +18,9 @@
 						emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
 						columnsXL="2" columnsL="2" columnsM="1"
 						singleContainerFullSize="false">
-						<Text text="유효여부" class="sapUiTinyMarginBottom" />
-						<Text text="상품명" class="sapUiTinyMarginBottom" />
-						<Text text="합계" class="sapUiTinyMarginBottom" />
+						<Text text="유효여부 : 유효" class="sapUiTinyMarginBottom" />
+						<Text text="상품명 : OA-W123" class="sapUiTinyMarginBottom" />
+						<Text text="총 합계 : 4,500,000" class="sapUiTinyMarginBottom" />
 					</f:SimpleForm>
 				</l:VerticalLayout>
 				<l:VerticalLayout class="sapUiTinyMarginEnd">
@@ -33,11 +33,11 @@
 						<!-- <Title level="H2" titleStyle="H2" text="공급업체" -->
 						<!-- class="sapUiMediumMarginBottom" /> -->
 						<f:content>
-							<Text text="공급업체명" class="sapUiTinyMarginBottom" />
-							<Text text="공급업체코드" class="sapUiTinyMarginBottom" />
-							<Text text="사업자등록번호" class="sapUiTinyMarginBottom" />
-							<Text text="공급업체 주소" class="sapUiTinyMarginBottom" />
-							<Text text="대표자" class="sapUiTinyMarginBottom" />
+							<Text text="공급업체명 : ERP상사" class="sapUiTinyMarginBottom" />
+							<Text text="공급업체코드 : VE01" class="sapUiTinyMarginBottom" />
+							<Text text="사업자등록번호 : 110-32-29342" class="sapUiTinyMarginBottom" />
+							<Text text="공급업체 주소 : 서울 동대문구 제기로 29길 12, 2층" class="sapUiTinyMarginBottom" />
+							<Text text="대표자 : 손경세" class="sapUiTinyMarginBottom" />
 						</f:content>
 					</f:SimpleForm>
 				</l:VerticalLayout>
@@ -48,10 +48,9 @@
 						emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2"
 						columnsM="1" singleContainerFullSize="false">
 						<Title class="sapUiMediumMarginBottom" />
-						<Text text="업태" class="sapUiTinyMarginBottom" />
-						<Text text="종목" class="sapUiTinyMarginBottom" />
-						<Text text="이메일" class="sapUiTinyMarginBottom" />
-						<Text text="제조사" class="sapUiTinyMarginBottom" />
+						<Text text="업태 : 도소매" class="sapUiTinyMarginBottom" />
+						<Text text="종목 : 사무기기판매" class="sapUiTinyMarginBottom" />
+						<Text text="이메일 : asd123@naver.com" class="sapUiTinyMarginBottom" />
 					</f:SimpleForm>
 				</l:VerticalLayout>
 			</l:Grid>
@@ -63,7 +62,7 @@
 					columnsXL="2" columnsL="2" columnsM="1"
 					singleContainerFullSize="false">
 				</f:SimpleForm>
-				<Table items="{estlist>/data}" id="esttable" inset="false">
+				<Table  id="esttable" inset="false">
 					<columns>
 						<Column minScreenWidth="Tablet" demandPopin="true">
 							<Text text="대분류 코드" />
@@ -82,18 +81,9 @@
 						</Column>
 						<Column minScreenWidth="Tablet" demandPopin="true">
 							<Text text="단가" />
-						</Column>
+						</Column>					
 						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="공급업체코드" />
-						</Column>
-						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="수량" />
-						</Column>
-						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="단가" />
-						</Column>
-						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="총금액" />
+							<Text text="합계" />
 						</Column>
 						<Column minScreenWidth="Tablet" demandPopin="true">
 							<Text text="금액단위" />
@@ -103,17 +93,40 @@
 						<ColumnListItem>
 							<cells>
 								<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
-								<Text text="{estlist>EstNo}" />
-								<Text text="{estlist>EstAva}" />
-								<Text text="{estlist>EstCat1}" />
-								<Text text="{estlist>EstCat2}" />
-								<Text text="{estlist>EstCat3}" />
-								<Text text="{estlist>EstVname}" />
-								<Text text="{estlist>EstVcode}" />
-								<Text text="{estlist>EstAmt}" />
-								<Text text="{estlist>EstPrice}" />
-								<Text text="{estlist>EstTotal}" />
-								<Text text="{estlist>EstCuky}" />
+								<Text text="AA" />
+								<Text text="01" />
+								<Text text="MF2083" />
+								<Text text="AA01002" />
+								<Text text="1" />
+								<Text text="1,900,000" />							
+								<Text text="1,900,000" />
+								<Text text="KRW" />
+							</cells>
+						</ColumnListItem>
+						<ColumnListItem>
+							<cells>
+								<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
+								<Text text="AA" />
+								<Text text="01" />
+								<Text text="MF2081" />
+								<Text text="AA01004" />
+								<Text text="1" />
+								<Text text="1,500,000" />							
+								<Text text="1,500,000" />
+								<Text text="KRW" />
+							</cells>
+						</ColumnListItem>
+						<ColumnListItem>
+							<cells>
+								<!-- <ObjectIdentifier title="{/data}" /> text="{ProductId}" -->
+								<Text text="AA" />
+								<Text text="01" />
+								<Text text="MF2087" />
+								<Text text="AA01009" />
+								<Text text="1" />
+								<Text text="1,100,000" />								
+								<Text text="1,100,000" />
+								<Text text="KRW" />
 							</cells>
 						</ColumnListItem>
 					</items>
