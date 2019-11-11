@@ -19,7 +19,8 @@
 			<!-- <f:content> -->
 			<IconTabBar id="idIconTabBar"
 				select="handleIconTabBarSelect"
-				class="sapUiResponsiveContentPadding">
+				class="sapUiResponsiveContentPadding"
+				>
 				<items>
 					<!-- Icon tabfilter 1 -->
 					<IconTabFilter showAll="true" text="계약서 상태" key="All">
