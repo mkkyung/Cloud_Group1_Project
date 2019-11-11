@@ -188,7 +188,7 @@
 					
 				</items>
 			</IconTabBar>
-	
+			
 		<!-- DynamicPage Content -->
 			<Table items="{view>/data}" id="idTable"> <!-- items="{path: '/ProductCollection'}"   -->
 				<columns>

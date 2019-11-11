@@ -12,13 +12,16 @@ sap.ui.define([
 
 	return Controller.extend("Cloud_Group1_ProjectCloud_Group1_Project.controller.contract.View4", {
 		onInit: function() {
+			var i = "12";
+			
+			
 			this.aKeys = [
 				"Zname", "Zcategory"
 			];
 			this.oSelectName = this.getSelect("slName");
 			this.oSelectCategory = this.getSelect("slCategory");
 //			this.oSelectSupplierName = this.getSelect("slSupplierName");	//key값을 가지고 value값 찾아온다.
-//			this.oModel.setProperty("/Filter/text", "Filtered by None");
+//			this.oModel.setyProperty("/Filter/text", "Filtered by None");
 //			this.addSnappedLabel();
 
 			var oFB = this.getView().byId("filterbar");
@@ -113,7 +116,7 @@ sap.ui.define([
 			if(ii == "All"){				
 				url = "/getData2Set";
 			}else if(ii == "A"){
-
+				
 				url = "/getData2Set?$filter=LvTitle eq '" + ii +"'" ;
 			}
 			
