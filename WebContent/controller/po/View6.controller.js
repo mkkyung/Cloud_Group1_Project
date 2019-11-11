@@ -129,7 +129,7 @@ sap.ui.define([
 
 		var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
 		MessageBox.warning(
-				"발주서를 등록하시겠습니까?\n"  + "한번 발주서 등록 시 변경이 불가능합니다.",
+				"발주서를 등록하시겠습니까?",
 				{
 					icon: MessageBox.Icon.WARNING,
 					title: "발주서 등록",
