@@ -43,7 +43,8 @@
 					<Label text="종료일자" design="Bold" />
 					<DatePicker />
 				</l:VerticalLayout>
-				<l:VerticalLayout>
+				<l:VerticalLayout width="100%">
+					<l:layoutData span="XL4 L4 M6 S6" />
 					<Label text="공급업체명" design="Bold" />
 					<Input />
 				</l:VerticalLayout>
@@ -59,7 +60,7 @@
 				</l:VerticalLayout>
 				<l:VerticalLayout width="100%">
 					<Label text="주소" design="Bold" />
-					<Input value="서울 동대문구 제기로 131, 청량리 한신아파트 108동 202호" />
+					<Input value="서울 동대문구 제기로 131, 청량리 한신아파트 108동 202호" width="100%" fieldWidth="60%"/>
 				</l:VerticalLayout>
 
 			</l:Grid>
