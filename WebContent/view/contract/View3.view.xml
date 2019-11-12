@@ -22,7 +22,7 @@
 						suggestionItems="{MainData>/MainData}"
 						suggestionItemSelected="suggestionItemSelected">
 						<suggestionItems>
-							<core:ListItem key="{MainData>BNumber}"
+				<core:ListItem key="{MainData>BNum11ber}"
 								text="{MainData>BName}" additionalText="{MainData>BName}" />
 						</suggestionItems>
 					</Input>

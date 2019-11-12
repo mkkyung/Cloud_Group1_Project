@@ -9,7 +9,7 @@ sap.ui.define([
 //		go 입고
 		onShowIn : function(){
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("view8");
+			oRouter.navTo("in");
 		},
 //		go 분출
 		onShowOut : function(){

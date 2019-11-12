@@ -153,6 +153,12 @@
 					"target": "view8"
 				},
 				{
+					"pattern": "in",
+					"name": "in",
+					"target": "in"
+
+				},
+				{
 					"pattern": "view9",
 					"name": "view9",
 					"target": "view9"
@@ -207,6 +213,10 @@
 				"view8": {
 					"viewId": "view8",
 					"viewName": "stock.View8"
+				},
+				"in": {
+					"viewId": "in",
+					"viewName": "stock.In"
 				},
 				"view9": {
 					"viewId": "view9",

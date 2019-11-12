@@ -243,7 +243,7 @@ sap.ui.define([
 		
 		onShowIn : function(){
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("view8");
+			oRouter.navTo("in");
 		},
 //		go 재고
 		onShowStock : function(){

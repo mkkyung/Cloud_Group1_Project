@@ -90,13 +90,13 @@
                                        strictParsing: true
                                        }
                                     }"
-											class="sapUiSmallMarginBottom" change="handleChange" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="I" label="종료일자">
-									<fb:control>
-										<DatePicker id="I"
-											value="{
+                                 class="sapUiSmallMarginBottom" change="handleChange" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="I" label="종료일자">
+                           <fb:control>
+                              <DatePicker id="I"
+                                 value="{
                                     path:'/dateValue', 
                                     type:'sap.ui.model.type.Date', 
                                     formatOptions: { 
@@ -104,79 +104,79 @@
                                        strictParsing: true
                                        }
                                     }"
-											class="sapUiSmallMarginBottom" change="handleChange2" />
-									</fb:control>
-								</fb:FilterItem>
+                                 class="sapUiSmallMarginBottom" change="handleChange2" />
+                           </fb:control>
+                        </fb:FilterItem>
 
-							</fb:filterItems>
-						</fb:FilterBar>
+                     </fb:filterItems>
+                  </fb:FilterBar>
 
-					</IconTabFilter>
+               </IconTabFilter>
 
 
 
-					<!-- Icon tabfilter 2 -->
-					<IconTabFilter icon="sap-icon://begin"
-						iconColor="Positive" text="승인" key="A">
-						<fb:FilterBar id="filterbar1" reset="onReset"
-							search="onSearch" useToolbar="false" showGoOnFB="true">
-							<fb:filterItems>
+               <!-- Icon tabfilter 2 -->
+               <IconTabFilter icon="sap-icon://begin"
+                  iconColor="Positive" text="승인" key="A">
+                  <fb:FilterBar id="filterbar1" reset="onReset"
+                     search="onSearch" useToolbar="false" showGoOnFB="true">
+                     <fb:filterItems>
 
-								<fb:FilterItem name="A" label="계약구분">
-									<fb:control>
-										<ComboBox id="A1" items="{view>/data}">
-											<items>
-												<core:Item text="{view>Zname}" />
-											</items>
-										</ComboBox>
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="A" label="계약구분">
+                           <fb:control>
+                              <ComboBox id="A1" items="{view>/data}">
+                                 <items>
+                                    <core:Item text="{view>Zname}" />
+                                 </items>
+                              </ComboBox>
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="B" label="계약번호">
-									<fb:control>
-										<Input id="B1" maxLength="11" />
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="B" label="계약번호">
+                           <fb:control>
+                              <Input id="B1" maxLength="11" />
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="C" label="대분류명">
-									<fb:control>
-										<ComboBox id="C1" items="{view>/data}">
-											<items>
-												<core:Item text="{view>Zname}" />
-											</items>
-										</ComboBox>
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="C" label="대분류명">
+                           <fb:control>
+                              <ComboBox id="C1" items="{view>/data}">
+                                 <items>
+                                    <core:Item text="{view>Zname}" />
+                                 </items>
+                              </ComboBox>
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="D" label="중분류명">
-									<fb:control>
-										<ComboBox id="D1" items="{view>/data}">
-											<items>
-												<core:Item text="{view>Zname}" />
-											</items>
-										</ComboBox>
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="D" label="중분류명">
+                           <fb:control>
+                              <ComboBox id="D1" items="{view>/data}">
+                                 <items>
+                                    <core:Item text="{view>Zname}" />
+                                 </items>
+                              </ComboBox>
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="E" label="상품명">
-									<fb:control>
-										<Input id="E1" maxLength="15" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="F" label="공급업체명">
-									<fb:control>
-										<Input id="F1" maxLength="15" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="G" label="사업자등록증">
-									<fb:control>
-										<Input id="G1" maxLength="10" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="H" label="계약일자">
-									<fb:control>
-										<DatePicker id="H1"
-											value="{
+                        <fb:FilterItem name="E" label="상품명">
+                           <fb:control>
+                              <Input id="E1" maxLength="15" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="F" label="공급업체명">
+                           <fb:control>
+                              <Input id="F1" maxLength="15" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="G" label="사업자등록증">
+                           <fb:control>
+                              <Input id="G1" maxLength="10" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="H" label="계약일자">
+                           <fb:control>
+                              <DatePicker id="H1"
+                                 value="{
                                     path:'/dateValue', 
                                     type:'sap.ui.model.type.Date', 
                                     formatOptions: { 
@@ -184,13 +184,13 @@
                                        strictParsing: true
                                        }
                                     }"
-											class="sapUiSmallMarginBottom" change="handleChange" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="I" label="종료일자">
-									<fb:control>
-										<DatePicker id="I1"
-											value="{
+                                 class="sapUiSmallMarginBottom" change="handleChange" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="I" label="종료일자">
+                           <fb:control>
+                              <DatePicker id="I1"
+                                 value="{
                                     path:'/dateValue', 
                                     type:'sap.ui.model.type.Date', 
                                     formatOptions: { 
@@ -198,75 +198,75 @@
                                        strictParsing: true
                                        }
                                     }"
-											class="sapUiSmallMarginBottom" change="handleChange2" />
-									</fb:control>
-								</fb:FilterItem>
+                                 class="sapUiSmallMarginBottom" change="handleChange2" />
+                           </fb:control>
+                        </fb:FilterItem>
 
-							</fb:filterItems>
-						</fb:FilterBar>
+                     </fb:filterItems>
+                  </fb:FilterBar>
 
-					</IconTabFilter>
-					<!-- Icon tabfilter 3 -->
-					<IconTabFilter icon="sap-icon://compare"
-						iconColor="Critical" text="대기" key="B">
-						<fb:FilterBar id="filterbar2" reset="onReset"
-							search="onSearch" useToolbar="false" showGoOnFB="true">
-							<fb:filterItems>
-								<fb:FilterItem name="A" label="계약구분">
-									<fb:control>
-										<ComboBox id="A2" items="{view>/data}">
-											<items>
-												<core:Item text="{view>Zname}" />
-											</items>
-										</ComboBox>
-									</fb:control>
-								</fb:FilterItem>
+               </IconTabFilter>
+               <!-- Icon tabfilter 3 -->
+               <IconTabFilter icon="sap-icon://compare"
+                  iconColor="Critical" text="대기" key="B">
+                  <fb:FilterBar id="filterbar2" reset="onReset"
+                     search="onSearch" useToolbar="false" showGoOnFB="true">
+                     <fb:filterItems>
+                        <fb:FilterItem name="A" label="계약구분">
+                           <fb:control>
+                              <ComboBox id="A2" items="{view>/data}">
+                                 <items>
+                                    <core:Item text="{view>Zname}" />
+                                 </items>
+                              </ComboBox>
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="B" label="계약번호">
-									<fb:control>
-										<Input id="B2" maxLength="11" />
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="B" label="계약번호">
+                           <fb:control>
+                              <Input id="B2" maxLength="11" />
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="C" label="대분류명">
-									<fb:control>
-										<ComboBox id="C2" items="{view>/data}">
-											<items>
-												<core:Item text="{view>Zname}" />
-											</items>
-										</ComboBox>
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="C" label="대분류명">
+                           <fb:control>
+                              <ComboBox id="C2" items="{view>/data}">
+                                 <items>
+                                    <core:Item text="{view>Zname}" />
+                                 </items>
+                              </ComboBox>
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="D" label="중분류명">
-									<fb:control>
-										<ComboBox id="D2" items="{view>/data}">
-											<items>
-												<core:Item text="{view>Zname}" />
-											</items>
-										</ComboBox>
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="D" label="중분류명">
+                           <fb:control>
+                              <ComboBox id="D2" items="{view>/data}">
+                                 <items>
+                                    <core:Item text="{view>Zname}" />
+                                 </items>
+                              </ComboBox>
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="E" label="상품명">
-									<fb:control>
-										<Input id="E2" maxLength="15" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="F" label="공급업체명">
-									<fb:control>
-										<Input id="F2" maxLength="15" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="G" label="사업자등록증">
-									<fb:control>
-										<Input id="G2" maxLength="10" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="H" label="계약일자">
-									<fb:control>
-										<DatePicker id="H2"
-											value="{
+                        <fb:FilterItem name="E" label="상품명">
+                           <fb:control>
+                              <Input id="E2" maxLength="15" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="F" label="공급업체명">
+                           <fb:control>
+                              <Input id="F2" maxLength="15" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="G" label="사업자등록증">
+                           <fb:control>
+                              <Input id="G2" maxLength="10" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="H" label="계약일자">
+                           <fb:control>
+                              <DatePicker id="H2"
+                                 value="{
                                     path:'/dateValue', 
                                     type:'sap.ui.model.type.Date', 
                                     formatOptions: { 
@@ -274,13 +274,13 @@
                                        strictParsing: true
                                        }
                                     }"
-											class="sapUiSmallMarginBottom" change="handleChange" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="I" label="종료일자">
-									<fb:control>
-										<DatePicker id="I2"
-											value="{
+                                 class="sapUiSmallMarginBottom" change="handleChange" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="I" label="종료일자">
+                           <fb:control>
+                              <DatePicker id="I2"
+                                 value="{
                                     path:'/dateValue', 
                                     type:'sap.ui.model.type.Date', 
                                     formatOptions: { 
@@ -288,76 +288,76 @@
                                        strictParsing: true
                                        }
                                     }"
-											class="sapUiSmallMarginBottom" change="handleChange2" />
-									</fb:control>
-								</fb:FilterItem>
+                                 class="sapUiSmallMarginBottom" change="handleChange2" />
+                           </fb:control>
+                        </fb:FilterItem>
 
-							</fb:filterItems>
-						</fb:FilterBar>
+                     </fb:filterItems>
+                  </fb:FilterBar>
 
-					</IconTabFilter>
-					<!-- Icon tabfilter 4 -->
-					<IconTabFilter icon="sap-icon://inventory"
-						iconColor="Negative" text="종료" key="C">
-						<fb:FilterBar id="filterbar3" reset="onReset"
-							search="onSearch" useToolbar="false" showGoOnFB="true">
-							<fb:filterItems>
+               </IconTabFilter>
+               <!-- Icon tabfilter 4 -->
+               <IconTabFilter icon="sap-icon://inventory"
+                  iconColor="Negative" text="종료" key="C">
+                  <fb:FilterBar id="filterbar3" reset="onReset"
+                     search="onSearch" useToolbar="false" showGoOnFB="true">
+                     <fb:filterItems>
 
-								<fb:FilterItem name="A" label="계약구분">
-									<fb:control>
-										<ComboBox id="A3" items="{view>/data}">
-											<items>
-												<core:Item text="{view>Zname}" />
-											</items>
-										</ComboBox>
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="A" label="계약구분">
+                           <fb:control>
+                              <ComboBox id="A3" items="{view>/data}">
+                                 <items>
+                                    <core:Item text="{view>Zname}" />
+                                 </items>
+                              </ComboBox>
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="B" label="계약번호">
-									<fb:control>
-										<Input id="B3" maxLength="11" />
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="B" label="계약번호">
+                           <fb:control>
+                              <Input id="B3" maxLength="11" />
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="C" label="대분류명">
-									<fb:control>
-										<ComboBox id="C3" items="{view>/data}">
-											<items>
-												<core:Item text="{view>Zname}" />
-											</items>
-										</ComboBox>
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="C" label="대분류명">
+                           <fb:control>
+                              <ComboBox id="C3" items="{view>/data}">
+                                 <items>
+                                    <core:Item text="{view>Zname}" />
+                                 </items>
+                              </ComboBox>
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="D" label="중분류명">
-									<fb:control>
-										<ComboBox id="D3" items="{view>/data}">
-											<items>
-												<core:Item text="{view>Zname}" />
-											</items>
-										</ComboBox>
-									</fb:control>
-								</fb:FilterItem>
+                        <fb:FilterItem name="D" label="중분류명">
+                           <fb:control>
+                              <ComboBox id="D3" items="{view>/data}">
+                                 <items>
+                                    <core:Item text="{view>Zname}" />
+                                 </items>
+                              </ComboBox>
+                           </fb:control>
+                        </fb:FilterItem>
 
-								<fb:FilterItem name="E" label="상품명">
-									<fb:control>
-										<Input id="E3" maxLength="15" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="F" label="공급업체명">
-									<fb:control>
-										<Input id="F3" maxLength="15" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="G" label="사업자등록증">
-									<fb:control>
-										<Input id="G3" maxLength="10" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="H" label="계약일자">
-									<fb:control>
-										<DatePicker id="H3"
-											value="{
+                        <fb:FilterItem name="E" label="상품명">
+                           <fb:control>
+                              <Input id="E3" maxLength="15" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="F" label="공급업체명">
+                           <fb:control>
+                              <Input id="F3" maxLength="15" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="G" label="사업자등록증">
+                           <fb:control>
+                              <Input id="G3" maxLength="10" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="H" label="계약일자">
+                           <fb:control>
+                              <DatePicker id="H3"
+                                 value="{
                                     path:'/dateValue', 
                                     type:'sap.ui.model.type.Date', 
                                     formatOptions: { 
@@ -365,13 +365,13 @@
                                        strictParsing: true
                                        }
                                     }"
-											class="sapUiSmallMarginBottom" change="handleChange" />
-									</fb:control>
-								</fb:FilterItem>
-								<fb:FilterItem name="I" label="종료일자">
-									<fb:control>
-										<DatePicker id="I3"
-											value="{
+                                 class="sapUiSmallMarginBottom" change="handleChange" />
+                           </fb:control>
+                        </fb:FilterItem>
+                        <fb:FilterItem name="I" label="종료일자">
+                           <fb:control>
+                              <DatePicker id="I3"
+                                 value="{
                                     path:'/dateValue', 
                                     type:'sap.ui.model.type.Date', 
                                     formatOptions: { 
@@ -379,89 +379,89 @@
                                        strictParsing: true
                                        }
                                     }"
-											class="sapUiSmallMarginBottom" change="handleChange2" />
-									</fb:control>
-								</fb:FilterItem>
+                                 class="sapUiSmallMarginBottom" change="handleChange2" />
+                           </fb:control>
+                        </fb:FilterItem>
 
-							</fb:filterItems>
-						</fb:FilterBar>
+                     </fb:filterItems>
+                  </fb:FilterBar>
 
-					</IconTabFilter>
-					<!-- count="{/ProductCollectionStats/Counts/Weight/Overweight}" -->
+               </IconTabFilter>
+               <!-- count="{/ProductCollectionStats/Counts/Weight/Overweight}" -->
 
-				</items>
-			</IconTabBar>
+            </items>
+         </IconTabBar>
 
-			<!-- </f:content> -->
-			<!-- </f:DynamicPageHeader> -->
+         <!-- </f:content> -->
+         <!-- </f:DynamicPageHeader> -->
 
-			<!-- DynamicPage Content -->
-			<Table items="{view>/data}" id="idTable"> <!-- items="{path: '/ProductCollection'}" -->
-				<columns>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="계약상태" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="계약구분" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="계약번호" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="공급업체" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="대분류" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="중분류" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="물품명" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="수량" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="단가" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="총합계" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="계약일자" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="종료일자" />
-					</Column>
+         <!-- DynamicPage Content -->
+         <Table items="{view>/data}" id="idTable"> <!-- items="{path: '/ProductCollection'}" -->
+            <columns>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="계약상태" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="계약구분" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="계약번호" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="공급업체" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="대분류" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="중분류" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="물품명" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="수량" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="단가" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="총합계" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="계약일자" />
+               </Column>
+               <Column minScreenWidth="Tablet" demandPopin="true">
+                  <Text text="종료일자" />
+               </Column>
 
-				</columns>
+            </columns>
 
-				<items>
-					<ColumnListItem type="Navigation" vAlign="Middle"
-						press=".onPress" id="idColumnListItem">
-						<cells>
-							<ObjectIdentifier title="{data>/data}" /> <!-- text="{ProductId}" -->
-							<Text text="{view>Zname}" />
-							<Text text="{view>Zcategory}" />
-							<Text text="{view>Zcategory}" />
-							<Text text="{view>Zcategory}" />
-							<Text text="{view>Zcategory}" />
-							<Text text="{view>Zcategory}" />
-							<Text text="{view>Zcategory}" />
-							<Text text="{view>Zcategory}" />
-							<Text text="{view>Zcategory}" />
-							<Text text="{view>Zcategory}" />
-							<Text text="{view>Zcategory}" />
-						</cells>
+            <items>
+               <ColumnListItem type="Navigation" vAlign="Middle"
+                  press=".onPress" id="idColumnListItem">
+                  <cells>
+                     <ObjectIdentifier title="{data>/data}" /> <!-- text="{ProductId}" -->
+                     <Text text="{view>Zname}" />
+                     <Text text="{view>Zcategory}" />
+                     <Text text="{view>Zcategory}" />
+                     <Text text="{view>Zcategory}" />
+                     <Text text="{view>Zcategory}" />
+                     <Text text="{view>Zcategory}" />
+                     <Text text="{view>Zcategory}" />
+                     <Text text="{view>Zcategory}" />
+                     <Text text="{view>Zcategory}" />
+                     <Text text="{view>Zcategory}" />
+                     <Text text="{view>Zcategory}" />
+                  </cells>
 
-					</ColumnListItem>
+               </ColumnListItem>
 
 
 
-				</items>
-			</Table>
+            </items>
+         </Table>
 
-		</Page>
-	</App>
+      </Page>
+   </App>
 </mvc:View>
