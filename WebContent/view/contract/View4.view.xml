@@ -9,7 +9,7 @@
       <Page title="view4 : 계약조회" showNavButton="true"
          navButtonPress="goBack">
          <headerContent>
-            <!-- <Button text="next" id="button" type="Reject" press=".onShow" /> -->
+            <!-- <Button text="next" id="button" type="Reject" press=".onShow" /> -->  
          </headerContent>
          <!-- <Content> -->
          <!-- <Button text="검색" type="button" icon="sap-icon://search" press=".onShow" 
