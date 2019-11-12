@@ -5,17 +5,21 @@
 		cancel="handleClose" items="{MainData>/MainData}">
 		<ColumnListItem>
 			<cells>
-				<Text text="장기" />
 				<Text text="EST001" />
+				<Text text="장기" />
 				<Text text="2019.01.03" />
 				<Text text="1,900,000원" />
 				<ObjectIdentifier title="ERP상사"
 					text="손경세" />
 				<Text text="110-23-234434" />
-
 			</cells>
 		</ColumnListItem>
 		<columns>
+			<Column minScreenWidth="Tablet" demandPopin="true" mergeDuplicates="true">
+				<header>
+					<Text text="견적번호" />
+				</header>
+			</Column>
 			<Column>
 				<header>
 					<Text text="구분" />
@@ -23,12 +27,12 @@
 			</Column>
 			<Column minScreenWidth="Tablet" demandPopin="true">
 				<header>
-					<Text text="견적번호" />
+					<Text text="견적일자" />
 				</header>
 			</Column>
 			<Column minScreenWidth="Tablet" demandPopin="true">
 				<header>
-					<Text text="견적일자" />
+					<Text text="상품명" />
 				</header>
 			</Column>
 			<Column minScreenWidth="Tablet" demandPopin="true"
@@ -43,12 +47,7 @@
 					<Text text="공급업체" />
 				</header>
 			</Column>
-			<Column minScreenWidth="Tablet" demandPopin="true"
-				hAlign="Center">
-				<header>
-					<Text text="사업자번호" />
-				</header>
-			</Column>
+		
 		</columns>
 	</TableSelectDialog>
 </core:FragmentDefinition>

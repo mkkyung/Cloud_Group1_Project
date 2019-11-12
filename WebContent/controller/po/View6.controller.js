@@ -74,7 +74,7 @@ sap.ui.define([
 			oRouter.navTo("view7");
 		},
 		
-		goBack : function(oEvent) {
+		cancel : function(oEvent) {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
 
@@ -82,7 +82,7 @@ sap.ui.define([
 				window.history.go(-1);							//just before screen
 			} else {
 				var oRouter = UIComponent.getRouterFor(this);	//before screen in process flow
-				oRouter.navTo("view5", {}, true);
+				oRouter.navTo("view7", {}, true);
 			}
 		},
 		

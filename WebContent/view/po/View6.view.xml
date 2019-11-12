@@ -8,6 +8,8 @@
 			<headerContent text="view2">
 				<Button id="enter" icon="sap-icon://save" type="Emphasized"
 					press=".onPress" />
+				<Button id="cancel" icon="sap-icon://decline" type="Reject"
+					press="cancel" />
 			</headerContent>
 			<l:Grid defaultSpan="L12">
 				<l:VerticalLayout />

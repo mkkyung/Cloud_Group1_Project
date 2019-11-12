@@ -258,9 +258,6 @@
 						<Text text="발주수량" />
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
-						<Text text="잔여수량" />
-					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true">
 						<Text text="단가" />
 					</Column>
 					<Column minScreenWidth="Tablet" demandPopin="true">
